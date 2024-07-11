@@ -9,3 +9,12 @@ function openLinkedin( ){
 function openGithub( ){
     window.open("https://github.com/adinathyadav2002", "_blank")
 }
+
+let open = false;
+
+const open_floation_window = () =>{
+    const nav_floation_window = document.getElementsByClassName("nav-ul")[0];
+    if(open===false) nav_floation_window.classList.add("nav-ul-open");
+    else nav_floation_window.classList.remove("nav-ul-open");
+    open = (!open);
+}
