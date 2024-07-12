@@ -48,10 +48,9 @@ button:focus {
 
 .hover-active:hover,
 .hover-active:active {
-  background-color: #444;
-  border-radius: 8px;
+  background-color: #666;
   color: #e6e6e6;
-
+  
   & > a {
     color: #e6e6e6;
   }
@@ -76,6 +75,7 @@ button:focus {
 .large-button {
   display: flex;
   align-items: center;
-  font-size: 18px;
-  padding-left: 1rem;
+  transition: all 0.4s;
+  border-radius: 7px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
