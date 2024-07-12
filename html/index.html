@@ -2,220 +2,239 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home &mdash; Adinath Yadav</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/general.css" />
+  <link rel="stylesheet" href="/css/queries.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <meta name="description" content="This is porfolio of Adinath Yadav. porfolio contains his journey
+        achivements, resume, projects and other Activities.
+      " />
 </head>
 
 <body>
-    <!-- home projects otherActivities courses  -->
-    <header>
-        <nav class="responsive-nav">
-            <a href="index.html" class="container gap-10">
-                <div class="home-logo">
-                    <img src="images/home.svg" alt="profile-logo" class="icon">
-                </div>
-                <div>
-                    Home
-                </div>
-            </a>
+  <!-- home projects otherActivities courses  -->
+  <header>
+    <nav class="responsive-nav">
+      <a href="index.html" class="container gap-10">
+        <div class="home-logo">
+          <img src="/images/home.svg" alt="logo" class="icon" />
+        </div>
+        <div>Home</div>
+      </a>
 
-            <div class="container gap-10">
-                <span>Menu</span>
-                <button type="button" class="hamburger" onclick="open_floation_window()">
-                    <img src="/images/hamburger-icon.svg" class="icon" alt="Menu">
-                </button>
+      <div class="container gap-10">
+        <span>Menu</span>
+        <button type="button" class="hamburger" onclick="open_menu_window()">
+          <img src="/images/hamburger-icon.svg" class="icon" alt="Menu" />
+        </button>
+      </div>
+    </nav>
+    <nav class="nav-container">
+      <ul class="nav-ul">
+        <li class="home-class">
+          <a href="index.html" class="container gap-5">
+            <div class="home-logo">
+              <img src="/images/home.svg" alt="profile_logo" class="icon" />
             </div>
-        </nav>
-        <nav class="nav-container">
-            <ul class="nav-ul">
-                <li class="home-class">
-                    <a href="index.html" class="container gap-5">
-                        <div class="home-logo">
-                            <img src="images/home.svg" alt="profile_logo" class="icon">
-                        </div>
-                        <div>
-                            Home
-                        </div>
-                    </a>
-                </li>
-                <li class="nav-buttons hover-active">
-                    <img src="/images/projects.svg" alt="project" class="icon">
-                    <a href="Project.html">Projects</a>
-                </li>
-                <li class="nav-buttons hover-active">
-                    <img src="/images/other_activities.svg" alt="project" class="icon">
-                    <a href="other.html">Other Activities</a>
-                </li>
-                <li class="nav-buttons hover-active">
-                    <img src="/images/route-finish-svgrepo-com.svg" alt="Journey" class="icon">
-                    <a href="courses.html">Journey</a>
-                </li>
-                <li class="nav-buttons hover-active">
-                    <img src="/images/achivement.svg" alt="Journey" class="icon">
-                    <a href="Achivements.html">Achivements</a>
-                </li>
-                <li class="nav-buttons hover-active">
-                    <img src="/images/resume.svg" alt="resume" class="icon icon-small">
-                    <a href="#resume">Resume</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="nav-links hover-active">
+          <img src="/images/projects.svg" alt="project" class="icon" />
+          <a href="Project.html">Projects</a>
+        </li>
+        <li class="nav-links hover-active">
+          <img src="/images/other_activities.svg" alt="project" class="icon" />
+          <a href="other.html">Other Activities</a>
+        </li>
+        <li class="nav-links hover-active">
+          <img src="/images/route-finish-svgrepo-com.svg" alt="Journey" class="icon" />
+          <a href="courses.html">Journey</a>
+        </li>
+        <li class="nav-links hover-active">
+          <img src="/images/achivement.svg" alt="Journey" class="icon" />
+          <a href="Achivements.html">Achivements</a>
+        </li>
+        <li class="nav-links hover-active">
+          <img src="/images/resume.svg" alt="resume" class="icon icon-small" />
+          <a href="#resume">Resume</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="section">
+  <section class="section">
+    <!-- PROFILE -->
+    <div class="left-box container">
+      <div class="my-image-div" role="img" aria-label="profile image">
+      </div>
+      <div>
+        <h1 class="wp-2">Hello, I am</h1>
+        <h3>Adinath Yadav</h3>
+        <h5 class="upper grey bold">
+          Currently persuing B Tech. in Information & Technology
+        </h5>
+      </div>
+      <div class="icons-div container">
+        <div class="icon-div profile-link-div">
+          <button type="button" class="container" onclick="openInstagram()">
+            <img src="/images/insta_dark.svg" alt="instagram" class="icon-big" />
+          </button>
+        </div>
+        <div class="icon-div profile-link-div">
+          <button type="button" class="container" onclick="openLinkedin()">
+            <img src="/images/linkedin_dark.svg" alt="linkedin" class="icon-big" />
+          </button>
+        </div>
+        <div class="icon-div profile-link-div">
+          <button type="button" class="container" onclick="openGithub()">
+            <img src="/images/github_dark.svg" alt="github" class="icon-big" />
+          </button>
+        </div>
+      </div>
+    </div>
 
-        <!-- PROFILE -->
-        <div class="left-box">
-            <div class="my-image-div">
-                <img src="images/my_image_1.png" alt="my image" class="my-image">
+    <!-- GRID SHOWING NAVIGATION IN MORE DETAIL -->
+    <div class="right-box gap-10">
+      <!-- DIV1 -->
+      <div class="grid-items grid-item1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+        cupiditate doloribus aliquid iure non cum suscipit inventore quidem
+        vel similique. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Nobis, dolorum?
+      </div>
+
+      <!-- FOR RESPONSIVE  -->
+      <div class="responsive-grid3-grid4 container">
+        <!-- DIV2 -->
+        <div class="grid-items grid-item2">
+          <header class="grid-button grid-but2">
+            <img class="journey-img icon-mid" src="/images/route-finish-svgrepo-com.svg" alt="start-to-finish" />
+            <a href="journey.html">Know my Journey!</a>
+          </header>
+        </div>
+
+        <!-- DIV3 -->
+        <div class="grid-items grid-item3">
+          <img src="/images/resume.svg" alt="Resume" class="resume icon-big" />
+          <a href="resume.html">Check my Resume!</a>
+        </div>
+      </div>
+
+      <!-- DIV4 -->
+      <div class="grid-items grid-item4">
+        
+        <div class="achivement-list">
+          <div class="achivement-list-item achivement-header ">
+            <img src="/images/achivement.svg" alt="achivements" class="icon-mid" />
+            <a href="Achivements.html">Know my Achivements!</a>
+          </div>
+          <div class="achivement-list-item">
+            <img class="icon achivement-icon" src="/images/leetcode.svg" alt="Leetcode" />
+            <span>Solved 200+ Questions</span>
+          </div>
+          <div class="achivement-list-item">
+            <img class="icon achivement" src="/images/codechef.svg" alt="codechef" />
+            <div class="container">
+              2
+              <span><img src="/images/star.svg" alt="star" class="icon" /></span>
+              on codechef
             </div>
-            <div>
-                <h1 class="wp-2">Hello, I am</h1>
-                <h3>Adinath Yadav</h3>
-                <h5 class="upper grey bold">Currently persuing B Tech. in Information & Technology</h5>
+          </div>
+          <div class="achivement-list-item">
+            <img class="icon achivement-icon" src="/images/codeforces.svg" alt="codeforces" />
+            <span>Pupil on codeforces</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIV5 -->
+      <div class="grid-items grid-item5">
+        <div class="project-div">
+
+          <!-- FIRST PROJECT -->
+          <div class="project-img-div gap-10">
+            <img class="project-img" src="/images/delete.jpg" alt="Boyo" />
+            <div class="project-content">
+              <a href="buyo.com" class="hover-active large-button">BuyO</a>
+              <p>Fully hosted website</p>
             </div>
-            <div class="icons-div container">
-                <div class="icon-div profile-link-div">
-                    <button type="button" class="container" onclick=openInstagram()>
-                        <img src="/images/insta_dark.svg" alt="instagram" class="icon-big">
-                    </button>
-                </div>
-                <div class="icon-div profile-link-div">
-                    <button type="button" class="container" onclick=openLinkedin()>
-                        <img src="/images/linkedin_dark.svg" alt="linkedin" class="icon-big">
-                    </button>
-                </div>
-                <div class="icon-div profile-link-div">
-                    <button type="button" class="container" onclick=openGithub()>
-                        <img src="/images/github_colorful.svg" alt="github" class="icon-big">
-                    </button>
-                </div>
+            <div class="project-features">
+              <ul>
+                <li>Real time project</li>
+                <li>Implimented with all functionalities</li>
+                <li>Hosted on github</li>
+              </ul>
             </div>
-        </div>
+          </div>
 
-        <!-- GRID SHOWING NAVIGATION IN MORE DETAIL -->
-        <div class="right-box gap-10">
-            <!-- DIV1 -->
-            <div class="grid-items grid-item1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi cupiditate doloribus aliquid iure non cum
-                suscipit inventore quidem vel similique. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                dolorum?
+          <!-- SECOND PROJECT -->
+          <div class="project-img-div gap-10">
+            <img class="project-img" src="/images/delete.jpg" alt="Boyo" />
+            <div class="project-content">
+              <a href="buyo.com" class="hover-active large-button">Weather App</a>
+              <p>Weather app using API</p>
             </div>
-
-            <!-- FOR RESPONSIVE  -->
-            <div class="responsive-grid3-grid4 container">
-                <!-- DIV2 -->
-                <div class="grid-items grid-item2">
-                    <header class="grid-button grid-but2">
-                        <img class="journey-img icon-mid" src="images/route-finish-svgrepo-com.svg"
-                            alt="start-to-finish">
-                        <a href="journey.html">Know my Journey!</a>
-                    </header>
-
-                </div>
-
-
-                <!-- DIV3 -->
-                <div class="grid-items grid-item3 ">
-                    <img src="images/resume.svg" alt="Resume" class="resume icon-big">
-                    <a href="resume.html">Check my Resume!</a>
-                </div>
+            <div class="project-features">
+              <ul>
+                <li>Use of API(2 API)</li>
+                <li>About page with all info of weather condition</li>
+                <li>Hosted on github</li>
+              </ul>
             </div>
+          </div>
+        </div>
 
+        <footer class="container grid-button grid-but1">
+          <img class="project-icon icon-mid" src="/images/projects.svg" alt="projects" />
+          <a href="project.html">See my All projects!</a>
+        </footer>
+      </div>
+    </div>
+  </section>
 
-            <!-- DIV4 -->
-            <div class="grid-items grid-item4">
-                <div class="achivement-header">
-                    <img src="images/achivement.svg" alt="achivements" class="icon-mid">
-                    <a href="Achivements.html">Know my Achivements!</a>
-                </div>
-                <div class="achivement-list">
-                    <div class="achivement-list-item">
-                        <img class="icon-mid achivement-icon" src="/images/leetcode.svg" alt="Leetcode">
-                        <span>Solved 200+ Questions</span>
-                    </div>
-                    <div class="achivement-list-item">
-                        <img class="icon-mid achivement-icon" src="/images/codechef.svg" alt="codechef">
-                        <div class="container">2 <span><img src="/images/star.svg" alt="star" class="icon"></span> on
-                            codechef</div>
-                    </div>
-                    <div class="achivement-list-item">
-                        <img class="icon-mid achivement-icon" src="/images/codeforces.svg" alt="codeforces">
-                        <span>Pupil on codeforces</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- DIV5 -->
-            <div class="grid-items grid-item5">
-                <div class="project-div">
-                    <div class="project-img-div  gap-10">
-                        <img class="project-img" src="/images/delete.jpg" alt="Boyo">
-                        <div class="project-content">
-                            <a href="buyo.com" class="hover-active large-button ">BuyO</a>
-                            <p>Fully hosted website</p>
-                        </div>
-                    </div>
-                    <div class="project-img-div  gap-10">
-                        <img class="project-img" src="/images/delete.jpg" alt="Boyo">
-                        <div class="project-content">
-                            <a href="buyo.com" class="hover-active large-button ">Weather App</a>
-                            <p>Weather app using API</p>
-                        </div>
-                    </div>
-                </div>
-
-                <footer class="container grid-button grid-but1">
-                    <img class="project-icon icon-mid" src="/images/projects.svg" alt="projects">
-                    <a href="project.html">See my All projects!</a>
-                </footer>
-            </div>
-        </div>
-    </section>
-
-    <footer class="languages-icon-container container gap-10">
-        <div class="container languages-icon-div">
-            <img src="/images/c++.svg" class="icon-big" alt="C++">
-            <div>C++</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/c.svg" class="icon-big" alt="C">
-            <div>C</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/java.svg" class="icon-big" alt="Java">
-            <div>Java</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/html.svg" class="icon-big" alt="html">
-            <div>HTML</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/css.svg" class="icon-big" alt="css">
-            <div>CSS</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/javascript.svg" class="icon-big" alt="javascript">
-            <div>Javascript</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/react.svg" class="icon-big" alt="react">
-            <div>React</div>
-        </div>
-        <div class="container languages-icon-div">
-            <img src="/images/nodejs.svg" class="icon-big" alt="nodejs">
-            <div>NodeJs</div>
-        </div>
-    </footer>
-    <script src="/js/script.js"></script>
+  <footer class="languages-icon-container container gap-10">
+    <div class="container languages-icon-div">
+      <img src="/images/c++.svg" class="icon-big" alt="C++" />
+      <div>C++</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/c.svg" class="icon-big" alt="C" />
+      <div>C</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/java.svg" class="icon-big" alt="Java" />
+      <div>Java</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/html.svg" class="icon-big" alt="html" />
+      <div>HTML</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/css.svg" class="icon-big" alt="css" />
+      <div>CSS</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/javascript.svg" class="icon-big" alt="javascript" />
+      <div>Javascript</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/react.svg" class="icon-big" alt="react" />
+      <div>React</div>
+    </div>
+    <div class="container languages-icon-div">
+      <img src="/images/nodejs.svg" class="icon-big" alt="nodejs" />
+      <div>NodeJs</div>
+    </div>
+  </footer>
+  <script src="/js/script.js"></script>
 </body>
 
 </html>

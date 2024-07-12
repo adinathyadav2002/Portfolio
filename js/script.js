@@ -12,7 +12,7 @@ function openGithub( ){
 
 let open = false;
 
-const open_floation_window = () =>{
+const open_menu_window = () =>{
     const nav_floation_window = document.getElementsByClassName("nav-ul")[0];
     if(open===false) nav_floation_window.classList.add("nav-ul-open");
     else nav_floation_window.classList.remove("nav-ul-open");

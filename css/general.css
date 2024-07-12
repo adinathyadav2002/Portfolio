@@ -1,0 +1,81 @@
+/* REUSEABLE CSS */
+a {
+  text-decoration: none;
+}
+
+.icon-small {
+  height: 16px;
+  width: 18px;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.icon-mid {
+  height: 36px;
+  width: 36px;
+}
+
+.icon-big {
+  height: 48px;
+  width: 48px;
+}
+
+.wp-2 {
+  letter-spacing: -1.1px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: revert;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.hover-active:hover,
+.hover-active:active {
+  background-color: #444;
+  border-radius: 8px;
+  color: #e6e6e6;
+
+  & > a {
+    color: #e6e6e6;
+  }
+}
+
+.grey {
+  color: #495057;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.large-button {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding-left: 1rem;
+}
