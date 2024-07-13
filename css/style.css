@@ -60,8 +60,6 @@ Medium: 11px
 }
 
 body {
-  /* height: 100vh;
-  width: 100vw; */
   background-image: linear-gradient(to top left, #3b4044, white);
   font-family: "Roboto", sans-serif;
   color: #333;
@@ -82,7 +80,7 @@ html {
 }
 
 .nav-container {
-  height: 7rem;
+  height: 6rem;
   display: flex;
   align-items: center;
 }
@@ -109,6 +107,12 @@ html {
 
 nav a {
   color: #333;
+}
+
+.header-links{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .logo-container {
@@ -156,7 +160,7 @@ nav a {
 }
 
 .my-image-div {
-  height: 23.1rem;
+  height: 20rem;
   width: 15rem;
   background-image: linear-gradient(
       to right bottom,
@@ -170,8 +174,12 @@ nav a {
 
 .profile-link-div:hover,
 .profile-link-div:active {
-  background-color: #ced4da;
+  background-color: #dbdbdb;
   border-radius: 7px;
+
+  & > button img{
+    fill: white;
+  }
 }
 
 /* ************************************ */
@@ -328,11 +336,11 @@ nav a {
   flex-direction: column;
 }
 
-.project-content p{
+.project-content p {
   margin-left: 1rem;
 }
 
-.project-content a{
+.project-content a {
   width: 100%;
 }
 
@@ -350,6 +358,7 @@ nav a {
 .project-img {
   height: auto;
   width: 30%;
+  border-radius: 7px;
 }
 
 .grid-but1 {
@@ -378,5 +387,6 @@ nav a {
   font-weight: 600;
   font-size: 1.6rem;
   color: #555;
+  margin-bottom: 2rem;
   /* padding: 1rem; */
 }

@@ -1,14 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects</title>
-</head>
 
-<body>
-    projects
-</body>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/queries.css" />
+    <link rel="stylesheet" href="css/projects.css" />
 
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon/favicon_64px.png" />
+    <link rel="apple-touch-icon" href="favicon/favicon_180px.png" />
+    <link rel="manifest" href="manifext.webmanifest" />
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="This is porfolio of Adinath Yadav. porfolio contains his journey
+        achivements, resume, projects and other Activities.
+      "
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="responsive-nav">
+        <a href="index.html" class="container gap-10">
+          <div class="home-logo">
+            <img src="images/home.svg" alt="logo" class="icon-mid" />
+          </div>
+          <div>Home</div>
+        </a>
+
+        <div class="container gap-10">
+          <span>Menu</span>
+          <button type="button" class="hamburger" onclick="open_menu_window()">
+            <img src="images/hamburger-icon.svg" class="icon" alt="Menu" />
+          </button>
+        </div>
+      </nav>
+      <nav class="nav-container">
+        <ul class="nav-ul">
+          <li class="home-class">
+            <a href="index.html" class="container gap-5">
+              <div class="home-logo">
+                <img
+                  src="images/home.svg"
+                  alt="profile_logo"
+                  class="icon-mid"
+                />
+              </div>
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="nav-links hover-active">
+            <a href="projects.html" class="header-links">
+              <img src="images/projects.svg" alt="project" class="icon" />
+              <span>Projects</span>
+            </a>
+          </li>
+          <li class="nav-links hover-active">
+            <a href="other.html" class="header-links">
+              <img
+                src="images/other_activities.svg"
+                alt="project"
+                class="icon"
+              />
+              <span>Other Activities</span>
+            </a>
+          </li>
+          <li class="nav-links hover-active">
+            <a href="journey.html" class="header-links">
+              <img
+                src="images/route-finish-svgrepo-com.svg"
+                alt="Journey"
+                class="icon"
+              />
+              <span>Journey</span>
+            </a>
+          </li>
+          <li class="nav-links hover-active">
+            <a href="Achivements.html" class="header-links">
+              <img src="images/achivement.svg" alt="Journey" class="icon" />
+              <span>Achivements</span>
+            </a>
+          </li>
+          <li class="nav-links hover-active">
+            <a href="#resume" class="header-links">
+              <img
+                src="images/resume.svg"
+                alt="resume"
+                class="icon icon-small"
+              />
+              <span>Resume</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="project-section">
+      <h2 class="heading">Projects</h2>
+      <figure class="projects project-left">
+        <div class="desktop-version container">
+          <img
+            src="images/project/omnifood_desktop.png"
+            alt="omnifood Desktop interface"
+          />
+        </div>
+        <div class="mobile-version container">
+          <img
+            src="images/project/ominfood_mobile.png"
+            alt="omnifood mobile interface"
+          />
+        </div>
+        <div class="project-description">
+          <h4 class="heading-description">Omnifood</h4>
+          <ul class="ordered-list">
+            <li>Deployed on Netlify</li>
+            <li>Fully responsive design</li>
+            <li>Performance checked with lighthouse <strong>(%)</strong></li>
+            <li>Made with Udemy course tutorial</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="#" class="visit-link hover-active">Visit Website</a>
+            <a href="#" class="visit-code-link hover-active">Know code</a>
+          </div>
+        </div>
+      </figure>
+
+      <figure class="projects project-right">
+        <div class="project-description">
+          <h4 class="heading-description">Personal Portfolio</h4>
+          <ul class="ordered-list">
+            <li>Deployed on Netlify</li>
+            <li>Fully responsive design</li>
+            <li>Performance checked with lighthouse <strong>(%)</strong></li>
+            <li>Made with Udemy course tutorial</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="#" class="visit-link hover-active">Visit Website</a>
+            <a href="#" class="visit-code-link hover-active">Know code</a>
+          </div>
+        </div>
+        <div class="mobile-version container">
+          <img
+            src="images/project/porfolio_mobile.png"
+            alt="porfolio mobile interface"
+          />
+        </div>
+        <div class="desktop-version container">
+          <img
+            src="images/project/portfolio_desktop.png"
+            alt="porfolio Desktop interface"
+          />
+        </div>
+      </figure>
+
+      <figure class="projects project-left">
+        <div class="desktop-version container">
+          <img
+            src="images/project/weather_desktop.png"
+            alt="weather Website Desktop interface"
+          />
+        </div>
+        <div class="mobile-version container">
+          <img
+            src="images/project/weather_mobile.png"
+            alt="weather wesite mobile interface"
+          />
+        </div>
+        <div class="project-description">
+          <h4 class="heading-description">Weather app</h4>
+          <ul class="ordered-list">
+            <li>Deployed on Netlify</li>
+            <li>Fully responsive design</li>
+            <li>Performance checked with lighthouse <strong>(%)</strong></li>
+            <li>Made with Udemy course tutorial</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="#" class="visit-link hover-active">Visit Website</a>
+            <a href="#" class="visit-code-link hover-active">Know code</a>
+          </div>
+        </div>
+      </figure>
+
+      <figure class="projects project-right">
+        <div class="project-description">
+          <h4 class="heading-description">Calculator</h4>
+          <ul class="ordered-list">
+            <li>Deployed on Netlify</li>
+            <li>Fully responsive design</li>
+            <li>Performance checked with lighthouse <strong>(%)</strong></li>
+            <li>Made with Udemy course tutorial</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="#" class="visit-link hover-active">Visit Website</a>
+            <a href="#" class="visit-code-link hover-active">Know code</a>
+          </div>
+        </div>
+        <div class="desktop-version desktop-single container">
+          <img
+            src="images/project/calculator_desktop.png"
+            alt="calculator Mobile interface"
+          />
+        </div>
+      </figure>
+
+      <figure class="projects project-left">
+        <div class="desktop-version desktop-single container">
+          <img
+            src="images/project/todolist_desktop.png"
+            alt="Todolist Desktop interface"
+          />
+        </div>
+        <div class="project-description">
+          <h4 class="heading-description">Todolist</h4>
+          <ul class="ordered-list">
+            <li>Deployed on Netlify</li>
+            <li>Fully responsive design</li>
+            <li>Performance checked with lighthouse <strong>(%)</strong></li>
+            <li>Made with Udemy course tutorial</li>
+          </ul>
+
+          <div class="project-links">
+            <a href="#" class="visit-link hover-active">Visit Website</a>
+            <a href="#" class="visit-code-link hover-active">Know code</a>
+          </div>
+        </div>
+      </figure>
+    </section>
+  </body>
 </html>
