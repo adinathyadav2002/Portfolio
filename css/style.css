@@ -369,6 +369,14 @@ nav a {
 }
 
 /* FOOTER */
+
+.footer-heading-description{
+  margin-top: 5rem;
+  display: block;
+  text-align: center;
+  font-size: 2.4rem;
+}
+
 .languages-icon-div {
   display: flex;
   flex-direction: column;
