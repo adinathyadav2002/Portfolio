@@ -25,6 +25,10 @@
     height: auto;
     width: 35%;
   }
+
+  .project-description {
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 67em) {
@@ -71,6 +75,36 @@
 
   .languages-icon-div {
     margin: auto;
+  }
+
+  .desktop-version {
+    width: 35rem;
+    height: 23rem;
+  }
+
+  .mobile-version {
+    width: 14rem;
+    height: 27rem;
+  }
+
+  .project-description {
+    gap: 2rem;
+  }
+
+  .project-left {
+    padding: 0 0 0 2rem;
+  }
+
+  .project-right {
+    padding: 0 2rem 0 0;
+  }
+
+  .project-images {
+    gap: 2rem;
+  }
+
+  .projects {
+    gap: 2rem;
   }
 }
 
@@ -215,6 +249,41 @@
   .grid-but1 {
     height: 6rem;
   }
+
+  .projects {
+    flex-direction: column;
+    height: 70rem;
+    padding: 3rem 0 0 0;
+    gap: 3rem;
+  }
+
+  .project-right {
+    flex-direction: column-reverse;
+  }
+
+  .project-right .project-description,
+  .project-left .project-description {
+    border-radius: 0;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+
+  .project-description {
+    width: 100%;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .ordered-list,
+  .project-links,
+  .heading-description {
+    display: block;
+    width: 57%;
+  }
+
+  .project-links {
+    display: flex;
+  }
 }
 
 @media (max-width: 34em) {
@@ -240,11 +309,50 @@
   .grid-item3 {
     width: 500%;
   }
+
+  .projects {
+    height: 100rem;
+  }
+
+  .project-left .project-images {
+    flex-direction: column-reverse;
+  }
+
+  .project-right .project-images {
+    flex-direction: column;
+  }
+
+  .projects:nth-child(5),
+  .projects:nth-child(6) {
+    height: 72rem;
+  }
+
+  .ordered-list,
+  .project-links,
+  .heading-description {
+    display: block;
+    width: 80%;
+  }
+
+  .desktop-version {
+    width: 37rem;
+    height: 25rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .visit-link,
+  .visit-code-link {
+    border-radius: 5px;
+  }
 }
 
 @media (max-width: 23rem) {
   html {
-    font-size: 53%;
+    font-size: 50%;
   }
 
   .project-img-div {
@@ -265,5 +373,34 @@
   .responsive-grid3-grid4 {
     flex-direction: column;
     height: 30rem;
+  }
+
+  .projects {
+    height: 85rem;
+  }
+
+  .project-description {
+    gap: 1rem;
+  }
+
+  .projects:nth-child(5),
+  .projects:nth-child(6) {
+    height: 55rem;
+  }
+
+  .desktop-version {
+    width: 28rem;
+    height: 15rem;
+  }
+
+  .mobile-version {
+    width: 10rem;
+    height: 20rem;
+  }
+
+  .ordered-list,
+  .project-links,
+  .heading-description {
+    width: 85%;
   }
 }
