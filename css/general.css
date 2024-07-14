@@ -48,11 +48,11 @@ button:focus {
 
 .hover-active:hover,
 .hover-active:active {
-  background-color: #666;
-  color: #e6e6e6;
+  background-color: #6c757d;
+  color: #fff;
   
   & > a {
-    color: #e6e6e6;
+    color: #fff;
   }
 }
 

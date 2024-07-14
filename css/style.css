@@ -153,6 +153,10 @@ nav a {
   }
 }
 
+.my-name{
+  font-family: "Ga Maamli", sans-serif;
+}
+
 .section {
   display: flex;
   margin: 10px;
@@ -211,7 +215,7 @@ nav a {
   height: 15%;
   align-content: center;
   text-align: center;
-  background-color: #e9ecef;
+  background-color: #ced4da;
   color: #333;
 }
 
