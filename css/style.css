@@ -133,6 +133,7 @@ nav a {
   text-align: center;
   border-top: 5px solid #333;
   border-bottom: 5px solid #333;
+  border-radius: 7px;
   padding: 0 2rem;
   background-color: #f8f9fa;
   color: #333;
