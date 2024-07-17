@@ -106,6 +106,10 @@
   .projects {
     gap: 2rem;
   }
+
+  .nav-links{
+    padding: 0;
+  }
 }
 
 @media (max-width: 52em) {
@@ -284,6 +288,8 @@
   .project-links {
     display: flex;
   }
+
+  
 }
 
 @media (max-width: 34em) {
@@ -320,11 +326,6 @@
 
   .project-right .project-images {
     flex-direction: column;
-  }
-
-  .projects:nth-child(5),
-  .projects:nth-child(6) {
-    height: 72rem;
   }
 
   .ordered-list,
@@ -375,22 +376,22 @@
     height: 30rem;
   }
 
+  .project-section{
+    height: 600rem;
+  }
+
   .projects {
-    height: 85rem;
+    height: 95rem;
   }
 
   .project-description {
-    gap: 1rem;
-  }
-
-  .projects:nth-child(5),
-  .projects:nth-child(6) {
-    height: 55rem;
+    gap: 2rem;
+    padding: 0 2rem;
   }
 
   .desktop-version {
-    width: 28rem;
-    height: 15rem;
+    width: 35rem;
+    height: 22rem;
   }
 
   .mobile-version {
