@@ -44,30 +44,29 @@ nav.addEventListener("mouseout", function (e) {
 });
 
 
-
 // REVELING ELEMENTS ON SCROLL
 
 const projects = document.querySelectorAll('.projects');
-projects.forEach(function(item){
-    // item.style.opacity = '0';
-    // item.style.transform = 'translateY(100px)'
-})
 
 const callbackFunction = function(entries, observer){
     const [entry] = entries;
     // if(entry.is)
-    if(entry.isIntersecting){
-        console.log(entry.target);
+    if(!entry.isIntersecting){
+      return;
     };
+    entry.target.classList.remove('projects--hidden');
+
+    observer.unobserve(entry.target);
 }
 
 const observer = new IntersectionObserver(callbackFunction, {
     root:null,
-    threshold:0.15,
+    threshold:0.20,
 })
 
 projects.forEach(function(item){
     observer.observe(item);
+    item.classList.add('projects--hidden')
 })
 
 

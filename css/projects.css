@@ -103,6 +103,7 @@
   gap: 3rem;
   border-radius: 7px;
   color: #fff;
+  transition: all 0.5s;
 }
 
 .project-images {
@@ -138,6 +139,11 @@
   width: 100%;
   height: 100%;
   border-radius: 7px;
+}
+
+.projects--hidden{
+  opacity: 0;
+  transform: translateY(8rem);
 }
 
 /* PROJECT DESCRIPTION */
