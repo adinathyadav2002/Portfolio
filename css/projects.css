@@ -86,7 +86,7 @@
 /* PROJECT IMAGE SECTION  */
 
 .project-section {
-  height: 500rem;
+  height: 100%;
   max-width: 135rem;
   margin: 6rem 2rem;
   display: flex;

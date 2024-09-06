@@ -1,3 +1,5 @@
+"use strict";
+
 function openInstagram() {
   window.open("https://www.instagram.com/adinath.yadav.2002/", "_blank");
 }
@@ -24,18 +26,18 @@ const nav = document.querySelector(".nav-container");
 console.log(nav);
 
 nav.addEventListener("mouseover", function (e) {
-  if (!e.target.closest(".nav-links"))return;
+  if (!e.target.closest(".nav-links")) return;
 
   Array.from(nav.children[0].children).forEach(function (item) {
     item.style.opacity = "1";
-    if (item != e.target.closest('.nav-links')) {
+    if (item != e.target.closest(".nav-links")) {
       item.style.opacity = "0.5";
     }
   });
 });
 
 nav.addEventListener("mouseout", function (e) {
-  if (!e.target.closest('.nav-links')) {
+  if (!e.target.closest(".nav-links")) {
     return;
   }
   Array.from(nav.children[0].children).forEach(function (item) {
@@ -43,30 +45,70 @@ nav.addEventListener("mouseout", function (e) {
   });
 });
 
-
 // REVELING ELEMENTS ON SCROLL
 
-const projects = document.querySelectorAll('.projects');
+const projects = document.querySelectorAll(".projects");
 
-const callbackFunction = function(entries, observer){
-    const [entry] = entries;
-    // if(entry.is)
-    if(!entry.isIntersecting){
-      return;
-    };
-    entry.target.classList.remove('projects--hidden');
+const callbackFunction = function (entries, observer) {
+  const [entry] = entries;
+  // if(entry.is)
+  if (!entry.isIntersecting) {
+    return;
+  }
+  entry.target.classList.remove("projects--hidden");
 
-    observer.unobserve(entry.target);
-}
+  observer.unobserve(entry.target);
+};
 
 const observer = new IntersectionObserver(callbackFunction, {
-    root:null,
-    threshold:0.20,
-})
+  root: null,
+  threshold: 0.2,
+});
 
-projects.forEach(function(item){
-    observer.observe(item);
-    item.classList.add('projects--hidden')
-})
+projects.forEach(function (item) {
+  observer.observe(item);
+  item.classList.add("projects--hidden");
+});
 
+// scroll animation in projects
 
+document
+  .querySelector(".hero-section__cards")
+  .addEventListener("click", function (e) {
+    if (e.target.classList.contains("visit-code-link")) {
+      e.preventDefault();
+      const id = e.target.getAttribute("href");
+      const scroll_to = document.querySelector(id);
+      console.log(id);
+
+      scroll_to.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
+// USING INTERSECTION API for sticky nav
+
+const hero_section = document.querySelector(".hero-section");
+const header = document.querySelector("header");
+const obsCallback = function (entries) {
+  const [entry] = entries;
+  if (entry.isIntersecting == false) {
+    header.classList.add("sticky");
+    console.log(header);
+  } else {
+    header.classList.remove("sticky");
+  }
+};
+
+const heightNav = nav.getBoundingClientRect().height;
+
+const obsOption = {
+  root: null,
+  // second intersecting section will be viewport
+  threshold: 0,
+  // or 10 % it is an array
+  rootMargin: `-200px`,
+};
+
+console.log(header);
+const observer2 = new IntersectionObserver(obsCallback, obsOption);
+observer2.observe(hero_section);
