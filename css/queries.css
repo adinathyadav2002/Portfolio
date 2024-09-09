@@ -327,29 +327,31 @@
 
   .hero-section__heading {
     height: 35vh;
+    z-index: -2;
   }
 
-  .hero-section__card {
-    height: 75%;
-  }
 }
 
 @media (max-width: 43em) {
   .hero-section__cards {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
-    height: 80%;
+    height: 70vh;
   }
 
   .hero-section__heading {
     height: 25vh;
   }
 
-  .hero-section__cards {
-    height: 70vh;
+  .hero-section__card{
+    font-size: 1.6rem;
   }
 
   .hero-section {
     padding: 0;
+  }
+
+  .heading{
+    font-size: 4.2rem;
   }
 }
 
@@ -467,12 +469,16 @@
     width: 85%;
   }
 
-  .hero-section__card{
-    height: 100%;
+  .hero-section{
+    height: auto;
   }
 
   .hero-section__cards {
     grid-template-columns: repeat(1, minmax(150px, 1fr));
     height: 100vh;
+  }
+
+  .hero-section__card{
+    gap: 1rem;
   }
 }
