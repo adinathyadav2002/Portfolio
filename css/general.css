@@ -86,10 +86,10 @@ header {
 }
 
 header.sticky {
-  height: 70px;
+  height: 7rem;
   display: flex;
   align-items: center;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   position: fixed;
   background-color: rgba(255, 255, 255, 0.95);
 }

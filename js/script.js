@@ -23,7 +23,6 @@ const open_menu_window = () => {
 
 // nav blur effect
 const nav = document.querySelector(".nav-container");
-console.log(nav);
 
 nav.addEventListener("mouseover", function (e) {
   if (!e.target.closest(".nav-links")) return;
@@ -79,7 +78,6 @@ document
       e.preventDefault();
       const id = e.target.getAttribute("href");
       const scroll_to = document.querySelector(id);
-      console.log(id);
 
       scroll_to.scrollIntoView({ behavior: "smooth" });
     }
@@ -93,7 +91,6 @@ const obsCallback = function (entries) {
   const [entry] = entries;
   if (entry.isIntersecting == false) {
     header.classList.add("sticky");
-    console.log(header);
   } else {
     header.classList.remove("sticky");
   }
@@ -109,6 +106,5 @@ const obsOption = {
   rootMargin: `-200px`,
 };
 
-console.log(header);
 const observer2 = new IntersectionObserver(obsCallback, obsOption);
 observer2.observe(hero_section);

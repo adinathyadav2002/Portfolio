@@ -41,7 +41,7 @@
   height: 100vh;
   width: 75%;
   display: grid;
-  grid-template-columns: repeat(4,auto);
+   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 2rem;
   padding: 2rem;
 }
@@ -158,7 +158,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
-  padding: 0 5rem;
+  padding: 0 3.7rem;
 }
 
 .project-right .project-description {
