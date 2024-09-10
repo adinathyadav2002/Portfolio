@@ -329,7 +329,6 @@
     height: 35vh;
     z-index: -2;
   }
-
 }
 
 @media (max-width: 43em) {
@@ -342,7 +341,7 @@
     height: 25vh;
   }
 
-  .hero-section__card{
+  .hero-section__card {
     font-size: 1.6rem;
   }
 
@@ -350,7 +349,7 @@
     padding: 0;
   }
 
-  .heading{
+  .heading {
     font-size: 4.2rem;
   }
 }
@@ -388,7 +387,7 @@
   }
 
   .project-right .project-images {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .ordered-list,
@@ -413,7 +412,7 @@
     border-radius: 5px;
   }
 
-  .heading{
+  .heading {
     font-size: 3.2rem;
   }
 }
@@ -443,7 +442,6 @@
     height: 30rem;
   }
 
-
   .projects {
     height: 95rem;
   }
@@ -469,7 +467,7 @@
     width: 85%;
   }
 
-  .hero-section{
+  .hero-section {
     height: auto;
   }
 
@@ -478,7 +476,7 @@
     height: 100vh;
   }
 
-  .hero-section__card{
+  .hero-section__card {
     gap: 1rem;
   }
 }

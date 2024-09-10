@@ -41,7 +41,7 @@
   height: 100vh;
   width: 75%;
   display: grid;
-   grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: 2rem;
   padding: 2rem;
 }
@@ -57,23 +57,23 @@
   /* text-align: center; */
 }
 
-.card-btn{
+.card-btn {
   display: block;
   width: 50%;
   text-align: center;
 }
 
-.flex-end{
-  margin-top:auto;
+.flex-end {
+  margin-top: auto;
 }
 
-.languages{
+.languages {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.languages div{
+.languages div {
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -134,14 +134,19 @@
   height: 35rem;
 }
 
-.mobile-version img,
+.mobile-version img {
+  width: 80%;
+  height: 90%;
+  border-radius: 7px;
+}
+
 .desktop-version img {
   width: 100%;
   height: 100%;
   border-radius: 7px;
 }
 
-.projects--hidden{
+.projects--hidden {
   opacity: 0;
   transform: translateY(8rem);
 }
