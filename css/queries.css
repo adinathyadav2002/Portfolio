@@ -231,7 +231,7 @@
   .grid-item3 {
     width: 45%;
     height: 12rem;
-    padding: 1rem;
+    /* padding: 1rem; */
   }
 
   .grid-item4 {
@@ -338,7 +338,7 @@
   }
 
   .hero-section__heading {
-    height: 25vh;
+    height: 20vh;
   }
 
   .hero-section__card {
