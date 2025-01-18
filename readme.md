@@ -120,5 +120,6 @@ Contributions are welcome! If you have any ideas or improvements, feel free to f
 ## Author
 
 Developed by **Adinath Satish Yadav**  
-[Linkedin](https://www.linkedin.com/in/adinath-yadav-50a294251/)  
-[Mail](adinathsyadav2016@gmail.com)
+
+- **Email**: adinathsyadav2016@gmail.com
+- **LinkedIn**: [Adinath Satish Yadav](https://www.linkedin.com/in/adinath-yadav-50a294251/)
