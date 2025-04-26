@@ -1,24 +1,16 @@
-# Welcome to your Lovable project
+# Welcome to your Project
 
-## Project info
-
-**URL**: https://lovable.dev/projects/067ddce1-fd09-47a0-9103-94a815a6793f
+## Project Info
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
+There are several ways to edit your application:
 
-**Use Lovable**
+### Use your preferred IDE
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/067ddce1-fd09-47a0-9103-94a815a6793f) and start prompting.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The only requirement is having Node.js & npm installed — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 Follow these steps:
 
@@ -36,13 +28,13 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Edit a file directly in GitHub
 
 - Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+### Use GitHub Codespaces
 
 - Navigate to the main page of your repository.
 - Click on the "Code" button (green button) near the top right.
@@ -62,12 +54,11 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/067ddce1-fd09-47a0-9103-94a815a6793f) and click on Share -> Publish.
+You can deploy this project using platforms like:
 
-## Can I connect a custom domain to my Lovable project?
+- Vercel
+- Netlify
+- GitHub Pages (for static sites)
+- Render
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Each platform typically connects to your GitHub repo and automatically deploys on every push.
