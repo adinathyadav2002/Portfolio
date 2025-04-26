@@ -143,11 +143,13 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
       },
     ],
   };
+
+  // Set up intersection observer once when component mounts
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.25, // Lower threshold for easier triggering
     };
 
     const observerCallback = (entries) => {
@@ -164,58 +166,20 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
       observerOptions
     );
 
-    // Observe all project elements
-    Object.values(projectRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    // Observe all project elements after they've been rendered
+    setTimeout(() => {
+      const projectElements = document.querySelectorAll(
+        "[data-project='true']"
+      );
+      projectElements.forEach((el) => {
+        observer.observe(el);
+      });
+    }, 100);
 
     return () => {
-      Object.values(projectRefs.current).forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
+      observer.disconnect();
     };
-  }, []);
-
-  // Effect to reinitialize refs when activeTab changes
-  useEffect(() => {
-    // Reset intersection states for new tab
-    setIsIntersecting({});
-
-    // Allow time for DOM to update with new projects
-    setTimeout(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            setIsIntersecting((prev) => ({
-              ...prev,
-              [entry.target.id]: entry.isIntersecting,
-            }));
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      // Clear previous refs and observe new ones
-      projectRefs.current = {};
-
-      // Find all project elements for the active tab and observe them
-      document
-        .querySelectorAll(`[data-tab="${activeTab}"]`)
-        .forEach((element) => {
-          projectRefs.current[element.id] = element;
-          observer.observe(element);
-        });
-
-      return () => observer.disconnect();
-    }, 100);
-  }, [activeTab]);
-
-  // Register ref for each project
-  const registerProjectRef = (id, element, tabId) => {
-    if (element && !projectRefs.current[id]) {
-      projectRefs.current[id] = element;
-    }
-  };
+  }, [activeTab]); // Re-run when active tab changes
 
   return (
     <div
@@ -300,33 +264,31 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                   <motion.div
                     key={`${activeTab}-${project.id}`}
                     id={project.id}
+                    data-project="true"
                     data-tab={activeTab}
-                    ref={(el) => registerProjectRef(project.id, el, activeTab)}
                     initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.25 }}
+                    transition={{ duration: 0.7, delay: index * 0.1 }}
                     className={`flex flex-col ${
                       isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                     } 
-                                ${
-                                  darkMode ? "bg-gray-800" : "bg-white"
-                                } rounded-2xl shadow-xl overflow-hidden`}
+                    ${
+                      darkMode ? "bg-gray-800" : "bg-white"
+                    } rounded-2xl shadow-xl overflow-hidden`}
                   >
                     {/* Project Images */}
                     <div
                       className={`w-full lg:w-3/5 p-6 lg:p-8 ${
                         darkMode ? "bg-gray-700" : "bg-gray-50"
                       } flex items-center justify-center relative
-                                    ${
-                                      isEven
-                                        ? "lg:rounded-r-none"
-                                        : "lg:rounded-l-none"
-                                    }`}
+                      ${isEven ? "lg:rounded-r-none" : "lg:rounded-l-none"}`}
                     >
                       <motion.div
                         className="flex items-center gap-4"
                         initial={{ scale: 0.9 }}
-                        animate={{ scale: 1 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                       >
                         {/* Desktop Image */}
@@ -378,7 +340,8 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                     <div className="w-full lg:w-2/5 p-6 lg:p-10 flex flex-col justify-center">
                       <motion.div
                         initial={{ opacity: 0, x: isEven ? -20 : 20 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                       >
                         <h3 className="text-3xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
@@ -390,7 +353,8 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                             <motion.li
                               key={i}
                               initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: false, amount: 0.1 }}
                               transition={{
                                 duration: 0.3,
                                 delay: 0.4 + i * 0.1,
@@ -462,8 +426,8 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
         </div>
       </section>
 
-      {/* Add this to your global CSS */}
-      <style jsx global>{`
+      {/* CSS for animations */}
+      <style jsx>{`
         @keyframes blob {
           0% {
             transform: translate(0px, 0px) scale(1);

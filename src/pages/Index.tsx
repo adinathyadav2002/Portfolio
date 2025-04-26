@@ -33,7 +33,9 @@ export const Index = () => {
 
       {/* Header */}
 
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div id="home">
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      </div>
 
       {/* Main Content */}
       <div className="mt-16">
