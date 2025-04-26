@@ -311,7 +311,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                         </div>
 
                         {/* Mobile Image */}
-                        <div
+                        {/* <div
                           className="relative shadow-2xl rounded-lg overflow-hidden hidden md:block"
                           style={{ width: "120px", height: "220px" }}
                         >
@@ -325,7 +325,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                               <p className="text-xs font-medium">Mobile View</p>
                             </div>
                           </div>
-                        </div>
+                        </div> */}
                       </motion.div>
 
                       {/* Decorative elements */}
