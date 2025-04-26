@@ -1,6 +1,8 @@
 import Navbar from "@/components/layout/Navbar";
 import { useState, useEffect } from "react";
 import Main from "@/components/sections/Main";
+import ProjectsSection from "@/components/sections/Projects";
+import Footer from "../components/sections/Footer";
 
 export const Index = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -39,18 +41,12 @@ export const Index = () => {
       </div>
 
       {/* Projects */}
-      <div className="mt-16" id="projects"></div>
+      <div className="mt-16" id="projects">
+        <ProjectsSection darkMode={darkMode} setDarkMode={setDarkMode} />
+      </div>
 
       {/* Footer */}
-      <footer
-        className={`py-6 mt-10 ${
-          darkMode ? "bg-gray-800 text-gray-400" : "bg-white text-gray-600"
-        }`}
-      >
-        <div className="container mx-auto text-center">
-          <p className="text-sm">© 2025 Adinath Yadav. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer darkMode={darkMode} />
 
       {/* CSS for Custom Animations */}
       <style jsx global>{`

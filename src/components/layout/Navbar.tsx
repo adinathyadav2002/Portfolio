@@ -26,17 +26,10 @@ const navLinks = [
     href: "#activities",
     icon: <Check className="mr-2" size={20} />,
   },
-
   {
     name: "Achievements",
     href: "#achievements",
     icon: <Award className="mr-2" size={20} />,
-  },
-  {
-    name: "Resume",
-    href: "/resume.pdf",
-    icon: <FileText className="mr-2" size={20} />,
-    download: "Adinath_Yadav_Resume",
   },
 ];
 
@@ -124,24 +117,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         darkMode ? "text-white" : "text-gray-800"
       }`}
     >
-      {/* Theme Toggle Button */}
-      <div className="absolute top-4 right-4 md:right-8 z-10">
-        <button
-          onClick={toggleTheme}
-          className={`p-2 rounded-full transition-all duration-300 ${
-            darkMode
-              ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
-              : "bg-blue-100 text-gray-800 hover:bg-blue-200"
-          }`}
-          aria-label="Toggle theme"
-        >
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+        {/* Centered Layout */}
+        <div className="flex items-center justify-center h-16 relative">
+          {/* Logo - Now positioned absolutely on the left */}
+          <div className="absolute left-0 flex items-center">
             <span
               className={`font-bold text-xl ${
                 darkMode
@@ -153,9 +133,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             </span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Now centered */}
           <div className="hidden md:block">
-            <nav className="flex items-center">
+            <nav className="flex items-center justify-center">
               <ul className="flex items-center gap-2">
                 {navLinks.map((link) => (
                   <li
@@ -176,16 +156,13 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                           : "text-gray-700 hover:text-gray-900"
                       }`}
                       onClick={(e) => {
-                        if (!link.download) {
-                          e.preventDefault();
-                          setActiveLink(link.href);
-                          const element = document.querySelector(link.href);
-                          if (element) {
-                            element.scrollIntoView({ behavior: "smooth" });
-                          }
+                        e.preventDefault();
+                        setActiveLink(link.href);
+                        const element = document.querySelector(link.href);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
                         }
                       }}
-                      download={link.download}
                     >
                       {/* Hover background effect */}
                       <span
@@ -214,8 +191,23 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             </nav>
           </div>
 
-          {/* Mobile Navigation Button */}
-          <div className="md:hidden">
+          {/* Theme Toggle Button - Now positioned absolutely on the right */}
+          <div className="absolute right-0">
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-all duration-300 ${
+                darkMode
+                  ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
+                  : "bg-blue-100 text-gray-800 hover:bg-blue-200"
+              }`}
+              aria-label="Toggle theme"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation Button - Now positioned absolutely on the right */}
+          <div className="md:hidden absolute right-0">
             <Button
               variant="ghost"
               size="icon"
@@ -263,16 +255,13 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                       darkMode ? "hover:text-blue-400" : "hover:text-blue-600"
                     } transition-colors relative overflow-hidden`}
                     onClick={() => {
-                      if (!link.download) {
-                        setActiveLink(link.href);
-                        setIsOpen(false);
-                        const element = document.querySelector(link.href);
-                        if (element) {
-                          element.scrollIntoView({ behavior: "smooth" });
-                        }
+                      setActiveLink(link.href);
+                      setIsOpen(false);
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    download={link.download}
                   >
                     {/* Content */}
                     <span className="relative z-10 flex items-center">
