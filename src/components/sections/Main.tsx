@@ -160,7 +160,7 @@ export default function Main({ darkMode, setDarkMode }) {
                 darkMode ? "border-gray-700" : "border border-gray-100"
               }`}
             >
-              <div className="p-10">
+              <div className="p-4 md:pd-10">
                 <h2
                   className={`text-3xl font-bold mb-8 ${
                     darkMode ? "text-gray-100" : "text-gray-800"
@@ -240,7 +240,7 @@ export default function Main({ darkMode, setDarkMode }) {
           variants={fadeInUp}
           className={`${
             darkMode ? "bg-gray-800" : "bg-white"
-          } rounded-2xl shadow-xl p-10 ${
+          } rounded-2xl shadow-xl md:p-10 p-4 ${
             darkMode ? "border-gray-700" : "border border-gray-100"
           }`}
         >
@@ -389,7 +389,7 @@ export default function Main({ darkMode, setDarkMode }) {
               darkMode ? "bg-gray-800" : "bg-white"
             } rounded-2xl shadow-xl overflow-hidden ${
               darkMode ? "border-gray-700" : "border border-gray-100"
-            } p-8`}
+            } md:p-8 p-4`}
           >
             <div className="h-64 overflow-hidden">
               <img
@@ -398,7 +398,7 @@ export default function Main({ darkMode, setDarkMode }) {
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
               />
             </div>
-            <div className="p-8">
+            <div className="md:p-8 p-4">
               <h3
                 className={`text-2xl font-bold mb-3 ${
                   darkMode ? "text-gray-100" : "text-gray-800"
@@ -468,7 +468,7 @@ export default function Main({ darkMode, setDarkMode }) {
               darkMode ? "bg-gray-800" : "bg-white"
             } rounded-2xl shadow-xl overflow-hidden ${
               darkMode ? "border-gray-700" : "border border-gray-100"
-            } p-8`}
+            } md:p-8 p-4`}
           >
             <div className="h-64 overflow-hidden">
               <img
@@ -477,7 +477,7 @@ export default function Main({ darkMode, setDarkMode }) {
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
               />
             </div>
-            <div className="p-8">
+            <div className="md:p-8 p-4">
               <h3
                 className={`text-2xl font-bold mb-3 ${
                   darkMode ? "text-gray-100" : "text-gray-800"

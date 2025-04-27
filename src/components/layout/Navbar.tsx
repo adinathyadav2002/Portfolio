@@ -192,7 +192,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           </div>
 
           {/* Theme Toggle Button - Now positioned absolutely on the right */}
-          <div className="absolute right-0">
+          <div className="absolute md:right-0 right-10">
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-full transition-all duration-300 ${

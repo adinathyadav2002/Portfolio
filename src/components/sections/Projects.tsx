@@ -189,7 +189,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
     >
       {/* Hero Section */}
       <section
-        className={`relative pt-20 pb-40 ${
+        className={`relative pt-20 pb-10 ${
           darkMode
             ? "bg-gradient-to-b from-gray-800 to-gray-900"
             : "bg-gradient-to-b from-indigo-50 to-white"
@@ -220,9 +220,9 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
             <div
               className={`${
                 darkMode ? "bg-gray-800" : "bg-white"
-              } rounded-full p-1 shadow-lg`}
+              } md:rounded-full p-1 shadow-lg rounded-xl`}
             >
-              <div className="flex space-x-1">
+              <div className="grid md:grid-cols-4 grid-cols-2 space-x-1">
                 {technologies.map((tech) => (
                   <button
                     key={tech.id}
@@ -243,18 +243,17 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
             </div>
           </div>
         </div>
+      </section>
 
+      {/* Projects Display */}
+      <section className="md:py-20 py-12 px-4 md:mt-20 relative z-10 mt-4">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute top-40 right-10 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
           <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
-      </section>
-
-      {/* Projects Display */}
-      <section className="py-20 px-4 -mt-20 relative z-10">
-        <div className="container mx-auto">
+        <div className="md:container w-[90%] mx-auto">
           <div className="space-y-24">
             {projects[activeTab] && projects[activeTab].length > 0 ? (
               projects[activeTab].map((project, index) => {
@@ -279,7 +278,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                   >
                     {/* Project Images */}
                     <div
-                      className={`w-full lg:w-3/5 p-6 lg:p-8 ${
+                      className={`w-full lg:w-3/5 p-2 lg:p-8 ${
                         darkMode ? "bg-gray-700" : "bg-gray-50"
                       } flex items-center justify-center relative
                       ${isEven ? "lg:rounded-r-none" : "lg:rounded-l-none"}`}
