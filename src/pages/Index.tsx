@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Main from "@/components/sections/Main";
 import ProjectsSection from "@/components/sections/Projects";
 import Footer from "../components/sections/Footer";
+import CertificatesSection from "@/components/sections/CertificatesSection";
 
 export const Index = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -45,6 +46,10 @@ export const Index = () => {
       {/* Projects */}
       <div className="mt-16" id="projects">
         <ProjectsSection darkMode={darkMode} setDarkMode={setDarkMode} />
+      </div>
+
+      <div className="mt-16" id="certificates">
+        <CertificatesSection darkMode={darkMode} />
       </div>
 
       {/* Footer */}

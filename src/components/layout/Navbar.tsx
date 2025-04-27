@@ -22,8 +22,8 @@ const navLinks = [
     icon: <Code className="mr-2" size={20} />,
   },
   {
-    name: "Activities",
-    href: "#activities",
+    name: "Certificates",
+    href: "#certificates",
     icon: <Check className="mr-2" size={20} />,
   },
   {
