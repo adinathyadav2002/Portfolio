@@ -14,7 +14,7 @@ import {
 const CertificateImage = memo(({ certificate, darkMode }) => {
   return (
     <div
-      className="shadow-2xl rounded-lg overflow-hidden transition-transform duration-500 hover:scale-105"
+      className="shadow-2xl rounded-lg overflow-hidden transition-transform duration-500"
       style={{
         width: "100%",
         maxWidth: "550px",
@@ -22,13 +22,12 @@ const CertificateImage = memo(({ certificate, darkMode }) => {
         perspective: "1000px",
       }}
     >
-      <div className="certificate-glow absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
       <img
         src={certificate.image}
         alt={certificate.title}
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end">
         <div className="p-4 text-white">
           <p className="font-medium">Click to view full size</p>
         </div>
@@ -38,7 +37,7 @@ const CertificateImage = memo(({ certificate, darkMode }) => {
 });
 
 // Skills list component memoized to prevent unnecessary re-renders
-const SkillsList = memo(({ skills, darkMode, activeIndex }) => {
+const SkillsList = memo(({ skills, darkMode }) => {
   return (
     <div className="flex flex-wrap gap-2">
       {skills.map((skill, i) => (
@@ -64,11 +63,11 @@ const CertificatesSection = ({ darkMode }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [width, setWidth] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [activeCertificate, setActiveCertificate] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
   const carousel = useRef();
   const timeoutRef = useRef(null);
 
-  // Fixed duplicate IDs in your certificates data
+  // Sample certificates data - replace with your actual certificates array
   const certificates = [
     {
       id: "cplus-intro",
@@ -145,12 +144,12 @@ const CertificatesSection = ({ darkMode }) => {
       credential: "UC-17c620b9-aaed-4bdf-a131-6242a5cbc96d",
       image: "/images/certificates/node.png",
       skills: [
-        "C++ Fundamentals",
-        "Data Types",
-        "Control Structures",
-        "Functions",
-        "Arrays",
-        "Object-Oriented Programming",
+        "Node.js Basics",
+        "Express.js",
+        "RESTful APIs",
+        "MongoDB",
+        "Mongoose",
+        "Authentication",
       ],
       verifyLink: "ude.my/UC-17c620b9-aaed-4bdf-a131-6242a5cbc96d",
       mentors: ["Jonas Schmedtmann"],
@@ -182,11 +181,6 @@ const CertificatesSection = ({ darkMode }) => {
     },
   ];
 
-  // Set initial active certificate
-  useEffect(() => {
-    setActiveCertificate(certificates[activeIndex]);
-  }, []);
-
   // Update carousel width on window resize or content change
   useEffect(() => {
     const handleResize = () => {
@@ -212,26 +206,18 @@ const CertificatesSection = ({ darkMode }) => {
     };
   }, []);
 
-  // When activeIndex changes, update activeCertificate
-  useEffect(() => {
-    if (!isTransitioning) {
-      setActiveCertificate(certificates[activeIndex]);
-    }
-  }, [activeIndex, isTransitioning]);
-
-  // Navigation functions with added transition state
+  // Navigation functions with transition state
   const nextCertificate = () => {
-    if (isTransitioning) return;
+    if (isTransitioning || certificates.length <= 1) return;
 
     setIsTransitioning(true);
-    const nextIndex =
-      activeIndex === certificates.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex = (activeIndex + 1) % certificates.length;
 
-    // First set transition state
+    // Set transition state
     timeoutRef.current = setTimeout(() => {
       setActiveIndex(nextIndex);
 
-      // Give time for rendering before ending transition state
+      // End transition state after a delay
       timeoutRef.current = setTimeout(() => {
         setIsTransitioning(false);
       }, 100);
@@ -239,17 +225,17 @@ const CertificatesSection = ({ darkMode }) => {
   };
 
   const prevCertificate = () => {
-    if (isTransitioning) return;
+    if (isTransitioning || certificates.length <= 1) return;
 
     setIsTransitioning(true);
     const prevIndex =
-      activeIndex === 0 ? certificates.length - 1 : activeIndex - 1;
+      (activeIndex - 1 + certificates.length) % certificates.length;
 
-    // First set transition state
+    // Set transition state
     timeoutRef.current = setTimeout(() => {
       setActiveIndex(prevIndex);
 
-      // Give time for rendering before ending transition state
+      // End transition state after a delay
       timeoutRef.current = setTimeout(() => {
         setIsTransitioning(false);
       }, 100);
@@ -262,22 +248,25 @@ const CertificatesSection = ({ darkMode }) => {
 
     setIsTransitioning(true);
 
-    // First set transition state
+    // Set transition state
     timeoutRef.current = setTimeout(() => {
       setActiveIndex(index);
 
-      // Give time for rendering before ending transition state
+      // End transition state after a delay
       timeoutRef.current = setTimeout(() => {
         setIsTransitioning(false);
       }, 100);
     }, 300);
   };
 
-  // Only proceed if we have an active certificate
-  if (!activeCertificate) {
+  // Get the current active certificate
+  const activeCertificate = certificates[activeIndex];
+
+  // Display loading state if no certificates
+  if (!certificates.length) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        Loading...
+        No certificates available
       </div>
     );
   }
@@ -425,13 +414,12 @@ const CertificatesSection = ({ darkMode }) => {
                         <SkillsList
                           skills={activeCertificate.skills}
                           darkMode={darkMode}
-                          activeIndex={activeIndex}
                         />
                       </div>
 
                       <div className="pt-4">
                         <a
-                          href={activeCertificate.verifyLink}
+                          href={`${activeCertificate.verifyLink}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 w-fit px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
@@ -450,16 +438,17 @@ const CertificatesSection = ({ darkMode }) => {
           {/* Navigation Controls */}
           <div className="flex justify-center gap-4 md:gap-8 mb-16">
             <motion.button
-              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={prevCertificate}
-              disabled={isTransitioning}
+              disabled={isTransitioning || certificates.length <= 1}
               className={`p-3 rounded-full ${
                 darkMode
                   ? "bg-gray-800 hover:bg-gray-700"
                   : "bg-white hover:bg-gray-100"
               } shadow-lg ${
-                isTransitioning ? "opacity-50 cursor-not-allowed" : ""
+                isTransitioning || certificates.length <= 1
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
               }`}
             >
               <ChevronLeft size={24} className="text-indigo-600" />
@@ -476,56 +465,53 @@ const CertificatesSection = ({ darkMode }) => {
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={nextCertificate}
-              disabled={isTransitioning}
+              disabled={isTransitioning || certificates.length <= 1}
               className={`p-3 rounded-full ${
                 darkMode
                   ? "bg-gray-800 hover:bg-gray-700"
                   : "bg-white hover:bg-gray-100"
               } shadow-lg ${
-                isTransitioning ? "opacity-50 cursor-not-allowed" : ""
+                isTransitioning || certificates.length <= 1
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
               }`}
             >
               <ChevronRight size={24} className="text-indigo-600" />
             </motion.button>
           </div>
 
-          {/* Certificates Thumbnails */}
-          <motion.div
-            ref={carousel}
-            className="cursor-grab overflow-hidden"
-            whileTap={{ cursor: "grabbing" }}
-          >
+          {/* Certificates Thumbnails - FIXED SECTION */}
+          <div ref={carousel} className="overflow-hidden">
             <motion.div
               drag="x"
               dragConstraints={{ right: 0, left: -width }}
               className="flex gap-4"
+              onDragStart={() => setIsDragging(true)}
+              onDragEnd={() => setIsDragging(false)}
             >
               {certificates.map((cert, index) => (
                 <motion.div
-                  key={`thumbnail-${cert.id}-${index}`}
-                  whileHover={{ y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className={`min-w-[280px] h-[200px] ${
+                  key={`thumbnail-${cert.id}`}
+                  className={`min-w-[280px] h-[200px] relative rounded-lg overflow-hidden transition-all duration-300 ${
                     index === activeIndex
-                      ? "ring-4 ring-indigo-500"
-                      : "opacity-70 hover:opacity-100"
-                  } rounded-lg overflow-hidden cursor-pointer transition-all duration-300`}
-                  onClick={() => handleThumbnailClick(index)}
+                      ? "ring-4 ring-indigo-500 scale-105"
+                      : "opacity-70"
+                  }`}
+                  onClick={() => !isDragging && handleThumbnailClick(index)}
                 >
                   <img
                     src={cert.image}
                     alt={cert.title}
                     className="w-full h-full object-cover"
-                    // onError={(e) => {
-                    //   e.target.onerror = null;
-                    //   e.target.src =
-                    //     "https://via.placeholder.com/300x200?text=Certificate";
-                    // }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-3">
+                  {/* Only show clear overlay on active certificate, more opaque overlay on others */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-3 ${
+                      index === activeIndex ? "" : "bg-black/30"
+                    }`}
+                  >
                     <h4 className="text-white text-sm font-medium line-clamp-2">
                       {cert.title}
                     </h4>
@@ -533,7 +519,7 @@ const CertificatesSection = ({ darkMode }) => {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>
+          </div>
 
           <div className="text-center mt-6 text-sm text-gray-500 dark:text-gray-400">
             <p>Drag to scroll through certificates</p>
@@ -565,15 +551,6 @@ const CertificatesSection = ({ darkMode }) => {
         }
         .animation-delay-4000 {
           animation-delay: 4s;
-        }
-        .certificate-glow {
-          background: radial-gradient(
-            circle at center,
-            rgba(99, 102, 241, 0.3) 0%,
-            rgba(99, 102, 241, 0) 70%
-          );
-          filter: blur(20px);
-          transform: translateZ(0);
         }
       `}</style>
     </div>
