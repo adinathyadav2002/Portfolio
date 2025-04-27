@@ -133,7 +133,8 @@ const CertificatesSection = ({ darkMode }) => {
         "JavaScript Best Practices",
         "JavaScript Tooling",
       ],
-      verifyLink: "ude.my/UC-c178cb74-c6a6-466d-adc8-8c61c78990b8 ",
+      verifyLink:
+        "https://www.udemy.com/certificate/UC-c178cb74-c6a6-466d-adc8-8c61c78990b8 ",
       mentors: ["Jonas Schmedtmann"],
     },
     {
@@ -151,7 +152,8 @@ const CertificatesSection = ({ darkMode }) => {
         "Mongoose",
         "Authentication",
       ],
-      verifyLink: "ude.my/UC-17c620b9-aaed-4bdf-a131-6242a5cbc96d",
+      verifyLink:
+        "https://www.udemy.com/certificate/UC-17c620b9-aaed-4bdf-a131-6242a5cbc96d",
       mentors: ["Jonas Schmedtmann"],
     },
     {
@@ -176,7 +178,7 @@ const CertificatesSection = ({ darkMode }) => {
         "Foundational Skills",
         "Overview of Artificial Intelligence",
       ],
-      verifyLink: "/",
+      verifyLink: "",
       mentors: ["Mehul Mehta"],
     },
   ];
@@ -206,22 +208,19 @@ const CertificatesSection = ({ darkMode }) => {
     };
   }, []);
 
-  // Navigation functions with transition state
   const nextCertificate = () => {
     if (isTransitioning || certificates.length <= 1) return;
 
     setIsTransitioning(true);
     const nextIndex = (activeIndex + 1) % certificates.length;
 
-    // Set transition state
-    timeoutRef.current = setTimeout(() => {
-      setActiveIndex(nextIndex);
+    // Set transition state immediately
+    setActiveIndex(nextIndex);
 
-      // End transition state after a delay
-      timeoutRef.current = setTimeout(() => {
-        setIsTransitioning(false);
-      }, 100);
-    }, 300);
+    // End transition state after animation completes
+    timeoutRef.current = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500); // Match this with animation duration
   };
 
   const prevCertificate = () => {
@@ -231,32 +230,25 @@ const CertificatesSection = ({ darkMode }) => {
     const prevIndex =
       (activeIndex - 1 + certificates.length) % certificates.length;
 
-    // Set transition state
-    timeoutRef.current = setTimeout(() => {
-      setActiveIndex(prevIndex);
+    // Set transition state immediately
+    setActiveIndex(prevIndex);
 
-      // End transition state after a delay
-      timeoutRef.current = setTimeout(() => {
-        setIsTransitioning(false);
-      }, 100);
-    }, 300);
+    // End transition state after animation completes
+    timeoutRef.current = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500); // Match this with animation duration
   };
 
-  // Function to handle thumbnail click
   const handleThumbnailClick = (index) => {
     if (isTransitioning || index === activeIndex) return;
 
     setIsTransitioning(true);
+    setActiveIndex(index);
 
-    // Set transition state
+    // End transition state after animation completes
     timeoutRef.current = setTimeout(() => {
-      setActiveIndex(index);
-
-      // End transition state after a delay
-      timeoutRef.current = setTimeout(() => {
-        setIsTransitioning(false);
-      }, 100);
-    }, 300);
+      setIsTransitioning(false);
+    }, 500); // Match this with animation duration
   };
 
   // Get the current active certificate
@@ -334,10 +326,15 @@ const CertificatesSection = ({ darkMode }) => {
                   {!isTransitioning && (
                     <motion.div
                       key={`image-${activeIndex}`}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.4 }}
+                      initial={{ opacity: 0, scale: 0.95, x: 20 }}
+                      animate={{ opacity: 1, scale: 1, x: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                        mass: 1,
+                      }}
                       className="relative w-full flex justify-center"
                     >
                       <CertificateImage
@@ -367,10 +364,17 @@ const CertificatesSection = ({ darkMode }) => {
                   {!isTransitioning && (
                     <motion.div
                       key={`details-${activeIndex}`}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                        mass: 0.8,
+                        staggerChildren: 0.1,
+                        delayChildren: 0.2,
+                      }}
                       className="space-y-6"
                     >
                       <h3 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">
@@ -417,17 +421,19 @@ const CertificatesSection = ({ darkMode }) => {
                         />
                       </div>
 
-                      <div className="pt-4">
-                        <a
-                          href={`${activeCertificate.verifyLink}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 w-fit px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
-                        >
-                          <ExternalLink size={18} />
-                          <span>Verify Certificate</span>
-                        </a>
-                      </div>
+                      {activeCertificate.verifyLink != "" && (
+                        <div className="pt-4">
+                          <a
+                            href={`${activeCertificate.verifyLink}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 w-fit px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
+                          >
+                            <ExternalLink size={18} />
+                            <span>Verify Certificate</span>
+                          </a>
+                        </div>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
