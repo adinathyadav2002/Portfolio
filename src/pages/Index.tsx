@@ -4,6 +4,7 @@ import Main from "@/components/sections/Main";
 import ProjectsSection from "@/components/sections/Projects";
 import Footer from "../components/sections/Footer";
 import CertificatesSection from "@/components/sections/CertificatesSection";
+import { TimelineAchivements } from "@/components/sections/TimeLine";
 
 export const Index = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -48,8 +49,12 @@ export const Index = () => {
         <ProjectsSection darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
 
-      <div className="mt-16" id="certificates">
+      <div className="mt-16 mb-24" id="certificates">
         <CertificatesSection darkMode={darkMode} />
+      </div>
+
+      <div className="mt-16 mb-24" id="achievements">
+        <TimelineAchivements darkMode={darkMode} />
       </div>
 
       {/* Footer */}

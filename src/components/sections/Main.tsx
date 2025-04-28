@@ -225,7 +225,7 @@ export default function Main({ darkMode, setDarkMode }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="mb-24 px-4"
+        className="mb-24 md:px-4 px-0"
       >
         <motion.h2
           variants={fadeInUp}
@@ -262,7 +262,7 @@ export default function Main({ darkMode, setDarkMode }) {
             <div
               className={`${
                 darkMode ? "bg-gray-700" : "bg-blue-50"
-              } rounded-xl p-8 transform transition-all hover:scale-105 hover:shadow-lg`}
+              } rounded-xl md:p-8 p-4 transform transition-all hover:scale-105 hover:shadow-lg`}
             >
               <div className="flex items-center mb-4">
                 <div
@@ -293,7 +293,7 @@ export default function Main({ darkMode, setDarkMode }) {
             <div
               className={`${
                 darkMode ? "bg-gray-700" : "bg-purple-50"
-              } rounded-xl p-8 transform transition-all hover:scale-105 hover:shadow-lg`}
+              } rounded-xl md:p-8 p-4 transform transition-all hover:scale-105 hover:shadow-lg`}
             >
               <div className="flex items-center mb-4">
                 <div
@@ -330,7 +330,7 @@ export default function Main({ darkMode, setDarkMode }) {
             <div
               className={`${
                 darkMode ? "bg-gray-700" : "bg-green-50"
-              } rounded-xl p-8 transform transition-all hover:scale-105 hover:shadow-lg`}
+              } rounded-xl md:p-8 p-4 transform transition-all hover:scale-105 hover:shadow-lg`}
             >
               <div className="flex items-center mb-4">
                 <div
@@ -474,7 +474,7 @@ export default function Main({ darkMode, setDarkMode }) {
               <img
                 src="/images/project/weather_desktop.png"
                 alt="Weather App Project"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                className="w-[100%] h-[100%] mx-auto object-cover transition-transform duration-700 hover:scale-110"
               />
             </div>
             <div className="md:p-8 p-4">

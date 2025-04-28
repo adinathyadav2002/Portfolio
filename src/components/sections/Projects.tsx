@@ -278,7 +278,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                   >
                     {/* Project Images */}
                     <div
-                      className={`w-full lg:w-3/5 p-2 lg:p-8 ${
+                      className={`w-full lg:w-3/5 p-1 lg:p-8 ${
                         darkMode ? "bg-gray-700" : "bg-gray-50"
                       } flex items-center justify-center relative
                       ${isEven ? "lg:rounded-r-none" : "lg:rounded-l-none"}`}
@@ -291,10 +291,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                       >
                         {/* Desktop Image */}
-                        <div
-                          className="relative shadow-2xl rounded-lg overflow-hidden"
-                          style={{ width: "380px", height: "240px" }}
-                        >
+                        <div className="relative shadow-2xl rounded-lg overflow-hidden md:w-[380px] md:h-[240px] w-[340px] h-[220px]">
                           <img
                             src={project.desktopImg}
                             alt={`${project.title} desktop view`}
