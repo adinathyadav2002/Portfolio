@@ -7,6 +7,7 @@ import {
   Star,
   Code,
   ExternalLink,
+  ChevronDown,
 } from "lucide-react";
 import { motion } from "framer-motion";
 export default function Main({ darkMode, setDarkMode }) {
@@ -35,331 +36,343 @@ export default function Main({ darkMode, setDarkMode }) {
 
   return (
     <main className="container mx-auto px-6 py-12 max-w-6xl">
-      {/* Hero Section */}
-      <section className="mb-24">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row gap-12 items-center"
+      <section className="mb-16 sm:mb-24 relative">
+        <div
+          className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
+          style={{
+            opacity: 1,
+            transform: "translateY(0px)",
+            transition: "all 0.8s ease-out",
+          }}
         >
           {/* Left Column - Profile Image & Social Links */}
-          <motion.div
-            className="w-full md:w-2/5 flex flex-col items-center"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
+            className="w-full lg:w-2/5 flex flex-col items-center"
+            style={{
+              opacity: 1,
+              transform: "translateX(0px)",
+              transition: "all 0.6s ease-out",
+            }}
           >
-            {/* Profile Image with animated gradient border */}
-            <div className="relative mb-8 group w-64 h-64">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-75 group-hover:opacity-100 blur-sm group-hover:blur transition duration-500"></div>
+            {/* Profile Image with enhanced animations */}
+            <div className="relative mb-8 group w-56 h-56 sm:w-64 sm:h-64">
+              {/* Animated rings */}
+              <div className="absolute inset-0 rounded-full">
+                <div
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-75 group-hover:opacity-100 blur-sm group-hover:blur transition-all duration-500 animate-spin"
+                  style={{ animationDuration: "8s" }}
+                ></div>
+                <div
+                  className="absolute inset-2 rounded-full bg-gradient-to-r from-pink-500 via-blue-500 to-purple-600 opacity-50 group-hover:opacity-75 blur-md transition-all duration-700 animate-spin"
+                  style={{ animationDuration: "12s" }}
+                ></div>
+              </div>
+
               <div
                 className={`relative w-full h-full rounded-full overflow-hidden border-4 ${
                   darkMode ? "border-gray-800" : "border-white"
-                } shadow-xl`}
+                } shadow-2xl transform group-hover:scale-105 transition-all duration-500`}
               >
                 <img
                   src="/images/my_image_1.png"
                   alt="Adinath Yadav"
-                  className="w-full h-full object-contain object-center"
+                  className="w-full h-full object-contain object-center transform group-hover:scale-110 transition-transform duration-700"
                 />
+                {/* Floating sparkles
+                <FloatingElement delay={0}>
+                  <Sparkles className="absolute top-4 right-4 w-4 h-4 text-yellow-400" />
+                </FloatingElement>
+                <FloatingElement delay={1.5}>
+                  <Sparkles className="absolute bottom-6 left-6 w-3 h-3 text-blue-400" />
+                </FloatingElement> */}
               </div>
             </div>
 
-            <div className="text-center mb-10">
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className={`text-lg ${
-                  darkMode ? "text-gray-400" : "text-gray-500"
-                } font-light`}
+            <div className="text-center mb-8 sm:mb-10">
+              <span
+                className={`text-base sm:text-lg ${
+                  darkMode ? "text-gray-300" : "text-gray-600"
+                } font-light block mb-2 tracking-wide`}
+                style={{
+                  opacity: 1,
+                  transform: "translateY(0px)",
+                  transition: "all 0.6s ease-out 0.3s",
+                }}
               >
                 Hello, I am
-              </motion.span>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, type: "spring" }}
-                className="text-5xl font-bold my-3 font-gamaali bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+              </span>
+
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold my-3 font-serif bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-tight"
+                style={{
+                  opacity: 1,
+                  transform: "translateY(0px)",
+                  transition: "all 0.8s ease-out 0.4s",
+                }}
               >
                 Adinath Yadav
-              </motion.h1>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className={`px-5 py-2 ${
-                  darkMode ? "bg-gray-800" : "bg-blue-50"
-                } rounded-full inline-block`}
+              </h1>
+
+              <div
+                className={`px-4 sm:px-6 py-3 ${
+                  darkMode
+                    ? "bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600"
+                    : "bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100"
+                } rounded-full inline-block backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
+                style={{
+                  opacity: 1,
+                  transform: "translateY(0px)",
+                  transition: "all 0.6s ease-out 0.5s",
+                }}
               >
                 <span
-                  className={`text-sm ${
-                    darkMode ? "text-gray-300" : "text-gray-700"
-                  } uppercase font-semibold tracking-wide`}
+                  className={`text-xs sm:text-sm ${
+                    darkMode ? "text-gray-200" : "text-gray-700"
+                  } uppercase font-semibold tracking-wider`}
                 >
-                  B.Tech. in Information & Technology
+                  B.Tech. in Information Technology
                 </span>
-              </motion.div>
+              </div>
             </div>
 
-            {/* Social Media Links with improved hover effects */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-6 mt-2"
+            {/* Enhanced Social Media Links */}
+            <div
+              className="flex items-center gap-4 sm:gap-6 mt-2"
+              style={{
+                opacity: 1,
+                transform: "translateY(0px)",
+                transition: "all 0.6s ease-out 0.6s",
+              }}
             >
               <button
                 onClick={() => openInNewTab("https://instagram.com/")}
-                className={`p-3 rounded-full ${
-                  darkMode
-                    ? "bg-gradient-to-br from-pink-600 to-purple-700 hover:from-pink-500 hover:to-purple-600"
-                    : "bg-gradient-to-br from-pink-500 to-purple-600"
-                } text-white shadow-lg transform transition-all hover:scale-110 hover:shadow-pink-300/50`}
+                className="p-3 sm:p-4 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-pink-300/50 hover:rotate-12 focus:outline-none focus:ring-4 focus:ring-pink-300/50"
                 aria-label="Instagram"
               >
-                <Instagram size={24} />
+                <Instagram size={20} className="sm:w-6 sm:h-6" />
               </button>
               <button
                 onClick={() => openInNewTab("https://linkedin.com/")}
-                className={`p-3 rounded-full ${
-                  darkMode
-                    ? "bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700"
-                    : "bg-gradient-to-br from-blue-500 to-blue-700"
-                } text-white shadow-lg transform transition-all hover:scale-110 hover:shadow-blue-300/50`}
+                className="p-3 sm:p-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-blue-300/50 hover:rotate-12 focus:outline-none focus:ring-4 focus:ring-blue-300/50"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={24} />
+                <Linkedin size={20} className="sm:w-6 sm:h-6" />
               </button>
               <button
                 onClick={() => openInNewTab("https://github.com/")}
-                className={`p-3 rounded-full ${
-                  darkMode
-                    ? "bg-gradient-to-br from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800"
-                    : "bg-gradient-to-br from-gray-700 to-gray-900"
-                } text-white shadow-lg transform transition-all hover:scale-110 hover:shadow-gray-400/30`}
+                className="p-3 sm:p-4 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-gray-400/30 hover:rotate-12 focus:outline-none focus:ring-4 focus:ring-gray-400/30"
                 aria-label="GitHub"
               >
-                <Github size={24} />
+                <Github size={20} className="sm:w-6 sm:h-6" />
               </button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          {/* Right Column - About Me */}
-          <motion.div
-            className="w-full md:w-3/5"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          {/* Right Column - Enhanced About Me */}
+          <div
+            className="w-full lg:w-3/5"
+            style={{
+              opacity: 1,
+              transform: "translateX(0px)",
+              transition: "all 0.6s ease-out 0.2s",
+            }}
           >
             <div
               className={`${
-                darkMode ? "bg-gray-800" : "bg-white"
-              } rounded-2xl shadow-xl overflow-hidden ${
-                darkMode ? "border-gray-700" : "border border-gray-100"
-              }`}
+                darkMode
+                  ? "bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700"
+                  : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
+              } rounded-3xl shadow-2xl overflow-hidden border backdrop-blur-sm transform hover:scale-[1.02] transition-all duration-500`}
             >
-              <div className="p-4 md:pd-10">
+              <div className="p-6 sm:p-8 lg:p-10">
                 <h2
-                  className={`text-3xl font-bold mb-8 ${
+                  className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 ${
                     darkMode ? "text-gray-100" : "text-gray-800"
                   } flex items-center gap-3`}
                 >
                   <span
                     className={`${
                       darkMode
-                        ? "bg-gray-700 text-blue-400"
-                        : "bg-blue-100 text-blue-800"
-                    } p-2 rounded-lg`}
+                        ? "bg-gradient-to-r from-gray-700 to-gray-600 text-blue-400"
+                        : "bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800"
+                    } p-3 rounded-xl shadow-lg`}
                   >
                     About
-                  </span>{" "}
+                  </span>
                   Me
                 </h2>
-                <p
-                  className={`${
-                    darkMode ? "text-gray-300" : "text-gray-700"
-                  } text-lg leading-relaxed mb-6`}
-                >
-                  I am an information technology student with a passion for
-                  solving problems. I specialize in developing efficient
-                  solutions to complex challenges and enjoy exploring new
-                  technologies to expand my technical knowledge.
-                </p>
-                <p
-                  className={`${
-                    darkMode ? "text-gray-300" : "text-gray-700"
-                  } text-lg leading-relaxed mb-8`}
-                >
-                  My expertise includes web development, data structures,
-                  algorithms, and creating impactful digital experiences that
-                  address real-world problems. I am detail-oriented and
-                  committed to writing clean, maintainable code while following
-                  industry best practices.
-                </p>
 
-                <div className="flex items-center mt-8">
+                <div className="space-y-4 sm:space-y-6">
+                  <p
+                    className={`${
+                      darkMode ? "text-gray-300" : "text-gray-700"
+                    } text-base sm:text-lg leading-relaxed`}
+                  >
+                    I am an Information Technology student with a passion for
+                    solving problems. I specialize in developing efficient
+                    solutions to complex challenges and enjoy exploring new
+                    technologies to expand my technical knowledge.
+                  </p>
+                  <p
+                    className={`${
+                      darkMode ? "text-gray-300" : "text-gray-700"
+                    } text-base sm:text-lg leading-relaxed`}
+                  >
+                    My expertise includes web development, data structures,
+                    algorithms, and creating impactful digital experiences that
+                    address real-world problems. I am detail-oriented and
+                    committed to writing clean, maintainable code while
+                    following industry best practices.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
                   <a
                     href="/resume.pdf"
-                    className={`flex items-center gap-2 py-3 px-8 ${
+                    className={`flex items-center justify-center gap-3 py-3 sm:py-4 px-6 sm:px-8 ${
                       darkMode
-                        ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
-                        : "bg-gradient-to-r from-blue-600 to-blue-800"
-                    } text-white rounded-full font-medium shadow-lg hover:shadow-blue-200/50 transition-all hover:scale-105`}
+                        ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500"
+                        : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    } text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform focus:outline-none focus:ring-4 focus:ring-blue-300/50 w-full sm:w-auto`}
                     download="Adinath_Yadav_Resume"
                   >
                     <FileText size={20} />
                     <span>Download Resume</span>
                   </a>
+
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <ChevronDown className="w-4 h-4 animate-bounce" />
+                    <span>Scroll to explore more</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
-      {/* Achievements Section */}
-      <motion.section
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="mb-24 md:px-4 px-0"
+      {/* Enhanced Achievements Section */}
+      <section
+        className="mb-16 sm:mb-24 px-0 sm:px-4"
+        style={{
+          opacity: 1,
+          transform: "translateY(0px)",
+          transition: "all 0.8s ease-out",
+        }}
       >
-        <motion.h2
-          variants={fadeInUp}
-          className="text-3xl font-bold mb-10 text-center"
+        <h2
+          className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center"
+          style={{
+            opacity: 1,
+            transform: "translateY(0px)",
+            transition: "all 0.6s ease-out",
+          }}
         >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Professional Achievements
           </span>
-        </motion.h2>
+        </h2>
 
-        <motion.div
-          variants={fadeInUp}
+        <div
           className={`${
-            darkMode ? "bg-gray-800" : "bg-white"
-          } rounded-2xl shadow-xl md:p-10 p-4 ${
-            darkMode ? "border-gray-700" : "border border-gray-100"
-          }`}
+            darkMode
+              ? "bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700"
+              : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
+          } rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-12 border backdrop-blur-sm`}
+          style={{
+            opacity: 1,
+            transform: "translateY(0px)",
+            transition: "all 0.8s ease-out 0.2s",
+          }}
         >
-          <div className="flex items-center justify-center mb-8">
-            <Award
-              size={40}
-              className={`${darkMode ? "text-blue-400" : "text-blue-600"} mr-3`}
-            />
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-8 sm:mb-10 gap-4">
+            <div
+              className={`p-4 rounded-2xl ${
+                darkMode ? "bg-gray-700" : "bg-blue-100"
+              } shadow-lg`}
+            >
+              <Award
+                size={32}
+                className={`${
+                  darkMode ? "text-blue-400" : "text-blue-600"
+                } sm:w-10 sm:h-10`}
+              />
+            </div>
             <h3
-              className={`text-2xl font-semibold ${
+              className={`text-xl sm:text-2xl font-semibold text-center sm:text-left ${
                 darkMode ? "text-gray-100" : "text-gray-800"
               }`}
             >
-              Coding Proficiency
+              Competitive Programming Excellence
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              className={`${
-                darkMode ? "bg-gray-700" : "bg-blue-50"
-              } rounded-xl md:p-8 p-4 transform transition-all hover:scale-105 hover:shadow-lg`}
-            >
-              <div className="flex items-center mb-4">
-                <div
-                  className={`p-3 ${
-                    darkMode ? "bg-gray-600" : "bg-blue-100"
-                  } rounded-full mr-4`}
-                >
-                  <Star
-                    size={24}
-                    className="text-yellow-500"
-                    fill="currentColor"
-                  />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                title: "LeetCode",
+                description:
+                  "Solved 250+ questions on LeetCode with focus on algorithms, data structures, and optimization techniques",
+                color: "yellow",
+                bgColor: darkMode ? "bg-gray-700" : "bg-yellow-50",
+                iconBg: darkMode ? "bg-gray-600" : "bg-yellow-100",
+              },
+              {
+                title: "CodeChef",
+                description:
+                  "Achieved 3★ rating on CodeChef through consistent participation in competitive programming contests",
+                color: "purple",
+                bgColor: darkMode ? "bg-gray-700" : "bg-purple-50",
+                iconBg: darkMode ? "bg-gray-600" : "bg-purple-100",
+              },
+              {
+                title: "Codeforces",
+                description:
+                  "Reached Pupil status on Codeforces by demonstrating strong problem-solving and algorithmic skills",
+                color: "green",
+                bgColor: darkMode ? "bg-gray-700" : "bg-green-50",
+                iconBg: darkMode ? "bg-gray-600" : "bg-green-100",
+              },
+            ].map((achievement, index) => (
+              <div
+                key={achievement.title}
+                className={`${achievement.bgColor} rounded-2xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer group`}
+                style={{
+                  opacity: 1,
+                  transform: "translateY(0px)",
+                  transition: `all 0.6s ease-out ${0.1 * index}s`,
+                }}
+              >
+                <div className="flex items-center mb-4 sm:mb-6">
+                  <div
+                    className={`p-3 ${achievement.iconBg} rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Star
+                      size={20}
+                      className="text-yellow-500 sm:w-6 sm:h-6"
+                      fill="currentColor"
+                    />
+                  </div>
+                  <h4
+                    className={`text-lg sm:text-xl font-semibold ${
+                      darkMode ? "text-gray-100" : "text-gray-800"
+                    }`}
+                  >
+                    {achievement.title}
+                  </h4>
                 </div>
-                <h4
-                  className={`text-xl font-semibold ${
-                    darkMode ? "text-gray-100" : "text-gray-800"
-                  }`}
+                <p
+                  className={`${
+                    darkMode ? "text-gray-300" : "text-gray-700"
+                  } leading-relaxed`}
                 >
-                  LeetCode
-                </h4>
+                  {achievement.description}
+                </p>
               </div>
-              <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-                Solved 250+ Questions on LeetCode with focus on algorithms, data
-                structures, and optimization techniques
-              </p>
-            </div>
-
-            <div
-              className={`${
-                darkMode ? "bg-gray-700" : "bg-purple-50"
-              } rounded-xl md:p-8 p-4 transform transition-all hover:scale-105 hover:shadow-lg`}
-            >
-              <div className="flex items-center mb-4">
-                <div
-                  className={`p-3 ${
-                    darkMode ? "bg-gray-600" : "bg-purple-100"
-                  } rounded-full mr-4`}
-                >
-                  <Star
-                    size={24}
-                    className="text-yellow-500"
-                    fill="currentColor"
-                  />
-                </div>
-                <h4
-                  className={`text-xl font-semibold ${
-                    darkMode ? "text-gray-100" : "text-gray-800"
-                  }`}
-                >
-                  CodeChef
-                </h4>
-              </div>
-              <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-                Achieved 3
-                <Star
-                  size={12}
-                  className="text-yellow-500 mx-1"
-                  fill="currentColor"
-                />{" "}
-                rating on CodeChef through consistent participation in
-                competitions
-              </p>
-            </div>
-
-            <div
-              className={`${
-                darkMode ? "bg-gray-700" : "bg-green-50"
-              } rounded-xl md:p-8 p-4 transform transition-all hover:scale-105 hover:shadow-lg`}
-            >
-              <div className="flex items-center mb-4">
-                <div
-                  className={`p-3 ${
-                    darkMode ? "bg-gray-600" : "bg-green-100"
-                  } rounded-full mr-4`}
-                >
-                  <Star
-                    size={24}
-                    className="text-yellow-500"
-                    fill="currentColor"
-                  />
-                </div>
-                <h4
-                  className={`text-xl font-semibold ${
-                    darkMode ? "text-gray-100" : "text-gray-800"
-                  }`}
-                >
-                  Codeforces
-                </h4>
-              </div>
-              <p className={`${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-                Reached Pupil status on Codeforces by demonstrating strong
-                competitive programming skills
-              </p>
-            </div>
+            ))}
           </div>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* Projects Section */}
       <motion.section

@@ -51,6 +51,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     } else {
       document.body.classList.remove("dark");
     }
+
+    // Enable smooth scrolling for the whole document
+    document.documentElement.style.scrollBehavior = "smooth";
   }, [darkMode]);
 
   useEffect(() => {
@@ -110,9 +113,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           ? darkMode
             ? "bg-gray-900/95 shadow-md"
             : "bg-white/95 shadow-md"
-          : darkMode
-          ? "bg-gray-900/80"
-          : "bg-white/80"
+          : "bg-transparent" // Transparent when not scrolled
       } ${visible ? "translate-y-0" : "-translate-y-full"} ${
         darkMode ? "text-white" : "text-gray-800"
       }`}
