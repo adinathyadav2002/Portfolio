@@ -14,19 +14,34 @@ import {
 } from "lucide-react";
 
 const ProjectsSection = ({ darkMode, setDarkMode }) => {
-  const [activeTab, setActiveTab] = useState("html_css_js");
+  const [activeTab, setActiveTab] = useState("react");
   const [isIntersecting, setIsIntersecting] = useState({});
   const projectRefs = useRef({});
 
   const technologies = [
-    { id: "html_css_js", name: "HTML/CSS/JS", icon: <Code size={24} /> },
     { id: "react", name: "React", icon: <FileCode size={24} /> },
+    { id: "html_css_js", name: "HTML/CSS/JS", icon: <Code size={24} /> },
     { id: "api", name: "API", icon: <Database size={24} /> },
     { id: "c", name: "C", icon: <Languages size={24} /> },
   ];
 
   const projects = {
-    html_css_js: [
+    react: [
+      {
+        id: "Stranger Live",
+        title: "Stranger Live",
+        desktopImg: "/images/project/chatting_application.png",
+        mobileImg: "/images/project/todolist_mobile.webp",
+        description: [
+          "Uses WebRTC for video calling",
+          "Private and Global chat",
+          "Node.js and Socket.io backend",
+          "Prisma ORM with MySQL database",
+          "MVC architecture",
+        ],
+        liveLink: "",
+        codeLink: "https://github.com/adinathyadav2002/Chatting-Application",
+      },
       {
         id: "omnifood",
         title: "Omnifood",
@@ -70,15 +85,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
         liveLink: "https://pigdice-v1.netlify.app/",
         codeLink: "https://github.com/adinathyadav2002/pigGame",
       },
-      {
-        id: "todolist",
-        title: "Todolist",
-        desktopImg: "/images/project/todolist_desktop.webp",
-        mobileImg: "/images/project/todolist_mobile.webp",
-        description: ["Deployed on Github", "Created using HTML, CSS and JS"],
-        liveLink: "https://adinathyadav2002.github.io/todolist/",
-        codeLink: "https://github.com/adinathyadav2002/todolist",
-      },
+
       {
         id: "calculator",
         title: "Calculator",
@@ -92,7 +99,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
         codeLink: "https://github.com/adinathyadav2002/calculator",
       },
     ],
-    react: [
+    html_css_js: [
       {
         id: "react-project",
         title: "React Dashboard",
@@ -189,7 +196,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
     >
       {/* Hero Section */}
       <section
-        className={`relative pt-20 pb-10 ${
+        className={`relative pt-20 ${
           darkMode
             ? "bg-gradient-to-b from-gray-800 to-gray-900"
             : "bg-gradient-to-b from-indigo-50 to-white"
@@ -246,7 +253,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
       </section>
 
       {/* Projects Display */}
-      <section className="md:py-20 py-12 px-4 md:mt-20 relative z-10 mt-4">
+      <section className="md:py-0 py-12 px-4 md:mt-0 relative z-10 mt-4">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -366,16 +373,18 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                         </ul>
 
                         <div className="flex flex-wrap gap-4">
-                          <a
-                            href={project.liveLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
-                          >
-                            <Globe size={18} />
-                            <span>Live Demo</span>
-                            <ArrowRight size={16} className="ml-1" />
-                          </a>
+                          {project.liveLink && (
+                            <a
+                              href={project.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
+                            >
+                              <Globe size={18} />
+                              <span>Live </span>
+                              <ArrowRight size={16} className="ml-1" />
+                            </a>
+                          )}
 
                           <a
                             href={project.codeLink}

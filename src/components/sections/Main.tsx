@@ -74,7 +74,7 @@ export default function Main({ darkMode, setDarkMode }) {
                 } shadow-2xl transform group-hover:scale-105 transition-all duration-500`}
               >
                 <img
-                  src="/images/my_image_1.png"
+                  src="/images/my_image_1.jpeg"
                   alt="Adinath Yadav"
                   className="w-full h-full object-contain object-center transform group-hover:scale-110 transition-transform duration-700"
                 />
@@ -228,7 +228,7 @@ export default function Main({ darkMode, setDarkMode }) {
 
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
                   <a
-                    href="/resume.pdf"
+                    href="./Adinath_Yadav_resume.pdf"
                     className={`flex items-center justify-center gap-3 py-3 sm:py-4 px-6 sm:px-8 ${
                       darkMode
                         ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500"
@@ -251,7 +251,222 @@ export default function Main({ darkMode, setDarkMode }) {
         </div>
       </section>
 
-      {/* Enhanced Achievements Section */}
+      {/* Projects Section */}
+      <motion.section
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="px-4 pb-16"
+      >
+        <motion.h2
+          variants={fadeInUp}
+          className="text-3xl font-bold mb-10 text-center"
+        >
+          <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            Featured Projects
+          </span>
+        </motion.h2>
+
+        <motion.div
+          variants={fadeInUp}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+        >
+          {/* Project 1 */}
+          <motion.div
+            whileHover={{ y: -10 }}
+            className={`${
+              darkMode ? "bg-gray-800" : "bg-white"
+            } rounded-2xl shadow-xl overflow-hidden ${
+              darkMode ? "border-gray-700" : "border border-gray-100"
+            } md:p-8 p-4`}
+          >
+            <div className="h-64 overflow-hidden">
+              <img
+                src="/images/project/chatting_application.png"
+                alt="Omnifood Project"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+              />
+            </div>
+            <div className="md:p-8 p-4">
+              <h3
+                className={`text-2xl font-bold mb-3 ${
+                  darkMode ? "text-gray-100" : "text-gray-800"
+                }`}
+              >
+                Stranger Live
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  WebRTC
+                </span>
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  Socket.io
+                </span>
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  Prisma
+                </span>
+              </div>
+              <p
+                className={`${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                } mb-8`}
+              >
+                A real-time chat application enabling anonymous conversations
+                between strangers. Built with WebRTC for peer-to-peer
+                communication and Socket.io for signaling. Features include text
+                messaging, video calls and file sharing.
+              </p>
+              <a
+                href="https://github.com/adinathyadav2002/Chatting-Application"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-center gap-2 py-3 px-6 ${
+                  darkMode
+                    ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
+                    : "bg-gradient-to-r from-blue-600 to-blue-800"
+                } text-white rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-200/50 hover:scale-105`}
+              >
+                <span>View source code</span>
+                <ExternalLink size={18} />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Project 2 */}
+          <motion.div
+            whileHover={{ y: -10 }}
+            className={`${
+              darkMode ? "bg-gray-800" : "bg-white"
+            } rounded-2xl shadow-xl overflow-hidden ${
+              darkMode ? "border-gray-700" : "border border-gray-100"
+            } md:p-8 p-4`}
+          >
+            <div className="h-64 overflow-hidden">
+              <img
+                src="/images/project/weather_desktop.png"
+                alt="Weather App Project"
+                className="w-[100%] h-[100%] mx-auto object-cover transition-transform duration-700 hover:scale-110"
+              />
+            </div>
+            <div className="md:p-8 p-4">
+              <h3
+                className={`text-2xl font-bold mb-3 ${
+                  darkMode ? "text-gray-100" : "text-gray-800"
+                }`}
+              >
+                Weather App
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  HTML
+                </span>
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  CSS
+                </span>
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  JavaScript
+                </span>
+                <span
+                  className={`px-3 py-1 ${
+                    darkMode
+                      ? "bg-gray-700 text-blue-400"
+                      : "bg-blue-100 text-blue-600"
+                  } rounded-full text-sm font-medium`}
+                >
+                  API
+                </span>
+              </div>
+              <p
+                className={`${
+                  darkMode ? "text-gray-300" : "text-gray-700"
+                } mb-8`}
+              >
+                Interactive weather application integrating multiple APIs to
+                provide comprehensive weather conditions and forecasts. Features
+                include location search, current conditions, and detailed
+                meteorological data visualization. Hosted on GitHub Pages.
+              </p>
+              <a
+                href="https://adinathyadav2002.github.io/weatherApp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-center gap-2 py-3 px-6 ${
+                  darkMode
+                    ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
+                    : "bg-gradient-to-r from-blue-600 to-blue-800"
+                } text-white rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-200/50 hover:scale-105`}
+              >
+                <span>View Project</span>
+                <ExternalLink size={18} />
+              </a>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div variants={fadeInUp} className="mt-12 flex justify-center">
+          <a
+            href="#projects"
+            className={`flex items-center gap-2 py-3 px-8 ${
+              darkMode
+                ? "bg-gray-700 hover:bg-gray-600 text-gray-200"
+                : "bg-gray-100 hover:bg-gray-200 text-gray-800"
+            } rounded-full font-medium transition-all group`}
+          >
+            <Code
+              size={20}
+              className={darkMode ? "text-blue-400" : "text-blue-600"}
+            />
+            <span>View All Projects</span>
+            <motion.div
+              className="ml-1"
+              initial={{ x: 0 }}
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              →
+            </motion.div>
+          </a>
+        </motion.div>
+      </motion.section>
+
+      {/*  Achievements Section */}
       <section
         className="mb-16 sm:mb-24 px-0 sm:px-4"
         style={{
@@ -373,221 +588,6 @@ export default function Main({ darkMode, setDarkMode }) {
           </div>
         </div>
       </section>
-
-      {/* Projects Section */}
-      <motion.section
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="px-4 pb-16"
-      >
-        <motion.h2
-          variants={fadeInUp}
-          className="text-3xl font-bold mb-10 text-center"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Featured Projects
-          </span>
-        </motion.h2>
-
-        <motion.div
-          variants={fadeInUp}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
-        >
-          {/* Project 1 */}
-          <motion.div
-            whileHover={{ y: -10 }}
-            className={`${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } rounded-2xl shadow-xl overflow-hidden ${
-              darkMode ? "border-gray-700" : "border border-gray-100"
-            } md:p-8 p-4`}
-          >
-            <div className="h-64 overflow-hidden">
-              <img
-                src="/images/project/omnifood_desktop.webp"
-                alt="Omnifood Project"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div className="md:p-8 p-4">
-              <h3
-                className={`text-2xl font-bold mb-3 ${
-                  darkMode ? "text-gray-100" : "text-gray-800"
-                }`}
-              >
-                Omnifood
-              </h3>
-              <div className="flex flex-wrap gap-2 mb-5">
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  HTML
-                </span>
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  CSS
-                </span>
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  JavaScript
-                </span>
-              </div>
-              <p
-                className={`${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                } mb-8`}
-              >
-                A fully responsive food delivery website clone with modern UI
-                components and complete functionality. Implemented with best
-                practices for web accessibility and performance optimization.
-                Deployed and hosted on Netlify.
-              </p>
-              <a
-                href="https://omnifoodtry.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 py-3 px-6 ${
-                  darkMode
-                    ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
-                    : "bg-gradient-to-r from-blue-600 to-blue-800"
-                } text-white rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-200/50 hover:scale-105`}
-              >
-                <span>View Project</span>
-                <ExternalLink size={18} />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Project 2 */}
-          <motion.div
-            whileHover={{ y: -10 }}
-            className={`${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } rounded-2xl shadow-xl overflow-hidden ${
-              darkMode ? "border-gray-700" : "border border-gray-100"
-            } md:p-8 p-4`}
-          >
-            <div className="h-64 overflow-hidden">
-              <img
-                src="/images/project/weather_desktop.png"
-                alt="Weather App Project"
-                className="w-[100%] h-[100%] mx-auto object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div className="md:p-8 p-4">
-              <h3
-                className={`text-2xl font-bold mb-3 ${
-                  darkMode ? "text-gray-100" : "text-gray-800"
-                }`}
-              >
-                Weather App
-              </h3>
-              <div className="flex flex-wrap gap-2 mb-5">
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  HTML
-                </span>
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  CSS
-                </span>
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  JavaScript
-                </span>
-                <span
-                  className={`px-3 py-1 ${
-                    darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
-                >
-                  API
-                </span>
-              </div>
-              <p
-                className={`${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                } mb-8`}
-              >
-                Interactive weather application integrating multiple APIs to
-                provide comprehensive weather conditions and forecasts. Features
-                include location search, current conditions, and detailed
-                meteorological data visualization. Hosted on GitHub Pages.
-              </p>
-              <a
-                href="https://adinathyadav2002.github.io/weatherApp/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 py-3 px-6 ${
-                  darkMode
-                    ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
-                    : "bg-gradient-to-r from-blue-600 to-blue-800"
-                } text-white rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-200/50 hover:scale-105`}
-              >
-                <span>View Project</span>
-                <ExternalLink size={18} />
-              </a>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        <motion.div variants={fadeInUp} className="mt-12 flex justify-center">
-          <a
-            href="#projects"
-            className={`flex items-center gap-2 py-3 px-8 ${
-              darkMode
-                ? "bg-gray-700 hover:bg-gray-600 text-gray-200"
-                : "bg-gray-100 hover:bg-gray-200 text-gray-800"
-            } rounded-full font-medium transition-all group`}
-          >
-            <Code
-              size={20}
-              className={darkMode ? "text-blue-400" : "text-blue-600"}
-            />
-            <span>View All Projects</span>
-            <motion.div
-              className="ml-1"
-              initial={{ x: 0 }}
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              →
-            </motion.div>
-          </a>
-        </motion.div>
-      </motion.section>
     </main>
   );
 }
