@@ -116,20 +116,20 @@ const Footer = ({ darkMode }) => {
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg z-50 ${
+        className={`fixed bottom-6 right-6 p-2.5 rounded-lg border shadow-sm z-50 ${
           darkMode
-            ? "bg-indigo-600 hover:bg-indigo-700 text-white"
-            : "bg-indigo-500 hover:bg-indigo-600 text-white"
+            ? "bg-gray-900 border-gray-800 hover:bg-gray-800 text-gray-200"
+            : "bg-white border-gray-200 hover:bg-gray-100 text-gray-700"
         } ${
           isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-        } transition-all duration-300`}
+        } transition-all duration-200`}
         animate={{ y: isVisible ? 0 : 20 }}
         initial={{ y: 20 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         aria-label="Scroll to top"
       >
-        <ChevronUp size={24} />
+        <ChevronUp size={20} />
       </motion.button>
     </footer>
   );

@@ -191,15 +191,13 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
   return (
     <div
       className={`${
-        darkMode ? "bg-gray-900 text-gray-200" : "bg-gray-100 text-gray-800"
+        darkMode ? "text-gray-200" : "text-gray-800"
       } min-h-screen transition-colors duration-300`}
     >
       {/* Hero Section */}
       <section
         className={`relative pt-20 ${
-          darkMode
-            ? "bg-gradient-to-b from-gray-800 to-gray-900"
-            : "bg-gradient-to-b from-indigo-50 to-white"
+          darkMode ? "bg-transparent" : "bg-indigo-50/50"
         }`}
       >
         <div className="container mx-auto px-4">
@@ -209,7 +207,11 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
             transition={{ duration: 0.7 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
+            <h1
+              className={`text-5xl md:text-6xl font-bold mb-6 ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
+            >
               My Projects
             </h1>
             <p
@@ -236,7 +238,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                     onClick={() => setActiveTab(tech.id)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
                       activeTab === tech.id
-                        ? "bg-indigo-500 text-white shadow-md"
+                        ? "bg-indigo-600 text-white shadow-md"
                         : `${
                             darkMode ? "hover:bg-gray-700" : "hover:bg-gray-100"
                           }`
@@ -304,7 +306,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                             alt={`${project.title} desktop view`}
                             className="w-full h-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                          <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                             <div className="p-4 text-white">
                               <p className="font-medium">
                                 {project.title} - Desktop View
@@ -312,23 +314,6 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                             </div>
                           </div>
                         </div>
-
-                        {/* Mobile Image */}
-                        {/* <div
-                          className="relative shadow-2xl rounded-lg overflow-hidden hidden md:block"
-                          style={{ width: "120px", height: "220px" }}
-                        >
-                          <img
-                            src={project.mobileImg}
-                            alt={`${project.title} mobile view`}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div className="p-2 text-white">
-                              <p className="text-xs font-medium">Mobile View</p>
-                            </div>
-                          </div>
-                        </div> */}
                       </motion.div>
 
                       {/* Decorative elements */}

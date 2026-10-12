@@ -20,19 +20,10 @@ export const Index = () => {
 
   return (
     <div
-      className={`min-h-screen font-montserrat text-gray-800 relative overflow-hidden ${
-        darkMode
-          ? "dark bg-gray-900"
-          : "bg-gradient-to-tl from-gray-100 to-white"
+      className={`min-h-screen font-montserrat relative ${
+        darkMode ? "dark bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-900"
       }`}
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-blue-500/10 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 rounded-full bg-purple-500/10 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-10 left-1/3 w-72 h-72 rounded-full bg-pink-500/10 animate-blob animation-delay-4000"></div>
-      </div>
-
       {/* Header */}
 
       <div id="home">

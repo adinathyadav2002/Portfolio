@@ -36,9 +36,9 @@ export default function Main({ darkMode, setDarkMode }) {
 
   return (
     <main className="container mx-auto px-6 py-12 max-w-6xl">
-      <section className="mb-16 sm:mb-24 relative">
+      <section className="mb-16 sm:mb-20 relative">
         <div
-          className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
+          className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center"
           style={{
             opacity: 1,
             transform: "translateY(0px)",
@@ -54,121 +54,90 @@ export default function Main({ darkMode, setDarkMode }) {
               transition: "all 0.6s ease-out",
             }}
           >
-            {/* Profile Image with enhanced animations */}
-            <div className="relative mb-8 group w-56 h-56 sm:w-64 sm:h-64">
-              {/* Animated rings */}
-              <div className="absolute inset-0 rounded-full">
-                <div
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-75 group-hover:opacity-100 blur-sm group-hover:blur transition-all duration-500 animate-spin"
-                  style={{ animationDuration: "8s" }}
-                ></div>
-                <div
-                  className="absolute inset-2 rounded-full bg-gradient-to-r from-pink-500 via-blue-500 to-purple-600 opacity-50 group-hover:opacity-75 blur-md transition-all duration-700 animate-spin"
-                  style={{ animationDuration: "12s" }}
-                ></div>
-              </div>
-
+            {/* Profile Image with clean professional frame */}
+            <div className="relative mb-6 w-48 h-48 sm:w-56 sm:h-56">
               <div
-                className={`relative w-full h-full rounded-full overflow-hidden border-4 ${
-                  darkMode ? "border-gray-800" : "border-white"
-                } shadow-2xl transform group-hover:scale-105 transition-all duration-500`}
+                className={`w-full h-full rounded-2xl overflow-hidden border ${
+                  darkMode ? "border-gray-800 bg-gray-900" : "border-gray-200 bg-gray-100"
+                } shadow-sm`}
               >
                 <img
-                  src="/images/my_image_1.jpeg"
+                  src="/images/my_image_1.png"
                   alt="Adinath Yadav"
-                  className="w-full h-full object-contain object-center transform group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top"
                 />
-                {/* Floating sparkles
-                <FloatingElement delay={0}>
-                  <Sparkles className="absolute top-4 right-4 w-4 h-4 text-yellow-400" />
-                </FloatingElement>
-                <FloatingElement delay={1.5}>
-                  <Sparkles className="absolute bottom-6 left-6 w-3 h-3 text-blue-400" />
-                </FloatingElement> */}
               </div>
             </div>
 
-            <div className="text-center mb-8 sm:mb-10">
+            <div className="text-center mb-6 sm:mb-8">
               <span
-                className={`text-base sm:text-lg ${
-                  darkMode ? "text-gray-300" : "text-gray-600"
-                } font-light block mb-2 tracking-wide`}
-                style={{
-                  opacity: 1,
-                  transform: "translateY(0px)",
-                  transition: "all 0.6s ease-out 0.3s",
-                }}
+                className={`text-sm sm:text-base ${
+                  darkMode ? "text-gray-400" : "text-gray-500"
+                } font-medium block mb-2 tracking-wide uppercase`}
               >
                 Hello, I am
               </span>
 
               <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold my-3 font-serif bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-tight"
-                style={{
-                  opacity: 1,
-                  transform: "translateY(0px)",
-                  transition: "all 0.8s ease-out 0.4s",
-                }}
+                className={`text-3xl sm:text-4xl lg:text-5xl font-bold my-2 tracking-tight ${
+                  darkMode ? "text-white" : "text-gray-900"
+                }`}
               >
                 Adinath Yadav
               </h1>
 
               <div
-                className={`px-4 sm:px-6 py-3 ${
+                className={`px-3 py-1.5 mt-2 ${
                   darkMode
-                    ? "bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600"
-                    : "bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100"
-                } rounded-full inline-block backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
-                style={{
-                  opacity: 1,
-                  transform: "translateY(0px)",
-                  transition: "all 0.6s ease-out 0.5s",
-                }}
+                    ? "bg-gray-800/80 border border-gray-700 text-gray-300"
+                    : "bg-gray-100 border border-gray-200 text-gray-700"
+                } rounded-md inline-block`}
               >
-                <span
-                  className={`text-xs sm:text-sm ${
-                    darkMode ? "text-gray-200" : "text-gray-700"
-                  } uppercase font-semibold tracking-wider`}
-                >
+                <span className="text-xs sm:text-sm font-medium tracking-wide">
                   B.Tech. in Information Technology
                 </span>
               </div>
             </div>
 
-            {/* Enhanced Social Media Links */}
-            <div
-              className="flex items-center gap-4 sm:gap-6 mt-2"
-              style={{
-                opacity: 1,
-                transform: "translateY(0px)",
-                transition: "all 0.6s ease-out 0.6s",
-              }}
-            >
+            {/* Social Media Links */}
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => openInNewTab("https://instagram.com/")}
-                className="p-3 sm:p-4 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-pink-300/50 hover:rotate-12 focus:outline-none focus:ring-4 focus:ring-pink-300/50"
+                className={`p-2.5 rounded-lg border transition-colors ${
+                  darkMode
+                    ? "border-gray-800 bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800"
+                    : "border-gray-200 bg-white text-gray-700 hover:text-black hover:bg-gray-100"
+                }`}
                 aria-label="Instagram"
               >
-                <Instagram size={20} className="sm:w-6 sm:h-6" />
+                <Instagram size={18} />
               </button>
               <button
                 onClick={() => openInNewTab("https://linkedin.com/")}
-                className="p-3 sm:p-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-blue-300/50 hover:rotate-12 focus:outline-none focus:ring-4 focus:ring-blue-300/50"
+                className={`p-2.5 rounded-lg border transition-colors ${
+                  darkMode
+                    ? "border-gray-800 bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800"
+                    : "border-gray-200 bg-white text-gray-700 hover:text-black hover:bg-gray-100"
+                }`}
                 aria-label="LinkedIn"
               >
-                <Linkedin size={20} className="sm:w-6 sm:h-6" />
+                <Linkedin size={18} />
               </button>
               <button
                 onClick={() => openInNewTab("https://github.com/")}
-                className="p-3 sm:p-4 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-gray-400/30 hover:rotate-12 focus:outline-none focus:ring-4 focus:ring-gray-400/30"
+                className={`p-2.5 rounded-lg border transition-colors ${
+                  darkMode
+                    ? "border-gray-800 bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800"
+                    : "border-gray-200 bg-white text-gray-700 hover:text-black hover:bg-gray-100"
+                }`}
                 aria-label="GitHub"
               >
-                <Github size={20} className="sm:w-6 sm:h-6" />
+                <Github size={18} />
               </button>
             </div>
           </div>
 
-          {/* Right Column - Enhanced About Me */}
+          {/* Right Column - About Me */}
           <div
             className="w-full lg:w-3/5"
             style={{
@@ -180,44 +149,36 @@ export default function Main({ darkMode, setDarkMode }) {
             <div
               className={`${
                 darkMode
-                  ? "bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700"
-                  : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
-              } rounded-3xl shadow-2xl overflow-hidden border backdrop-blur-sm transform hover:scale-[1.02] transition-all duration-500`}
+                  ? "bg-gray-900/90 border-gray-800"
+                  : "bg-white border-gray-200"
+              } rounded-xl shadow-sm overflow-hidden border`}
             >
-              <div className="p-6 sm:p-8 lg:p-10">
+              <div className="p-6 sm:p-8">
                 <h2
-                  className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 ${
-                    darkMode ? "text-gray-100" : "text-gray-800"
-                  } flex items-center gap-3`}
+                  className={`text-xl sm:text-2xl font-bold mb-5 ${
+                    darkMode ? "text-gray-100" : "text-gray-900"
+                  } flex items-center gap-2`}
                 >
                   <span
                     className={`${
                       darkMode
-                        ? "bg-gradient-to-r from-gray-700 to-gray-600 text-blue-400"
-                        : "bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800"
-                    } p-3 rounded-xl shadow-lg`}
+                        ? "bg-gray-800 text-gray-200"
+                        : "bg-gray-100 text-gray-800"
+                    } px-2.5 py-1 rounded-md text-sm font-semibold`}
                   >
                     About
                   </span>
                   Me
                 </h2>
 
-                <div className="space-y-4 sm:space-y-6">
-                  <p
-                    className={`${
-                      darkMode ? "text-gray-300" : "text-gray-700"
-                    } text-base sm:text-lg leading-relaxed`}
-                  >
+                <div className="space-y-4 text-sm sm:text-base leading-relaxed">
+                  <p className={darkMode ? "text-gray-300" : "text-gray-600"}>
                     I am an Information Technology student with a passion for
                     solving problems. I specialize in developing efficient
                     solutions to complex challenges and enjoy exploring new
                     technologies to expand my technical knowledge.
                   </p>
-                  <p
-                    className={`${
-                      darkMode ? "text-gray-300" : "text-gray-700"
-                    } text-base sm:text-lg leading-relaxed`}
-                  >
+                  <p className={darkMode ? "text-gray-300" : "text-gray-600"}>
                     My expertise includes web development, data structures,
                     algorithms, and creating impactful digital experiences that
                     address real-world problems. I am detail-oriented and
@@ -226,22 +187,22 @@ export default function Main({ darkMode, setDarkMode }) {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8 pt-4 border-t border-gray-100 dark:border-gray-800">
                   <a
                     href="./Adinath_Yadav_resume.pdf"
-                    className={`flex items-center justify-center gap-3 py-3 sm:py-4 px-6 sm:px-8 ${
+                    className={`flex items-center justify-center gap-2 py-2.5 px-5 ${
                       darkMode
-                        ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500"
-                        : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                    } text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform focus:outline-none focus:ring-4 focus:ring-blue-300/50 w-full sm:w-auto`}
+                        ? "bg-gray-100 text-gray-900 hover:bg-white"
+                        : "bg-gray-900 text-white hover:bg-gray-800"
+                    } rounded-lg text-sm font-medium transition-colors w-full sm:w-auto shadow-sm`}
                     download="Adinath_Yadav_Resume"
                   >
-                    <FileText size={20} />
+                    <FileText size={16} />
                     <span>Download Resume</span>
                   </a>
 
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <ChevronDown className="w-4 h-4 animate-bounce" />
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+                    <ChevronDown className="w-4 h-4" />
                     <span>Scroll to explore more</span>
                   </div>
                 </div>
@@ -257,78 +218,85 @@ export default function Main({ darkMode, setDarkMode }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="px-4 pb-16"
+        className="px-0 pb-16"
       >
-        <motion.h2
-          variants={fadeInUp}
-          className="text-3xl font-bold mb-10 text-center"
-        >
-          <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+        <motion.div variants={fadeInUp} className="mb-10 text-center">
+          <h2
+            className={`text-2xl sm:text-3xl font-bold tracking-tight ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             Featured Projects
-          </span>
-        </motion.h2>
+          </h2>
+          <p
+            className={`mt-2 text-sm sm:text-base ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            A selection of recent projects highlighting development and architecture
+          </p>
+        </motion.div>
 
         <motion.div
           variants={fadeInUp}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {/* Project 1 */}
           <motion.div
-            whileHover={{ y: -10 }}
             className={`${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } rounded-2xl shadow-xl overflow-hidden ${
-              darkMode ? "border-gray-700" : "border border-gray-100"
-            } md:p-8 p-4`}
+              darkMode
+                ? "bg-gray-900/90 border-gray-800"
+                : "bg-white border-gray-200"
+            } rounded-xl border shadow-sm overflow-hidden flex flex-col`}
           >
-            <div className="h-64 overflow-hidden">
+            <div className="h-56 overflow-hidden bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
               <img
                 src="/images/project/chatting_application.png"
-                alt="Omnifood Project"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                alt="Chatting Application"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="md:p-8 p-4">
+            <div className="p-6 flex flex-col flex-1">
               <h3
-                className={`text-2xl font-bold mb-3 ${
-                  darkMode ? "text-gray-100" : "text-gray-800"
+                className={`text-xl font-bold mb-2.5 ${
+                  darkMode ? "text-gray-100" : "text-gray-900"
                 }`}
               >
                 Stranger Live
               </h3>
-              <div className="flex flex-wrap gap-2 mb-5">
+              <div className="flex flex-wrap gap-1.5 mb-4">
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   WebRTC
                 </span>
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   Socket.io
                 </span>
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   Prisma
                 </span>
               </div>
               <p
                 className={`${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                } mb-8`}
+                  darkMode ? "text-gray-400" : "text-gray-600"
+                } text-sm mb-6 flex-1`}
               >
                 A real-time chat application enabling anonymous conversations
                 between strangers. Built with WebRTC for peer-to-peer
@@ -339,84 +307,83 @@ export default function Main({ darkMode, setDarkMode }) {
                 href="https://github.com/adinathyadav2002/Chatting-Application"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 py-3 px-6 ${
+                className={`inline-flex items-center justify-center gap-2 py-2 px-4 ${
                   darkMode
-                    ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
-                    : "bg-gradient-to-r from-blue-600 to-blue-800"
-                } text-white rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-200/50 hover:scale-105`}
+                    ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border border-gray-700"
+                    : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
+                } rounded-lg text-sm font-medium transition-colors`}
               >
                 <span>View source code</span>
-                <ExternalLink size={18} />
+                <ExternalLink size={16} />
               </a>
             </div>
           </motion.div>
 
           {/* Project 2 */}
           <motion.div
-            whileHover={{ y: -10 }}
             className={`${
-              darkMode ? "bg-gray-800" : "bg-white"
-            } rounded-2xl shadow-xl overflow-hidden ${
-              darkMode ? "border-gray-700" : "border border-gray-100"
-            } md:p-8 p-4`}
+              darkMode
+                ? "bg-gray-900/90 border-gray-800"
+                : "bg-white border-gray-200"
+            } rounded-xl border shadow-sm overflow-hidden flex flex-col`}
           >
-            <div className="h-64 overflow-hidden">
+            <div className="h-56 overflow-hidden bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
               <img
                 src="/images/project/weather_desktop.png"
                 alt="Weather App Project"
-                className="w-[100%] h-[100%] mx-auto object-cover transition-transform duration-700 hover:scale-110"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="md:p-8 p-4">
+            <div className="p-6 flex flex-col flex-1">
               <h3
-                className={`text-2xl font-bold mb-3 ${
-                  darkMode ? "text-gray-100" : "text-gray-800"
+                className={`text-xl font-bold mb-2.5 ${
+                  darkMode ? "text-gray-100" : "text-gray-900"
                 }`}
               >
                 Weather App
               </h3>
-              <div className="flex flex-wrap gap-2 mb-5">
+              <div className="flex flex-wrap gap-1.5 mb-4">
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   HTML
                 </span>
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   CSS
                 </span>
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   JavaScript
                 </span>
                 <span
-                  className={`px-3 py-1 ${
+                  className={`px-2.5 py-1 ${
                     darkMode
-                      ? "bg-gray-700 text-blue-400"
-                      : "bg-blue-100 text-blue-600"
-                  } rounded-full text-sm font-medium`}
+                      ? "bg-gray-800 text-gray-300"
+                      : "bg-gray-100 text-gray-700"
+                  } rounded-md text-xs font-medium`}
                 >
                   API
                 </span>
               </div>
               <p
                 className={`${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                } mb-8`}
+                  darkMode ? "text-gray-400" : "text-gray-600"
+                } text-sm mb-6 flex-1`}
               >
                 Interactive weather application integrating multiple APIs to
                 provide comprehensive weather conditions and forecasts. Features
@@ -427,94 +394,86 @@ export default function Main({ darkMode, setDarkMode }) {
                 href="https://adinathyadav2002.github.io/weatherApp/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2 py-3 px-6 ${
+                className={`inline-flex items-center justify-center gap-2 py-2 px-4 ${
                   darkMode
-                    ? "bg-gradient-to-r from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800"
-                    : "bg-gradient-to-r from-blue-600 to-blue-800"
-                } text-white rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-200/50 hover:scale-105`}
+                    ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border border-gray-700"
+                    : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
+                } rounded-lg text-sm font-medium transition-colors`}
               >
                 <span>View Project</span>
-                <ExternalLink size={18} />
+                <ExternalLink size={16} />
               </a>
             </div>
           </motion.div>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="mt-12 flex justify-center">
+        <motion.div variants={fadeInUp} className="mt-10 flex justify-center">
           <a
             href="#projects"
-            className={`flex items-center gap-2 py-3 px-8 ${
+            className={`inline-flex items-center gap-2 py-2.5 px-6 ${
               darkMode
-                ? "bg-gray-700 hover:bg-gray-600 text-gray-200"
-                : "bg-gray-100 hover:bg-gray-200 text-gray-800"
-            } rounded-full font-medium transition-all group`}
+                ? "bg-gray-900 hover:bg-gray-800 text-gray-200 border border-gray-800"
+                : "bg-white hover:bg-gray-50 text-gray-900 border border-gray-200"
+            } rounded-lg text-sm font-medium transition-colors shadow-sm`}
           >
             <Code
-              size={20}
-              className={darkMode ? "text-blue-400" : "text-blue-600"}
+              size={18}
+              className={darkMode ? "text-gray-400" : "text-gray-600"}
             />
             <span>View All Projects</span>
-            <motion.div
-              className="ml-1"
-              initial={{ x: 0 }}
-              whileHover={{ x: 5 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              →
-            </motion.div>
+            <span className="ml-1">→</span>
           </a>
         </motion.div>
       </motion.section>
 
-      {/*  Achievements Section */}
+      {/* Achievements Section */}
       <section
-        className="mb-16 sm:mb-24 px-0 sm:px-4"
+        className="mb-16 sm:mb-20 px-0"
         style={{
           opacity: 1,
           transform: "translateY(0px)",
           transition: "all 0.8s ease-out",
         }}
       >
-        <h2
-          className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center"
-          style={{
-            opacity: 1,
-            transform: "translateY(0px)",
-            transition: "all 0.6s ease-out",
-          }}
-        >
-          <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+        <div className="mb-10 text-center">
+          <h2
+            className={`text-2xl sm:text-3xl font-bold tracking-tight ${
+              darkMode ? "text-white" : "text-gray-900"
+            }`}
+          >
             Professional Achievements
-          </span>
-        </h2>
+          </h2>
+          <p
+            className={`mt-2 text-sm sm:text-base ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            Competitive programming and algorithmic problem-solving milestones
+          </p>
+        </div>
 
         <div
           className={`${
             darkMode
-              ? "bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700"
-              : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
-          } rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-12 border backdrop-blur-sm`}
+              ? "bg-gray-900/90 border-gray-800"
+              : "bg-white border-gray-200"
+          } rounded-xl p-6 sm:p-8 lg:p-10 border shadow-sm`}
           style={{
             opacity: 1,
             transform: "translateY(0px)",
             transition: "all 0.8s ease-out 0.2s",
           }}
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center mb-8 sm:mb-10 gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-8 gap-3">
             <div
-              className={`p-4 rounded-2xl ${
-                darkMode ? "bg-gray-700" : "bg-blue-100"
-              } shadow-lg`}
+              className={`p-3 rounded-lg ${
+                darkMode ? "bg-gray-800 text-gray-200" : "bg-gray-100 text-gray-800"
+              }`}
             >
-              <Award
-                size={32}
-                className={`${
-                  darkMode ? "text-blue-400" : "text-blue-600"
-                } sm:w-10 sm:h-10`}
-              />
+              <Award size={24} />
             </div>
             <h3
-              className={`text-xl sm:text-2xl font-semibold text-center sm:text-left ${
+              className={`text-lg sm:text-xl font-semibold text-center sm:text-left ${
                 darkMode ? "text-gray-100" : "text-gray-800"
               }`}
             >
@@ -522,55 +481,49 @@ export default function Main({ darkMode, setDarkMode }) {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {[
               {
                 title: "LeetCode",
                 description:
                   "Solved 250+ questions on LeetCode with focus on algorithms, data structures, and optimization techniques",
-                color: "yellow",
-                bgColor: darkMode ? "bg-gray-700" : "bg-yellow-50",
-                iconBg: darkMode ? "bg-gray-600" : "bg-yellow-100",
               },
               {
                 title: "CodeChef",
                 description:
                   "Achieved 3★ rating on CodeChef through consistent participation in competitive programming contests",
-                color: "purple",
-                bgColor: darkMode ? "bg-gray-700" : "bg-purple-50",
-                iconBg: darkMode ? "bg-gray-600" : "bg-purple-100",
               },
               {
                 title: "Codeforces",
                 description:
                   "Reached Pupil status on Codeforces by demonstrating strong problem-solving and algorithmic skills",
-                color: "green",
-                bgColor: darkMode ? "bg-gray-700" : "bg-green-50",
-                iconBg: darkMode ? "bg-gray-600" : "bg-green-100",
               },
             ].map((achievement, index) => (
               <div
                 key={achievement.title}
-                className={`${achievement.bgColor} rounded-2xl p-6 sm:p-8 transform transition-all duration-500 hover:scale-105 hover:shadow-xl cursor-pointer group`}
+                className={`${
+                  darkMode ? "bg-gray-800/60 border-gray-700/60" : "bg-gray-50 border-gray-200"
+                } rounded-lg p-5 border transition-colors`}
                 style={{
                   opacity: 1,
                   transform: "translateY(0px)",
                   transition: `all 0.6s ease-out ${0.1 * index}s`,
                 }}
               >
-                <div className="flex items-center mb-4 sm:mb-6">
+                <div className="flex items-center mb-3">
                   <div
-                    className={`p-3 ${achievement.iconBg} rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300`}
+                    className={`p-2 ${
+                      darkMode ? "bg-gray-700 text-amber-400" : "bg-white text-amber-500 border border-gray-200"
+                    } rounded-md mr-3`}
                   >
                     <Star
-                      size={20}
-                      className="text-yellow-500 sm:w-6 sm:h-6"
+                      size={18}
                       fill="currentColor"
                     />
                   </div>
                   <h4
-                    className={`text-lg sm:text-xl font-semibold ${
-                      darkMode ? "text-gray-100" : "text-gray-800"
+                    className={`text-base font-semibold ${
+                      darkMode ? "text-gray-100" : "text-gray-900"
                     }`}
                   >
                     {achievement.title}
@@ -578,8 +531,8 @@ export default function Main({ darkMode, setDarkMode }) {
                 </div>
                 <p
                   className={`${
-                    darkMode ? "text-gray-300" : "text-gray-700"
-                  } leading-relaxed`}
+                    darkMode ? "text-gray-300" : "text-gray-600"
+                  } text-sm leading-relaxed`}
                 >
                   {achievement.description}
                 </p>

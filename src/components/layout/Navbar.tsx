@@ -124,11 +124,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           {/* Logo - Now positioned absolutely on the left */}
           <div className="absolute left-0 flex items-center">
             <span
-              className={`font-bold text-xl ${
-                darkMode
-                  ? "bg-gradient-to-r from-purple-500 to-blue-500"
-                  : "bg-gradient-to-r from-blue-600 to-purple-600"
-              } bg-clip-text text-transparent`}
+              className={`font-bold text-xl tracking-tight ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
             >
               AY
             </span>
@@ -137,24 +135,19 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           {/* Desktop Navigation - Now centered */}
           <div className="hidden md:block">
             <nav className="flex items-center justify-center">
-              <ul className="flex items-center gap-2">
+              <ul className="flex items-center gap-1">
                 {navLinks.map((link) => (
-                  <li
-                    key={link.name}
-                    className={`flex items-center transition-all duration-300 ${
-                      darkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"
-                    }`}
-                  >
+                  <li key={link.name} className="flex items-center">
                     <a
                       href={link.href}
-                      className={`px-3 py-2 rounded-md text-sm font-medium flex items-center group relative overflow-hidden ${
+                      className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-colors duration-200 ${
                         activeLink === link.href
                           ? darkMode
-                            ? "text-white bg-gray-700"
-                            : "text-gray-900 bg-gray-200"
+                            ? "text-white bg-gray-800"
+                            : "text-gray-900 bg-gray-100 font-semibold"
                           : darkMode
-                          ? "text-gray-300 hover:text-white"
-                          : "text-gray-700 hover:text-gray-900"
+                          ? "text-gray-400 hover:text-white hover:bg-gray-800/60"
+                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-100/80"
                       }`}
                       onClick={(e) => {
                         e.preventDefault();
@@ -165,26 +158,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                         }
                       }}
                     >
-                      {/* Hover background effect */}
-                      <span
-                        className={`absolute inset-0 ${
-                          darkMode
-                            ? "bg-gradient-to-r from-blue-600 to-purple-600"
-                            : "bg-gradient-to-r from-blue-200 to-purple-200"
-                        } opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md ${
-                          activeLink === link.href ? "opacity-100" : ""
-                        }`}
-                      ></span>
-
-                      {/* Content */}
-                      <span className="relative z-10 flex items-center">
-                        <span className="transform group-hover:scale-110 transition-transform duration-200">
-                          {link.icon}
-                        </span>
-                        <span className="transform group-hover:translate-x-1 transition-transform duration-200">
-                          {link.name}
-                        </span>
-                      </span>
+                      {link.icon}
+                      <span>{link.name}</span>
                     </a>
                   </li>
                 ))}
@@ -196,14 +171,14 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <div className="absolute md:right-0 right-10">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-300 ${
+              className={`p-2 rounded-md border transition-colors duration-200 ${
                 darkMode
-                  ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
-                  : "bg-blue-100 text-gray-800 hover:bg-blue-200"
+                  ? "bg-gray-900 border-gray-800 text-gray-200 hover:bg-gray-800"
+                  : "bg-white border-gray-200 text-gray-700 hover:bg-gray-100"
               }`}
               aria-label="Toggle theme"
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
 
@@ -215,20 +190,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               onClick={() => setIsOpen(!isOpen)}
               className={`${
                 darkMode
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              } transition-colors duration-200 relative overflow-hidden group`}
+                  ? "text-gray-300 hover:text-white hover:bg-gray-800"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              } rounded-md transition-colors duration-200`}
             >
-              <span
-                className={`absolute inset-0 ${
-                  darkMode
-                    ? "bg-gradient-to-r from-blue-600 to-purple-600"
-                    : "bg-gradient-to-r from-blue-200 to-purple-200"
-                } opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md`}
-              ></span>
-              <span className="relative z-10">
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </span>
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
           </div>
         </div>
