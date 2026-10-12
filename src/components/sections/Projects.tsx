@@ -200,24 +200,24 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
           darkMode ? "bg-transparent" : "bg-indigo-50/50"
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h1
-              className={`text-5xl md:text-6xl font-bold mb-6 ${
+              className={`text-3xl md:text-4xl font-semibold tracking-tight mb-3 ${
                 darkMode ? "text-white" : "text-gray-900"
               }`}
             >
               My Projects
             </h1>
             <p
-              className={`text-lg md:text-xl ${
-                darkMode ? "text-gray-300" : "text-gray-600"
-              } max-w-2xl mx-auto`}
+              className={`text-sm md:text-base ${
+                darkMode ? "text-gray-400" : "text-gray-600"
+              } max-w-xl mx-auto`}
             >
               A showcase of my technical skills and creative solutions across
               different technologies.
@@ -225,22 +225,22 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
           </motion.div>
 
           {/* Tech Stack Navigation */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-10">
             <div
               className={`${
                 darkMode ? "bg-gray-800" : "bg-white"
-              } md:rounded-full p-1 shadow-lg rounded-xl`}
+              } md:rounded-full p-1 shadow-sm rounded-xl border border-gray-200 dark:border-gray-700/60`}
             >
               <div className="grid md:grid-cols-4 grid-cols-2 space-x-1">
                 {technologies.map((tech) => (
                   <button
                     key={tech.id}
                     onClick={() => setActiveTab(tech.id)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                       activeTab === tech.id
-                        ? "bg-indigo-600 text-white shadow-md"
+                        ? "bg-indigo-600 text-white shadow-sm"
                         : `${
-                            darkMode ? "hover:bg-gray-700" : "hover:bg-gray-100"
+                            darkMode ? "text-gray-300 hover:bg-gray-700" : "text-gray-600 hover:bg-gray-100"
                           }`
                     }`}
                   >
@@ -255,15 +255,15 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
       </section>
 
       {/* Projects Display */}
-      <section className="md:py-0 py-12 px-4 md:mt-0 relative z-10 mt-4">
+      <section className="md:py-0 py-10 px-4 md:mt-0 relative z-10 mt-2">
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute top-40 right-10 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
           <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
-        <div className="md:container w-[90%] mx-auto">
-          <div className="space-y-24">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="space-y-16">
             {projects[activeTab] && projects[activeTab].length > 0 ? (
               projects[activeTab].map((project, index) => {
                 const isEven = index % 2 === 0;
@@ -283,12 +283,12 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                     } 
                     ${
                       darkMode ? "bg-gray-800" : "bg-white"
-                    } rounded-2xl shadow-xl overflow-hidden`}
+                    } rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700/60 overflow-hidden`}
                   >
                     {/* Project Images */}
                     <div
                       className={`w-full lg:w-3/5 p-1 lg:p-8 ${
-                        darkMode ? "bg-gray-700" : "bg-gray-50"
+                        darkMode ? "bg-gray-700/60" : "bg-gray-50"
                       } flex items-center justify-center relative
                       ${isEven ? "lg:rounded-r-none" : "lg:rounded-l-none"}`}
                     >
@@ -300,15 +300,15 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                         transition={{ duration: 0.5, delay: 0.2 }}
                       >
                         {/* Desktop Image */}
-                        <div className="relative shadow-2xl rounded-lg overflow-hidden md:w-[380px] md:h-[240px] w-[340px] h-[220px]">
+                        <div className="relative rounded-lg overflow-hidden md:w-[420px] md:h-[260px] w-[340px] h-[220px] flex items-center justify-center p-2">
                           <img
                             src={project.desktopImg}
                             alt={`${project.title} desktop view`}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain filter drop-shadow-lg"
                           />
-                          <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                            <div className="p-4 text-white">
-                              <p className="font-medium">
+                          <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end rounded-lg">
+                            <div className="p-3 text-white">
+                              <p className="text-xs font-medium">
                                 {project.title} - Desktop View
                               </p>
                             </div>
@@ -318,25 +318,25 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
 
                       {/* Decorative elements */}
                       <div className="absolute top-4 right-4 flex space-x-2">
-                        <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                        <div className="w-2.5 h-2.5 bg-red-400 rounded-full"></div>
+                        <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
+                        <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
                       </div>
                     </div>
 
                     {/* Project Description */}
-                    <div className="w-full lg:w-2/5 p-6 lg:p-10 flex flex-col justify-center">
+                    <div className="w-full lg:w-2/5 p-6 lg:p-8 flex flex-col justify-center">
                       <motion.div
                         initial={{ opacity: 0, x: isEven ? -20 : 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                       >
-                        <h3 className="text-3xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">
+                        <h3 className="text-xl sm:text-2xl font-semibold mb-3 tracking-tight text-indigo-600 dark:text-indigo-400">
                           {project.title}
                         </h3>
 
-                        <ul className="space-y-2 mb-8">
+                        <ul className="space-y-2 mb-6 text-xs sm:text-sm">
                           {project.description.map((item, i) => (
                             <motion.li
                               key={i}
@@ -349,25 +349,25 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                               }}
                               className="flex items-start"
                             >
-                              <span className="inline-block w-5 h-5 mr-2 text-indigo-500 flex-shrink-0">
-                                <CheckCircle size={20} />
+                              <span className="inline-block w-4 h-4 mr-2 text-indigo-500 flex-shrink-0 mt-0.5">
+                                <CheckCircle size={16} />
                               </span>
-                              <span>{item}</span>
+                              <span className={darkMode ? "text-gray-300" : "text-gray-600"}>{item}</span>
                             </motion.li>
                           ))}
                         </ul>
 
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-3">
                           {project.liveLink && (
                             <a
                               href={project.liveLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
+                              className="flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors duration-200 shadow-sm"
                             >
-                              <Globe size={18} />
-                              <span>Live </span>
-                              <ArrowRight size={16} className="ml-1" />
+                              <Globe size={15} />
+                              <span>Live</span>
+                              <ArrowRight size={14} className="ml-0.5" />
                             </a>
                           )}
 
@@ -375,13 +375,13 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                             href={project.codeLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center gap-2 px-5 py-2 ${
+                            className={`flex items-center gap-1.5 px-4 py-1.5 text-xs sm:text-sm font-medium ${
                               darkMode
                                 ? "bg-gray-700 hover:bg-gray-600 text-gray-200"
                                 : "bg-gray-200 hover:bg-gray-300 text-gray-800"
-                            } rounded-full transition-colors duration-300 shadow-md hover:shadow-lg`}
+                            } rounded-full transition-colors duration-200 shadow-sm`}
                           >
-                            <Github size={18} />
+                            <Github size={15} />
                             <span>View Code</span>
                           </a>
                         </div>

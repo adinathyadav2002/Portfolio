@@ -25,27 +25,28 @@ export const Index = () => {
       }`}
     >
       {/* Header */}
-
       <div id="home">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
 
-      {/* Main Content */}
-      <div className="mt-16">
-        <Main darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div>
+      <div className="w-full flex flex-col items-center">
+        {/* Main Content */}
+        <div className="w-full mt-16">
+          <Main darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
 
-      {/* Projects */}
-      <div className="mt-16" id="projects">
-        <ProjectsSection darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div>
+        {/* Projects */}
+        <div className="w-full mt-16" id="projects">
+          <ProjectsSection darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
 
-      <div className="mt-16 mb-24" id="certificates">
-        <CertificatesSection darkMode={darkMode} />
-      </div>
+        <div className="w-full mt-16 mb-24" id="certificates">
+          <CertificatesSection darkMode={darkMode} />
+        </div>
 
-      <div className="mt-16 mb-24" id="achievements">
-        <TimelineAchivements darkMode={darkMode} />
+        <div className="w-full mt-16 mb-24" id="achievements">
+          <TimelineAchivements darkMode={darkMode} />
+        </div>
       </div>
 
       {/* Footer */}

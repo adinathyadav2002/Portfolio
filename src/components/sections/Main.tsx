@@ -35,7 +35,7 @@ export default function Main({ darkMode, setDarkMode }) {
   };
 
   return (
-    <main className="container mx-auto px-6 py-12 max-w-6xl">
+    <main className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <section className="mb-16 sm:mb-20 relative">
         <div
           className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center"
@@ -71,15 +71,15 @@ export default function Main({ darkMode, setDarkMode }) {
 
             <div className="text-center mb-6 sm:mb-8">
               <span
-                className={`text-sm sm:text-base ${
+                className={`text-xs sm:text-sm ${
                   darkMode ? "text-gray-400" : "text-gray-500"
-                } font-medium block mb-2 tracking-wide uppercase`}
+                } font-medium block mb-1.5 tracking-wider uppercase`}
               >
                 Hello, I am
               </span>
 
               <h1
-                className={`text-3xl sm:text-4xl lg:text-5xl font-bold my-2 tracking-tight ${
+                className={`text-2xl sm:text-3xl lg:text-4xl font-semibold my-1.5 tracking-tight ${
                   darkMode ? "text-white" : "text-gray-900"
                 }`}
               >
@@ -87,52 +87,52 @@ export default function Main({ darkMode, setDarkMode }) {
               </h1>
 
               <div
-                className={`px-3 py-1.5 mt-2 ${
+                className={`px-3 py-1 mt-1.5 ${
                   darkMode
-                    ? "bg-gray-800/80 border border-gray-700 text-gray-300"
+                    ? "bg-gray-800/80 border border-gray-700/80 text-gray-300"
                     : "bg-gray-100 border border-gray-200 text-gray-700"
                 } rounded-md inline-block`}
               >
-                <span className="text-xs sm:text-sm font-medium tracking-wide">
+                <span className="text-xs font-medium tracking-wide">
                   B.Tech. in Information Technology
                 </span>
               </div>
             </div>
 
             {/* Social Media Links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <button
                 onClick={() => openInNewTab("https://instagram.com/")}
-                className={`p-2.5 rounded-lg border transition-colors ${
+                className={`p-2 rounded-lg border transition-colors ${
                   darkMode
-                    ? "border-gray-800 bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800"
-                    : "border-gray-200 bg-white text-gray-700 hover:text-black hover:bg-gray-100"
+                    ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
+                    : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
                 }`}
                 aria-label="Instagram"
               >
-                <Instagram size={18} />
+                <Instagram size={16} />
               </button>
               <button
                 onClick={() => openInNewTab("https://linkedin.com/")}
-                className={`p-2.5 rounded-lg border transition-colors ${
+                className={`p-2 rounded-lg border transition-colors ${
                   darkMode
-                    ? "border-gray-800 bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800"
-                    : "border-gray-200 bg-white text-gray-700 hover:text-black hover:bg-gray-100"
+                    ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
+                    : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
                 }`}
                 aria-label="LinkedIn"
               >
-                <Linkedin size={18} />
+                <Linkedin size={16} />
               </button>
               <button
                 onClick={() => openInNewTab("https://github.com/")}
-                className={`p-2.5 rounded-lg border transition-colors ${
+                className={`p-2 rounded-lg border transition-colors ${
                   darkMode
-                    ? "border-gray-800 bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800"
-                    : "border-gray-200 bg-white text-gray-700 hover:text-black hover:bg-gray-100"
+                    ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
+                    : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
                 }`}
                 aria-label="GitHub"
               >
-                <Github size={18} />
+                <Github size={16} />
               </button>
             </div>
           </div>
@@ -153,25 +153,25 @@ export default function Main({ darkMode, setDarkMode }) {
                   : "bg-white border-gray-200"
               } rounded-xl shadow-sm overflow-hidden border`}
             >
-              <div className="p-6 sm:p-8">
+              <div className="p-6 sm:p-7">
                 <h2
-                  className={`text-xl sm:text-2xl font-bold mb-5 ${
+                  className={`text-lg sm:text-xl font-semibold mb-4 ${
                     darkMode ? "text-gray-100" : "text-gray-900"
                   } flex items-center gap-2`}
                 >
                   <span
                     className={`${
                       darkMode
-                        ? "bg-gray-800 text-gray-200"
-                        : "bg-gray-100 text-gray-800"
-                    } px-2.5 py-1 rounded-md text-sm font-semibold`}
+                        ? "bg-gray-800 text-gray-300"
+                        : "bg-gray-100 text-gray-700"
+                    } px-2 py-0.5 rounded-md text-xs font-medium`}
                   >
                     About
                   </span>
                   Me
                 </h2>
 
-                <div className="space-y-4 text-sm sm:text-base leading-relaxed">
+                <div className="space-y-3.5 text-sm sm:text-base leading-relaxed font-normal">
                   <p className={darkMode ? "text-gray-300" : "text-gray-600"}>
                     I am an Information Technology student with a passion for
                     solving problems. I specialize in developing efficient
@@ -187,22 +187,22 @@ export default function Main({ darkMode, setDarkMode }) {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8 pt-4 border-t border-gray-100 dark:border-gray-800">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
                   <a
                     href="./Adinath_Yadav_resume.pdf"
-                    className={`flex items-center justify-center gap-2 py-2.5 px-5 ${
+                    className={`flex items-center justify-center gap-2 py-2 px-4 ${
                       darkMode
                         ? "bg-gray-100 text-gray-900 hover:bg-white"
                         : "bg-gray-900 text-white hover:bg-gray-800"
-                    } rounded-lg text-sm font-medium transition-colors w-full sm:w-auto shadow-sm`}
+                    } rounded-lg text-xs sm:text-sm font-medium transition-colors w-full sm:w-auto shadow-sm`}
                     download="Adinath_Yadav_Resume"
                   >
-                    <FileText size={16} />
+                    <FileText size={15} />
                     <span>Download Resume</span>
                   </a>
 
-                  <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
-                    <ChevronDown className="w-4 h-4" />
+                  <div className="flex items-center gap-1.5 text-xs text-gray-500">
+                    <ChevronDown className="w-3.5 h-3.5" />
                     <span>Scroll to explore more</span>
                   </div>
                 </div>
@@ -220,17 +220,17 @@ export default function Main({ darkMode, setDarkMode }) {
         viewport={{ once: true, amount: 0.3 }}
         className="px-0 pb-16"
       >
-        <motion.div variants={fadeInUp} className="mb-10 text-center">
+        <motion.div variants={fadeInUp} className="mb-8 text-center">
           <h2
-            className={`text-2xl sm:text-3xl font-bold tracking-tight ${
+            className={`text-xl sm:text-2xl font-semibold tracking-tight ${
               darkMode ? "text-white" : "text-gray-900"
             }`}
           >
             Featured Projects
           </h2>
           <p
-            className={`mt-2 text-sm sm:text-base ${
-              darkMode ? "text-gray-400" : "text-gray-600"
+            className={`mt-1.5 text-xs sm:text-sm ${
+              darkMode ? "text-gray-400" : "text-gray-500"
             }`}
           >
             A selection of recent projects highlighting development and architecture
@@ -249,24 +249,24 @@ export default function Main({ darkMode, setDarkMode }) {
                 : "bg-white border-gray-200"
             } rounded-xl border shadow-sm overflow-hidden flex flex-col`}
           >
-            <div className="h-56 overflow-hidden bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
+            <div className="h-60 sm:h-64 p-3 sm:p-5 flex items-center justify-center bg-gray-950/40 dark:bg-black/30 border-b border-gray-200 dark:border-gray-800/80 overflow-hidden">
               <img
                 src="/images/project/chatting_application.png"
-                alt="Chatting Application"
-                className="w-full h-full object-cover"
+                alt="Stranger Live Application"
+                className="w-full h-full object-contain filter drop-shadow-md transition-transform duration-300 hover:scale-[1.03]"
               />
             </div>
-            <div className="p-6 flex flex-col flex-1">
+            <div className="p-5 flex flex-col flex-1">
               <h3
-                className={`text-xl font-bold mb-2.5 ${
+                className={`text-lg font-semibold mb-2 ${
                   darkMode ? "text-gray-100" : "text-gray-900"
                 }`}
               >
                 Stranger Live
               </h3>
-              <div className="flex flex-wrap gap-1.5 mb-4">
+              <div className="flex flex-wrap gap-1.5 mb-3.5">
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -275,7 +275,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   WebRTC
                 </span>
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -284,7 +284,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   Socket.io
                 </span>
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -296,7 +296,7 @@ export default function Main({ darkMode, setDarkMode }) {
               <p
                 className={`${
                   darkMode ? "text-gray-400" : "text-gray-600"
-                } text-sm mb-6 flex-1`}
+                } text-xs sm:text-sm leading-relaxed mb-5 flex-1`}
               >
                 A real-time chat application enabling anonymous conversations
                 between strangers. Built with WebRTC for peer-to-peer
@@ -307,14 +307,14 @@ export default function Main({ darkMode, setDarkMode }) {
                 href="https://github.com/adinathyadav2002/Chatting-Application"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 py-2 px-4 ${
+                className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${
                   darkMode
                     ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border border-gray-700"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
-                } rounded-lg text-sm font-medium transition-colors`}
+                } rounded-md text-xs sm:text-sm font-medium transition-colors`}
               >
                 <span>View source code</span>
-                <ExternalLink size={16} />
+                <ExternalLink size={15} />
               </a>
             </div>
           </motion.div>
@@ -327,24 +327,24 @@ export default function Main({ darkMode, setDarkMode }) {
                 : "bg-white border-gray-200"
             } rounded-xl border shadow-sm overflow-hidden flex flex-col`}
           >
-            <div className="h-56 overflow-hidden bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
+            <div className="h-60 sm:h-64 p-3 sm:p-5 flex items-center justify-center bg-gray-950/40 dark:bg-black/30 border-b border-gray-200 dark:border-gray-800/80 overflow-hidden">
               <img
                 src="/images/project/weather_desktop.png"
                 alt="Weather App Project"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain filter drop-shadow-md transition-transform duration-300 hover:scale-[1.03]"
               />
             </div>
-            <div className="p-6 flex flex-col flex-1">
+            <div className="p-5 flex flex-col flex-1">
               <h3
-                className={`text-xl font-bold mb-2.5 ${
+                className={`text-lg font-semibold mb-2 ${
                   darkMode ? "text-gray-100" : "text-gray-900"
                 }`}
               >
                 Weather App
               </h3>
-              <div className="flex flex-wrap gap-1.5 mb-4">
+              <div className="flex flex-wrap gap-1.5 mb-3.5">
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -353,7 +353,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   HTML
                 </span>
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -362,7 +362,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   CSS
                 </span>
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -371,7 +371,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   JavaScript
                 </span>
                 <span
-                  className={`px-2.5 py-1 ${
+                  className={`px-2 py-0.5 ${
                     darkMode
                       ? "bg-gray-800 text-gray-300"
                       : "bg-gray-100 text-gray-700"
@@ -383,7 +383,7 @@ export default function Main({ darkMode, setDarkMode }) {
               <p
                 className={`${
                   darkMode ? "text-gray-400" : "text-gray-600"
-                } text-sm mb-6 flex-1`}
+                } text-xs sm:text-sm leading-relaxed mb-5 flex-1`}
               >
                 Interactive weather application integrating multiple APIs to
                 provide comprehensive weather conditions and forecasts. Features
@@ -394,34 +394,34 @@ export default function Main({ darkMode, setDarkMode }) {
                 href="https://adinathyadav2002.github.io/weatherApp/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 py-2 px-4 ${
+                className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${
                   darkMode
                     ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border border-gray-700"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
-                } rounded-lg text-sm font-medium transition-colors`}
+                } rounded-md text-xs sm:text-sm font-medium transition-colors`}
               >
                 <span>View Project</span>
-                <ExternalLink size={16} />
+                <ExternalLink size={15} />
               </a>
             </div>
           </motion.div>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="mt-10 flex justify-center">
+        <motion.div variants={fadeInUp} className="mt-8 flex justify-center">
           <a
             href="#projects"
-            className={`inline-flex items-center gap-2 py-2.5 px-6 ${
+            className={`inline-flex items-center gap-2 py-2 px-5 ${
               darkMode
-                ? "bg-gray-900 hover:bg-gray-800 text-gray-200 border border-gray-800"
-                : "bg-white hover:bg-gray-50 text-gray-900 border border-gray-200"
-            } rounded-lg text-sm font-medium transition-colors shadow-sm`}
+                ? "bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800"
+                : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200"
+            } rounded-lg text-xs sm:text-sm font-medium transition-colors shadow-sm`}
           >
             <Code
-              size={18}
+              size={16}
               className={darkMode ? "text-gray-400" : "text-gray-600"}
             />
             <span>View All Projects</span>
-            <span className="ml-1">→</span>
+            <span className="ml-0.5">→</span>
           </a>
         </motion.div>
       </motion.section>
@@ -435,17 +435,17 @@ export default function Main({ darkMode, setDarkMode }) {
           transition: "all 0.8s ease-out",
         }}
       >
-        <div className="mb-10 text-center">
+        <div className="mb-8 text-center">
           <h2
-            className={`text-2xl sm:text-3xl font-bold tracking-tight ${
+            className={`text-xl sm:text-2xl font-semibold tracking-tight ${
               darkMode ? "text-white" : "text-gray-900"
             }`}
           >
             Professional Achievements
           </h2>
           <p
-            className={`mt-2 text-sm sm:text-base ${
-              darkMode ? "text-gray-400" : "text-gray-600"
+            className={`mt-1.5 text-xs sm:text-sm ${
+              darkMode ? "text-gray-400" : "text-gray-500"
             }`}
           >
             Competitive programming and algorithmic problem-solving milestones
@@ -457,23 +457,23 @@ export default function Main({ darkMode, setDarkMode }) {
             darkMode
               ? "bg-gray-900/90 border-gray-800"
               : "bg-white border-gray-200"
-          } rounded-xl p-6 sm:p-8 lg:p-10 border shadow-sm`}
+          } rounded-xl p-5 sm:p-7 border shadow-sm`}
           style={{
             opacity: 1,
             transform: "translateY(0px)",
             transition: "all 0.8s ease-out 0.2s",
           }}
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center mb-8 gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-6 gap-2.5">
             <div
-              className={`p-3 rounded-lg ${
-                darkMode ? "bg-gray-800 text-gray-200" : "bg-gray-100 text-gray-800"
+              className={`p-2 rounded-lg ${
+                darkMode ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-800"
               }`}
             >
-              <Award size={24} />
+              <Award size={20} />
             </div>
             <h3
-              className={`text-lg sm:text-xl font-semibold text-center sm:text-left ${
+              className={`text-base sm:text-lg font-semibold text-center sm:text-left ${
                 darkMode ? "text-gray-100" : "text-gray-800"
               }`}
             >

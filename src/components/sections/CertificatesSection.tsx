@@ -266,24 +266,24 @@ const CertificatesSection = ({ darkMode }) => {
     >
       {/* Header Section */}
       <section className="relative pt-16 pb-8 border-b border-gray-200 dark:border-gray-800/80">
-        <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-6"
           >
             <h1
-              className={`text-3xl md:text-5xl font-bold tracking-tight mb-4 ${
+              className={`text-2xl sm:text-3xl font-semibold tracking-tight mb-2.5 ${
                 darkMode ? "text-white" : "text-gray-900"
               }`}
             >
               My Certificates
             </h1>
             <p
-              className={`text-base md:text-lg ${
+              className={`text-xs sm:text-sm ${
                 darkMode ? "text-gray-400" : "text-gray-600"
-              } max-w-2xl mx-auto`}
+              } max-w-xl mx-auto`}
             >
               Professional certifications and achievements that showcase my
               technical knowledge and expertise.
@@ -294,7 +294,7 @@ const CertificatesSection = ({ darkMode }) => {
 
       {/* Certificates Display - Main Carousel */}
       <section className="py-12 px-4 relative z-10">
-        <div className="md:container w-full max-w-6xl mx-auto relative z-10">
+        <div className="w-full max-w-6xl mx-auto relative z-10">
           {/* Featured Certificate */}
           <div
             className={`${
@@ -340,7 +340,7 @@ const CertificatesSection = ({ darkMode }) => {
                       className="space-y-5"
                     >
                       <h3
-                        className={`text-2xl font-bold tracking-tight ${
+                        className={`text-lg sm:text-xl font-semibold tracking-tight ${
                           darkMode ? "text-white" : "text-gray-900"
                         }`}
                       >
