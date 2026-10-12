@@ -256,12 +256,6 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
 
       {/* Projects Display */}
       <section className="md:py-0 py-10 px-4 md:mt-0 relative z-10 mt-2">
-        {/* Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute top-40 right-10 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        </div>
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
           <div className="space-y-16">
             {projects[activeTab] && projects[activeTab].length > 0 ? (
@@ -316,12 +310,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                         </div>
                       </motion.div>
 
-                      {/* Decorative elements */}
-                      <div className="absolute top-4 right-4 flex space-x-2">
-                        <div className="w-2.5 h-2.5 bg-red-400 rounded-full"></div>
-                        <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
-                        <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
-                      </div>
+
                     </div>
 
                     {/* Project Description */}

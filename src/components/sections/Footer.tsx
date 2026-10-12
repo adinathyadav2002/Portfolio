@@ -63,54 +63,39 @@ const Footer = ({ darkMode }) => {
 
   return (
     <footer
-      className={`pt-16 pb-8 relative ${
-        darkMode ? "bg-gray-900 text-gray-300" : "bg-gray-50 text-gray-700"
+      className={`py-8 border-t ${
+        darkMode ? "bg-gray-900 border-gray-800 text-gray-400" : "bg-gray-50 border-gray-200 text-gray-600"
       }`}
     >
-      {/* Wave SVG Divider */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none transform translate-y-[-99%]">
-        <svg
-          className="relative block w-full h-16"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V69.81C65.47,69.81,132.77,52.3,198.9,37.1,248.82,25.61,296,13.56,321.39,56.44Z"
-            fill={darkMode ? "#111827" : "#F9FAFB"}
-          ></path>
-        </svg>
-      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm">
+        <div>
+          <span>© {year} Adinath Yadav. Built with React & Tailwind CSS.</span>
+        </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center">
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className={`pt-8 mt-8 border-t ${
-            darkMode ? "border-gray-800" : "border-gray-200"
-          } flex flex-col md:flex-row justify-center items-center w-full max-w-4xl`}
-        >
-          <div className="flex items-center mb-4 md:mb-0 md:mr-8">
-            <motion.div
-              className="flex items-center"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span>© {year} Adinath Yadav • Built with</span>
-              <Heart size={16} className="mx-1 text-red-500" />
-              <span>and</span>
-              <Coffee size={16} className="mx-1 text-amber-600" />
-            </motion.div>
-          </div>
-          <div className="flex items-center">
-            <span className="flex items-center">
-              <Code size={16} className="mr-1 text-indigo-500" />
-              Crafted with modern web technologies
-            </span>
-          </div>
-        </motion.div>
+        <div className="flex items-center gap-5">
+          <a
+            href="https://github.com/adinathyadav2002"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-500 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:adinathyadav@example.com"
+            className="hover:text-blue-500 transition-colors"
+          >
+            Contact
+          </a>
+        </div>
       </div>
 
       {/* Scroll to Top Button */}
