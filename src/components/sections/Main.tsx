@@ -8,6 +8,7 @@ import {
   Code,
   ExternalLink,
   ChevronDown,
+  Globe,
 } from "lucide-react";
 import { motion } from "framer-motion";
 export default function Main({ darkMode, setDarkMode }) {
@@ -85,8 +86,8 @@ export default function Main({ darkMode, setDarkMode }) {
 
               <div
                 className={`px-3 py-1 mt-1.5 ${darkMode
-                    ? "bg-gray-800/80 border border-gray-700/80 text-gray-300"
-                    : "bg-gray-100 border border-gray-200 text-gray-700"
+                  ? "bg-gray-800/80 border border-gray-700/80 text-gray-300"
+                  : "bg-gray-100 border border-gray-200 text-gray-700"
                   } rounded-md inline-block`}
               >
                 <span className="text-xs font-medium tracking-wide">
@@ -100,8 +101,8 @@ export default function Main({ darkMode, setDarkMode }) {
               <button
                 onClick={() => openInNewTab("https://github.com/adinathyadav2002")}
                 className={`p-2 rounded-lg border transition-colors ${darkMode
-                    ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
-                    : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
+                  ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
+                  : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
                   }`}
                 aria-label="GitHub Profile"
               >
@@ -110,8 +111,8 @@ export default function Main({ darkMode, setDarkMode }) {
               <button
                 onClick={() => openInNewTab("https://linkedin.com/in/adinath-yadav")}
                 className={`p-2 rounded-lg border transition-colors ${darkMode
-                    ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
-                    : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
+                  ? "border-gray-800 bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800"
+                  : "border-gray-200 bg-white text-gray-600 hover:text-black hover:bg-gray-100"
                   }`}
                 aria-label="LinkedIn Profile"
               >
@@ -131,8 +132,8 @@ export default function Main({ darkMode, setDarkMode }) {
           >
             <div
               className={`${darkMode
-                  ? "bg-gray-900/90 border-gray-800"
-                  : "bg-white border-gray-200"
+                ? "bg-gray-900/90 border-gray-800"
+                : "bg-white border-gray-200"
                 } rounded-xl shadow-sm overflow-hidden border`}
             >
               <div className="p-6 sm:p-7">
@@ -163,8 +164,8 @@ export default function Main({ darkMode, setDarkMode }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`inline-flex items-center justify-center gap-2 py-2 px-4 ${darkMode
-                        ? "bg-gray-100 text-gray-900 hover:bg-white"
-                        : "bg-gray-900 text-white hover:bg-gray-800"
+                      ? "bg-gray-100 text-gray-900 hover:bg-white"
+                      : "bg-gray-900 text-white hover:bg-gray-800"
                       } rounded-lg text-xs sm:text-sm font-medium transition-colors shadow-sm`}
                   >
                     <FileText size={15} />
@@ -216,8 +217,8 @@ export default function Main({ darkMode, setDarkMode }) {
           {/* Project 1 */}
           <motion.div
             className={`${darkMode
-                ? "bg-gray-900/90 border-gray-800"
-                : "bg-white border-gray-200"
+              ? "bg-gray-900/90 border-gray-800"
+              : "bg-white border-gray-200"
               } rounded-xl border shadow-sm overflow-hidden flex flex-col`}
           >
             <div className="h-60 sm:h-64 p-3 sm:p-5 flex items-center justify-center bg-gray-950/40 dark:bg-black/30 border-b border-gray-200 dark:border-gray-800/80 overflow-hidden">
@@ -237,24 +238,24 @@ export default function Main({ darkMode, setDarkMode }) {
               <div className="flex flex-wrap gap-1.5 mb-3.5">
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
                   WebRTC
                 </span>
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
                   Socket.io
                 </span>
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
                   Prisma
@@ -269,32 +270,47 @@ export default function Main({ darkMode, setDarkMode }) {
                 communication and Socket.io for signaling. Features include text
                 messaging, video calls and file sharing.
               </p>
-              <a
-                href="https://github.com/adinathyadav2002/Chatting-Application"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${darkMode
+              <div className="flex flex-wrap items-center gap-2.5">
+                <a
+                  href="https://chatfrontend.adinathyadav.online"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${darkMode
+                    ? "bg-blue-600 hover:bg-blue-500 text-white"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                    } rounded-md text-xs sm:text-sm font-medium transition-colors shadow-sm`}
+                >
+                  <Globe size={14} />
+                  <span>Live Project</span>
+                  <ExternalLink size={13} />
+                </a>
+                <a
+                  href="https://github.com/adinathyadav2002/Chatting-Application"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${darkMode
                     ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border border-gray-700"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
-                  } rounded-md text-xs sm:text-sm font-medium transition-colors`}
-              >
-                <span>View source code</span>
-                <ExternalLink size={15} />
-              </a>
+                    } rounded-md text-xs sm:text-sm font-medium transition-colors`}
+                >
+                  <Github size={14} />
+                  <span>Source Code</span>
+                </a>
+              </div>
             </div>
           </motion.div>
 
           {/* Project 2 */}
           <motion.div
             className={`${darkMode
-                ? "bg-gray-900/90 border-gray-800"
-                : "bg-white border-gray-200"
+              ? "bg-gray-900/90 border-gray-800"
+              : "bg-white border-gray-200"
               } rounded-xl border shadow-sm overflow-hidden flex flex-col`}
           >
             <div className="h-60 sm:h-64 p-3 sm:p-5 flex items-center justify-center bg-gray-950/40 dark:bg-black/30 border-b border-gray-200 dark:border-gray-800/80 overflow-hidden">
               <img
-                src="/images/project/weather_desktop.png"
-                alt="Weather App Project"
+                src="/images/project/data_visualization_desktop.png"
+                alt="Data Visualization & Analysis Platform"
                 className="w-full h-full object-contain filter drop-shadow-md transition-transform duration-300 hover:scale-[1.03]"
               />
             </div>
@@ -303,73 +319,106 @@ export default function Main({ darkMode, setDarkMode }) {
                 className={`text-lg font-semibold mb-2 ${darkMode ? "text-gray-100" : "text-gray-900"
                   }`}
               >
-                Weather App
+                Data Visualization & Analytics Platform
               </h3>
               <div className="flex flex-wrap gap-1.5 mb-3.5">
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
-                  HTML
+                  React
                 </span>
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
-                  CSS
+                  TypeScript
                 </span>
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
-                  JavaScript
+                  Tailwind CSS
                 </span>
                 <span
                   className={`px-2 py-0.5 ${darkMode
-                      ? "bg-gray-800 text-gray-300"
-                      : "bg-gray-100 text-gray-700"
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
                     } rounded-md text-xs font-medium`}
                 >
-                  API
+                  FastAPI
+                </span>
+                <span
+                  className={`px-2 py-0.5 ${darkMode
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
+                    } rounded-md text-xs font-medium`}
+                >
+                  Python
+                </span>
+                <span
+                  className={`px-2 py-0.5 ${darkMode
+                    ? "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-700"
+                    } rounded-md text-xs font-medium`}
+                >
+                  Pandas
                 </span>
               </div>
               <p
                 className={`${darkMode ? "text-gray-400" : "text-gray-600"
                   } text-xs sm:text-sm leading-relaxed mb-5 flex-1`}
               >
-                Interactive weather application integrating multiple APIs to
-                provide comprehensive weather conditions and forecasts. Features
-                include location search, current conditions, and detailed
-                meteorological data visualization. Hosted on GitHub Pages.
+                Full-stack data analysis and visualization web application. Features CSV and
+                Excel ingestion, automated statistical exploration, interactive charting,
+                comprehensive dataset cleaning (missing values imputation, deduplication,
+                IQR outlier handling, header standardization), dataset viewer, and JWT
+                authentication.
               </p>
-              <a
-                href="https://adinathyadav2002.github.io/weatherApp/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${darkMode
+              <div className="flex flex-wrap items-center gap-2.5">
+                <a
+                  href="https://datavisualization.adinathyadav.online"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${darkMode
+                    ? "bg-blue-600 hover:bg-blue-500 text-white"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                    } rounded-md text-xs sm:text-sm font-medium transition-colors shadow-sm`}
+                >
+                  <Globe size={14} />
+                  <span>Live Project</span>
+                  <ExternalLink size={13} />
+                </a>
+                <a
+                  href="https://github.com/adinathyadav2002/data-visualization-project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center gap-1.5 py-1.5 px-3.5 ${darkMode
                     ? "bg-gray-800 hover:bg-gray-700 text-gray-100 border border-gray-700"
                     : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
-                  } rounded-md text-xs sm:text-sm font-medium transition-colors`}
-              >
-                <span>View Project</span>
-                <ExternalLink size={15} />
-              </a>
+                    } rounded-md text-xs sm:text-sm font-medium transition-colors`}
+                >
+                  <Github size={14} />
+                  <span>Source Code</span>
+                </a>
+              </div>
             </div>
           </motion.div>
+
         </motion.div>
 
         <motion.div variants={fadeInUp} className="mt-8 flex justify-center">
           <a
             href="#projects"
             className={`inline-flex items-center gap-2 py-2 px-5 ${darkMode
-                ? "bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800"
-                : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200"
+              ? "bg-gray-900 hover:bg-gray-800 text-gray-300 border border-gray-800"
+              : "bg-white hover:bg-gray-50 text-gray-800 border border-gray-200"
               } rounded-lg text-xs sm:text-sm font-medium transition-colors shadow-sm`}
           >
             <Code
@@ -408,8 +457,8 @@ export default function Main({ darkMode, setDarkMode }) {
 
         <div
           className={`${darkMode
-              ? "bg-gray-900/90 border-gray-800"
-              : "bg-white border-gray-200"
+            ? "bg-gray-900/90 border-gray-800"
+            : "bg-white border-gray-200"
             } rounded-xl p-5 sm:p-7 border shadow-sm`}
           style={{
             opacity: 1,
@@ -455,11 +504,10 @@ export default function Main({ darkMode, setDarkMode }) {
             ].map((achievement, index) => (
               <div
                 key={achievement.platform}
-                className={`${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800 hover:border-gray-700"
-                    : "bg-white border-gray-200 hover:border-gray-300"
-                } rounded-lg p-5 border transition-colors flex flex-col justify-between`}
+                className={`${darkMode
+                  ? "bg-gray-950/40 border-gray-800 hover:border-gray-700"
+                  : "bg-white border-gray-200 hover:border-gray-300"
+                  } rounded-lg p-5 border transition-colors flex flex-col justify-between`}
                 style={{
                   opacity: 1,
                   transform: "translateY(0px)",
@@ -469,33 +517,29 @@ export default function Main({ darkMode, setDarkMode }) {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span
-                      className={`text-xs font-mono uppercase tracking-wider ${
-                        darkMode ? "text-gray-400" : "text-gray-500"
-                      }`}
+                      className={`text-xs font-mono uppercase tracking-wider ${darkMode ? "text-gray-400" : "text-gray-500"
+                        }`}
                     >
                       {achievement.platform}
                     </span>
                     <span
-                      className={`text-[11px] font-mono px-2 py-0.5 rounded ${
-                        darkMode
-                          ? "bg-gray-800 text-gray-300 border border-gray-700"
-                          : "bg-gray-100 text-gray-700 border border-gray-200"
-                      }`}
+                      className={`text-[11px] font-mono px-2 py-0.5 rounded ${darkMode
+                        ? "bg-gray-800 text-gray-300 border border-gray-700"
+                        : "bg-gray-100 text-gray-700 border border-gray-200"
+                        }`}
                     >
                       {achievement.badge}
                     </span>
                   </div>
                   <h4
-                    className={`text-base font-semibold mb-1.5 ${
-                      darkMode ? "text-gray-100" : "text-gray-900"
-                    }`}
+                    className={`text-base font-semibold mb-1.5 ${darkMode ? "text-gray-100" : "text-gray-900"
+                      }`}
                   >
                     {achievement.metric}
                   </h4>
                   <p
-                    className={`${
-                      darkMode ? "text-gray-400" : "text-gray-600"
-                    } text-xs leading-relaxed`}
+                    className={`${darkMode ? "text-gray-400" : "text-gray-600"
+                      } text-xs leading-relaxed`}
                   >
                     {achievement.detail}
                   </p>
