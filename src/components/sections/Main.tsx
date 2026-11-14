@@ -91,7 +91,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   className={`text-xs sm:text-sm md:text-[15px] leading-relaxed font-normal max-w-xs sm:max-w-sm md:max-w-md ${darkMode ? "text-gray-300" : "text-gray-600"
                     }`}
                 >
-                  Software Engineer at Prasaar Technologies and B.Tech IT student at PCCOE Pune. Building scalable cloud platforms, multi-tenant architectures, and real-time systems.
+                  Software Engineer at Prasaar Technologies, B.Tech graduate in IT from Savitribai Phule Pune University. Building scalable cloud platforms, multi-tenant architectures, and real-time systems.
                 </p>
               </div>
 
