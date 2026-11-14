@@ -33,7 +33,7 @@ export default function Main({ darkMode, setDarkMode }) {
             }}
           >
             <img
-              src="/images/my_image_1.jpeg"
+              src="/images/my_image_2.jpeg"
               alt="Adinath Yadav"
               className="w-full h-full object-cover object-top"
             />
@@ -51,9 +51,8 @@ export default function Main({ darkMode, setDarkMode }) {
             {/* ONLY the Name overlaps the Image */}
             <div className="relative md:-ml-20 lg:-ml-28 mb-8 md:mb-12">
               <h1
-                className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] ${
-                  darkMode ? "text-white" : "text-gray-900"
-                }`}
+                className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] ${darkMode ? "text-white" : "text-gray-900"
+                  }`}
               >
                 Adinath
                 <span className="block mt-1">
@@ -69,11 +68,10 @@ export default function Main({ darkMode, setDarkMode }) {
                 <a
                   href="#projects"
                   aria-label="Explore Projects"
-                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full border ${
-                    darkMode
-                      ? "border-gray-500/80 hover:border-white bg-white/10 hover:bg-white/20 text-white shadow-[0_0_20px_rgba(255,255,255,0.06)]"
-                      : "border-gray-400 hover:border-gray-900 bg-black/5 hover:bg-black/10 text-gray-900 shadow-[0_0_20px_rgba(0,0,0,0.06)]"
-                  } backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 group shadow-sm`}
+                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full border ${darkMode
+                    ? "border-gray-500/80 hover:border-white bg-white/10 hover:bg-white/20 text-white shadow-[0_0_20px_rgba(255,255,255,0.06)]"
+                    : "border-gray-400 hover:border-gray-900 bg-black/5 hover:bg-black/10 text-gray-900 shadow-[0_0_20px_rgba(0,0,0,0.06)]"
+                    } backdrop-blur-md flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 group shadow-sm`}
                 >
                   <ArrowRight
                     size={22}
@@ -83,11 +81,10 @@ export default function Main({ darkMode, setDarkMode }) {
                 </a>
 
                 <p
-                  className={`text-xs sm:text-sm md:text-[15px] leading-relaxed font-normal max-w-xs sm:max-w-sm md:max-w-md ${
-                    darkMode ? "text-gray-300" : "text-gray-600"
-                  }`}
+                  className={`text-xs sm:text-sm md:text-[15px] leading-relaxed font-normal max-w-xs sm:max-w-sm md:max-w-md ${darkMode ? "text-gray-300" : "text-gray-600"
+                    }`}
                 >
-                  Adinath is a skilled developer with expertise in modern web technologies and a passion for creating seamless user experiences.
+                  Software Engineer at Prasaar Technologies and B.Tech IT student at PCCOE Pune. Building scalable cloud platforms, multi-tenant architectures, and real-time systems.
                 </p>
               </div>
 
@@ -97,11 +94,10 @@ export default function Main({ darkMode, setDarkMode }) {
                   href="./Adinath_Yadav_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 py-2 px-4 sm:py-2.5 sm:px-5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
-                    darkMode
-                      ? "bg-white text-gray-900 hover:bg-gray-100"
-                      : "bg-gray-900 text-white hover:bg-gray-800"
-                  }`}
+                  className={`inline-flex items-center gap-2 py-2 px-4 sm:py-2.5 sm:px-5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${darkMode
+                    ? "bg-white text-gray-900 hover:bg-gray-100"
+                    : "bg-gray-900 text-white hover:bg-gray-800"
+                    }`}
                 >
                   <FileText size={15} />
                   <span>View Resume</span>
@@ -109,28 +105,178 @@ export default function Main({ darkMode, setDarkMode }) {
 
                 <button
                   onClick={() => openInNewTab("https://github.com/adinathyadav2002")}
-                  className={`inline-flex items-center gap-2 py-2 px-3.5 sm:py-2.5 sm:px-4 rounded-full text-xs sm:text-sm font-medium border transition-all duration-200 hover:-translate-y-0.5 shadow-sm ${
-                    darkMode
-                      ? "border-gray-700/80 bg-gray-900/60 hover:bg-gray-800 text-gray-200 hover:text-white hover:border-gray-500"
-                      : "border-gray-300 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 hover:border-gray-400"
-                  }`}
+                  className={`inline-flex items-center gap-2 py-2 px-3.5 sm:py-2.5 sm:px-4 rounded-full text-xs sm:text-sm font-medium border transition-all duration-200 hover:-translate-y-0.5 shadow-sm ${darkMode
+                    ? "border-gray-700/80 bg-gray-900/60 hover:bg-gray-800 text-gray-200 hover:text-white hover:border-gray-500"
+                    : "border-gray-300 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 hover:border-gray-400"
+                    }`}
                 >
                   <Github size={15} />
                   <span>GitHub</span>
                 </button>
 
                 <button
-                  onClick={() => openInNewTab("https://linkedin.com/in/adinath-yadav")}
-                  className={`inline-flex items-center gap-2 py-2 px-3.5 sm:py-2.5 sm:px-4 rounded-full text-xs sm:text-sm font-medium border transition-all duration-200 hover:-translate-y-0.5 shadow-sm ${
-                    darkMode
-                      ? "border-gray-700/80 bg-gray-900/60 hover:bg-gray-800 text-gray-200 hover:text-white hover:border-gray-500"
-                      : "border-gray-300 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 hover:border-gray-400"
-                  }`}
+                  onClick={() => openInNewTab("https://www.linkedin.com/in/adinath-yadav-50a294251/")}
+                  className={`inline-flex items-center gap-2 py-2 px-3.5 sm:py-2.5 sm:px-4 rounded-full text-xs sm:text-sm font-medium border transition-all duration-200 hover:-translate-y-0.5 shadow-sm ${darkMode
+                    ? "border-gray-700/80 bg-gray-900/60 hover:bg-gray-800 text-gray-200 hover:text-white hover:border-gray-500"
+                    : "border-gray-300 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 hover:border-gray-400"
+                    }`}
                 >
                   <Linkedin size={15} />
                   <span>LinkedIn</span>
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section className="mb-20 sm:mb-28 px-0" id="experience">
+        <div className="mb-8 text-center">
+          <h2
+            className={`text-xl sm:text-2xl font-semibold tracking-tight ${darkMode ? "text-white" : "text-gray-900"
+              }`}
+          >
+            Experience
+          </h2>
+          <p
+            className={`mt-1.5 text-xs sm:text-sm ${darkMode ? "text-gray-400" : "text-gray-500"
+              }`}
+          >
+            Software engineering roles delivering scalable cloud architectures and real-time applications
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          {/* Prasaar Technologies */}
+          <div
+            className={`rounded-xl p-6 sm:p-7 border shadow-sm transition-colors ${darkMode
+                ? "bg-gray-900/90 border-gray-800 hover:border-gray-700/80"
+                : "bg-white border-gray-200 hover:border-gray-300"
+              }`}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h3
+                  className={`text-base sm:text-lg font-semibold tracking-tight ${darkMode ? "text-gray-100" : "text-gray-900"
+                    }`}
+                >
+                  Software Engineer
+                </h3>
+                <span className="text-xs sm:text-sm font-medium text-indigo-500 dark:text-indigo-400">
+                  Prasaar Technologies
+                </span>
+              </div>
+              <span
+                className={`inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full self-start sm:self-auto ${darkMode
+                    ? "bg-gray-800 text-gray-300 border border-gray-700"
+                    : "bg-gray-100 text-gray-700 border border-gray-200"
+                  }`}
+              >
+                Jan 2026 – Present
+              </span>
+            </div>
+
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Designed and developed a multi-tenant <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>WhatsApp Business Platform</strong> using the <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>Meta Cloud API</strong>, supporting client onboarding, template management, campaigns, and real-time messaging.
+                </span>
+              </li>
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Implemented a scalable <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>webhook processing system</strong> to handle incoming messages, delivery/read statuses, interactive replies, and media events with reliable event processing.
+                </span>
+              </li>
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Built an advanced <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>WhatsApp Flow Builder</strong> with reusable flow components, dynamic forms, Google Sheets integration, and API-based workflow automation.
+                </span>
+              </li>
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Developed marketing campaign capabilities with <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>opt-in/opt-out management</strong>, audience filtering, template validation, scheduled broadcasts, and delivery analytics.
+                </span>
+              </li>
+            </ul>
+
+            <div className="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-gray-100 dark:border-gray-800/80">
+              {["Meta Cloud API", "Node.js", "Webhooks", "Workflow Automation", "WhatsApp Flows", "System Architecture"].map((skill) => (
+                <span
+                  key={skill}
+                  className={`text-[11px] px-2.5 py-0.5 rounded-md ${darkMode ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-700"
+                    }`}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Eitot Technologies */}
+          <div
+            className={`rounded-xl p-6 sm:p-7 border shadow-sm transition-colors ${darkMode
+                ? "bg-gray-900/90 border-gray-800 hover:border-gray-700/80"
+                : "bg-white border-gray-200 hover:border-gray-300"
+              }`}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h3
+                  className={`text-base sm:text-lg font-semibold tracking-tight ${darkMode ? "text-gray-100" : "text-gray-900"
+                    }`}
+                >
+                  Software Development Intern
+                </h3>
+                <span className="text-xs sm:text-sm font-medium text-indigo-500 dark:text-indigo-400">
+                  Eitot Technologies
+                </span>
+              </div>
+              <span
+                className={`inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full self-start sm:self-auto ${darkMode
+                    ? "bg-gray-800 text-gray-300 border border-gray-700"
+                    : "bg-gray-100 text-gray-700 border border-gray-200"
+                  }`}
+              >
+                Feb 2025 – Dec 2025
+              </span>
+            </div>
+
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Developed a cross-platform mobile application using <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>Flutter</strong> with <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>GetX</strong> state management, <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>HTTP/Dio</strong>, and <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>flutter_secure_storage</strong> for secure authentication and local storage.
+                </span>
+              </li>
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Implemented AI-powered transliteration using <strong className={darkMode ? "text-gray-200" : "text-gray-900"}>Google Gemini</strong>, caching generated results in the database to minimize repeated API requests and improve performance.
+                </span>
+              </li>
+              <li className={`flex items-start ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-500 mr-2.5 mt-1.5 shrink-0" />
+                <span>
+                  Collaborated on full-stack feature development, bug fixing, testing, and deployment across multiple production applications.
+                </span>
+              </li>
+            </ul>
+
+            <div className="flex flex-wrap gap-1.5 mt-5 pt-4 border-t border-gray-100 dark:border-gray-800/80">
+              {["Flutter", "GetX", "Google Gemini AI", "Dio / HTTP", "Mobile App Dev", "Secure Storage"].map((skill) => (
+                <span
+                  key={skill}
+                  className={`text-[11px] px-2.5 py-0.5 rounded-md ${darkMode ? "bg-gray-800 text-gray-300" : "bg-gray-100 text-gray-700"
+                    }`}
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -150,7 +296,7 @@ export default function Main({ darkMode, setDarkMode }) {
             className={`text-xl sm:text-2xl font-semibold tracking-tight ${darkMode ? "text-white" : "text-gray-900"
               }`}
           >
-            Professional Achievements
+            Competitive Achievements
           </h2>
           <p
             className={`mt-1.5 text-xs sm:text-sm ${darkMode ? "text-gray-400" : "text-gray-500"

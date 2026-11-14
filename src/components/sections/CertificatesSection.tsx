@@ -285,7 +285,7 @@ const CertificatesSection = ({ darkMode }) => {
                 darkMode ? "text-gray-400" : "text-gray-600"
               } max-w-xl mx-auto`}
             >
-              Professional certifications and achievements that showcase my
+              Certifications and achievements that showcase my
               technical knowledge and expertise.
             </p>
           </motion.div>
