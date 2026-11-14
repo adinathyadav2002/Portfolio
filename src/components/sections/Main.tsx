@@ -13,11 +13,49 @@ import {
   Cpu,
   ExternalLink,
 } from "lucide-react";
+import Timeline from "@/components/ui/timeline";
 
 export default function Main({ darkMode, setDarkMode }) {
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener noreferrer");
   };
+
+  // Dynamically calculate total experience across Eitot + Prasaar
+  const calculateTotalExperience = () => {
+    // Eitot Technologies: Feb 2025 - Dec 2025 = 11 months
+    const eitotMonths = 11;
+
+    // Prasaar Technologies: Jan 2026 - Present (calculated from current date)
+    const now = new Date();
+    const prasaarStart = new Date(2026, 0, 1);
+    const prasaarMonths = Math.max(
+      1,
+      (now.getFullYear() - prasaarStart.getFullYear()) * 12 +
+      (now.getMonth() - prasaarStart.getMonth()) +
+      1
+    );
+
+    const totalMonths = eitotMonths + prasaarMonths;
+    const yearsNumeric = (totalMonths / 12).toFixed(1);
+    const wholeYears = Math.floor(totalMonths / 12);
+    const remainingMonths = totalMonths % 12;
+
+    const breakdown =
+      wholeYears > 0
+        ? `${wholeYears} ${wholeYears === 1 ? "year" : "years"}${remainingMonths > 0
+          ? ` ${remainingMonths} ${remainingMonths === 1 ? "month" : "months"}`
+          : ""
+        }`
+        : `${totalMonths} months`;
+
+    return {
+      yearsNumeric: `${yearsNumeric}+ Years`,
+      breakdown,
+      totalMonths,
+    };
+  };
+
+  const experienceStats = calculateTotalExperience();
 
   return (
     <main className="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10 md:pt-14 pb-12 sm:pb-16">
@@ -71,6 +109,42 @@ export default function Main({ darkMode, setDarkMode }) {
 
             {/* Other parts - on the right, NOT on the image */}
             <div className="md:pl-6 lg:pl-10 flex flex-col">
+              {/* Dynamic Experience Badge (Eitot + Prasaar) */}
+              <div className="mb-4">
+                <span
+                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium border shadow-sm ${darkMode
+                    ? "bg-gray-800/80 border-gray-700/80 text-gray-200"
+                    : "bg-white border-gray-200 text-gray-800"
+                    }`}
+                >
+                  <Briefcase size={13} className="text-indigo-400" />
+                  <span>
+                    <strong className="font-semibold text-indigo-400 dark:text-indigo-300">
+                      {experienceStats.yearsNumeric}
+                    </strong>{" "}
+                    Experience ({experienceStats.breakdown})
+                  </span>
+                </span>
+              </div>
+
+              {/* Dynamic Experience Badge (Eitot + Prasaar) */}
+              {/* <div className="mb-4">
+                <span
+                  className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium border shadow-sm ${darkMode
+                    ? "bg-gray-800/80 border-gray-700/80 text-gray-200"
+                    : "bg-white border-gray-200 text-gray-800"
+                    }`}
+                >
+                  <Briefcase size={13} className="text-indigo-400" />
+                  <span>
+                    <strong className="font-semibold text-indigo-400 dark:text-indigo-300">
+                      {experienceStats.yearsNumeric}
+                    </strong>{" "}
+                    Experience ({experienceStats.breakdown} across Prasaar & Eitot)
+                  </span>
+                </span>
+              </div> */}
+
               {/* Circular Arrow + Bio Paragraph */}
               <div className="flex items-center gap-5 sm:gap-6">
                 <a
@@ -92,7 +166,7 @@ export default function Main({ darkMode, setDarkMode }) {
                   className={`text-xs sm:text-sm md:text-[15px] leading-relaxed font-normal max-w-xs sm:max-w-sm md:max-w-md ${darkMode ? "text-gray-300" : "text-gray-600"
                     }`}
                 >
-                  Software Engineer at Prasaar Technologies, B.Tech graduate in IT from Savitribai Phule Pune University. Building scalable cloud platforms, multi-tenant architectures, and real-time systems.
+                  Software Engineer at Prasaar Technologies ({experienceStats.yearsNumeric} total exp), B.Tech graduate in IT from Savitribai Phule Pune University. Building scalable cloud platforms, multi-tenant architectures, and real-time systems.
                 </p>
               </div>
 
@@ -139,451 +213,13 @@ export default function Main({ darkMode, setDarkMode }) {
       </section>
 
       {/* Experience Section */}
-      <section className="mb-24 sm:mb-32 px-0 relative scroll-mt-24" id="experience">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16 text-center">
-          <div
-            className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono uppercase tracking-wider mb-3.5 border ${
-              darkMode
-                ? "bg-gray-800/60 text-gray-300 border-gray-700/80"
-                : "bg-gray-100 text-gray-700 border-gray-200"
-            }`}
-          >
-            <Briefcase size={13} />
-            <span>Experience</span>
-          </div>
-          <h2
-            className={`font-display text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight ${
-              darkMode ? "text-white" : "text-gray-900"
-            }`}
-          >
-            Experience
-          </h2>
-          <p
-            className={`mt-2 text-xs sm:text-sm md:text-base ${
-              darkMode ? "text-gray-400" : "text-gray-500"
-            } max-w-lg mx-auto`}
-          >
-            Engineering scalable cloud platforms, automated workflow pipelines, and production applications
-          </p>
-        </div>
-
-        {/* Experience Cards Stack - Creative Bento Grid */}
-        <div className="space-y-8 sm:space-y-10">
-          {/* Card 1: Prasaar Technologies */}
-          <div
-            className={`relative rounded-2xl border p-6 sm:p-8 lg:p-9 transition-all duration-300 ${
-              darkMode
-                ? "bg-gray-900/40 border-gray-800 hover:border-gray-700 hover:shadow-2xl hover:shadow-black/40"
-                : "bg-white/80 border-gray-200 hover:border-gray-300 hover:shadow-xl"
-            } backdrop-blur-md`}
-          >
-            {/* Top Bar: Role, Company & Timeline */}
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono uppercase tracking-wider border ${
-                      darkMode
-                        ? "bg-gray-800/80 text-gray-300 border-gray-700/80"
-                        : "bg-gray-100 text-gray-700 border-gray-200"
-                    }`}
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
-                    <span>Present Role</span>
-                  </span>
-                </div>
-                <h3
-                  className={`font-display text-2xl sm:text-3xl font-semibold tracking-tight ${
-                    darkMode ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  Software Engineer
-                </h3>
-                <p className="text-sm sm:text-base font-medium text-gray-400 mt-1">
-                  Prasaar Technologies
-                </p>
-              </div>
-
-              <div className="self-start sm:self-auto">
-                <span
-                  className={`inline-flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border ${
-                    darkMode
-                      ? "bg-gray-800/60 text-gray-300 border-gray-700/80"
-                      : "bg-gray-50 text-gray-700 border-gray-200"
-                  }`}
-                >
-                  <Calendar size={13} />
-                  <span>Jan 2026 – Present</span>
-                </span>
-              </div>
-            </div>
-
-            {/* Architecture Highlights Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 mb-6">
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <Layers size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    WhatsApp Business Platform
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Architected a multi-tenant cloud platform using the Meta Cloud API for tenant onboarding, template approval workflows, campaigns, and real-time messaging.
-                </p>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <Workflow size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    Scalable Webhook Pipeline
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Engineered an event-driven webhook processing engine to ingest incoming messages, delivery/read statuses, interactive replies, and media events reliably.
-                </p>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <Cpu size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    WhatsApp Flow Builder
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Built a modular visual flow composer with reusable form components, dynamic validation, Google Sheets integration, and API-driven automation.
-                </p>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <CheckCircle2 size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    Campaign & Delivery Telemetry
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Developed broadcast capabilities with user opt-in/opt-out management, audience segmentation filtering, template verification, and delivery analytics.
-                </p>
-              </div>
-            </div>
-
-            {/* Tech Stack Pills */}
-            <div
-              className={`flex flex-wrap items-center gap-2 pt-4 border-t ${
-                darkMode ? "border-gray-800/80" : "border-gray-200/80"
-              }`}
-            >
-              <span
-                className={`text-xs font-mono mr-2 ${
-                  darkMode ? "text-gray-400" : "text-gray-500"
-                }`}
-              >
-                Technologies:
-              </span>
-              {[
-                "Meta Cloud API",
-                "Node.js",
-                "FastAPI",
-                "Webhooks",
-                "WhatsApp Flows",
-                "Event Architecture",
-                "PostgreSQL",
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono border transition-colors ${
-                    darkMode
-                      ? "bg-gray-800/50 text-gray-300 border-gray-700/60 hover:border-gray-600"
-                      : "bg-gray-100 text-gray-700 border-gray-200 hover:border-gray-300"
-                  }`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Card 2: Eitot Technologies */}
-          <div
-            className={`relative rounded-2xl border p-6 sm:p-8 lg:p-9 transition-all duration-300 ${
-              darkMode
-                ? "bg-gray-900/40 border-gray-800 hover:border-gray-700 hover:shadow-2xl hover:shadow-black/40"
-                : "bg-white/80 border-gray-200 hover:border-gray-300 hover:shadow-xl"
-            } backdrop-blur-md`}
-          >
-            {/* Top Bar: Role, Company & Timeline */}
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono uppercase tracking-wider border ${
-                      darkMode
-                        ? "bg-gray-800/80 text-gray-300 border-gray-700/80"
-                        : "bg-gray-100 text-gray-700 border-gray-200"
-                    }`}
-                  >
-                    <span>Internship</span>
-                  </span>
-                </div>
-                <h3
-                  className={`font-display text-2xl sm:text-3xl font-semibold tracking-tight ${
-                    darkMode ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  Software Development Intern
-                </h3>
-                <p className="text-sm sm:text-base font-medium text-gray-400 mt-1">
-                  Eitot Technologies
-                </p>
-              </div>
-
-              <div className="self-start sm:self-auto">
-                <span
-                  className={`inline-flex items-center gap-2 text-xs font-mono px-3.5 py-1.5 rounded-full border ${
-                    darkMode
-                      ? "bg-gray-800/60 text-gray-300 border-gray-700/80"
-                      : "bg-gray-50 text-gray-700 border-gray-200"
-                  }`}
-                >
-                  <Calendar size={13} />
-                  <span>Feb 2025 – Dec 2025</span>
-                </span>
-              </div>
-            </div>
-
-            {/* Architecture Highlights Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 mb-6">
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <Sparkles size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    Cross-Platform Flutter
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Developed mobile features with GetX reactive state management, Dio HTTP client, and encrypted local storage.
-                </p>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <Cpu size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    Gemini AI Integration
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Integrated Google Gemini AI for multilingual transliteration with intelligent database caching to optimize latency.
-                </p>
-              </div>
-
-              <div
-                className={`p-4 rounded-xl border transition-colors ${
-                  darkMode
-                    ? "bg-gray-950/40 border-gray-800/80 hover:border-gray-700"
-                    : "bg-gray-50/80 border-gray-200/80 hover:border-gray-300"
-                }`}
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div
-                    className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 ${
-                      darkMode
-                        ? "bg-gray-800 border-gray-700 text-gray-200"
-                        : "bg-gray-100 border-gray-200 text-gray-700"
-                    }`}
-                  >
-                    <Layers size={14} />
-                  </div>
-                  <h4
-                    className={`font-semibold text-xs sm:text-sm ${
-                      darkMode ? "text-white" : "text-gray-900"
-                    }`}
-                  >
-                    Production Engineering
-                  </h4>
-                </div>
-                <p
-                  className={`text-xs leading-relaxed ${
-                    darkMode ? "text-gray-400" : "text-gray-600"
-                  }`}
-                >
-                  Collaborated on full-stack feature delivery, testing suites, bug diagnostics, and continuous production releases.
-                </p>
-              </div>
-            </div>
-
-            {/* Tech Stack Pills */}
-            <div
-              className={`flex flex-wrap items-center gap-2 pt-4 border-t ${
-                darkMode ? "border-gray-800/80" : "border-gray-200/80"
-              }`}
-            >
-              <span
-                className={`text-xs font-mono mr-2 ${
-                  darkMode ? "text-gray-400" : "text-gray-500"
-                }`}
-              >
-                Technologies:
-              </span>
-              {[
-                "Flutter",
-                "Dart",
-                "GetX",
-                "Google Gemini AI",
-                "Dio / HTTP",
-                "Secure Storage",
-                "REST APIs",
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono border transition-colors ${
-                    darkMode
-                      ? "bg-gray-800/50 text-gray-300 border-gray-700/60 hover:border-gray-600"
-                      : "bg-gray-100 text-gray-700 border-gray-200 hover:border-gray-300"
-                  }`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="mb-24 sm:mb-32 relative scroll-mt-24" id="experience">
+        <Timeline
+          title="Experience"
+          periodLabel="2023 — 2026"
+          darkMode={darkMode}
+        />
+      </div>
 
       {/* Achievements Section */}
       <section

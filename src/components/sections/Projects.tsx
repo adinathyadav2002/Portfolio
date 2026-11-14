@@ -121,7 +121,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                   data-project="true"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.25 }}
+                  viewport={{ once: true, amount: 0.25 }}
                   transition={{ duration: 0.7, delay: index * 0.1 }}
                   className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                     } 
@@ -138,7 +138,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                       className="flex items-center gap-4"
                       initial={{ scale: 0.9 }}
                       whileInView={{ scale: 1 }}
-                      viewport={{ once: false, amount: 0.3 }}
+                      viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                     >
                       {/* Desktop Image */}
@@ -164,7 +164,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -20 : 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: false, amount: 0.3 }}
+                      viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
                       <h3 className="text-xl sm:text-2xl font-semibold mb-3 tracking-tight text-indigo-600 dark:text-indigo-400">
@@ -177,7 +177,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: false, amount: 0.1 }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{
                               duration: 0.3,
                               delay: 0.4 + i * 0.1,
