@@ -24,28 +24,26 @@ export const Index = () => {
         }`}
     >
       {/* Header */}
-      <div id="home">
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       <div className="w-full flex flex-col items-center space-y-24 md:space-y-36">
         {/* Main Content */}
-        <div className="w-full pt-20 sm:pt-24 md:pt-28">
+        <div className="w-full pt-20 sm:pt-24 md:pt-28 scroll-mt-24" id="home">
           <Main darkMode={darkMode} setDarkMode={setDarkMode} />
         </div>
 
         {/* Projects */}
-        <div className="w-full" id="projects">
+        <div className="w-full scroll-mt-24" id="projects">
           <ProjectsSection darkMode={darkMode} setDarkMode={setDarkMode} />
         </div>
 
         {/* Certificates */}
-        <div className="w-full" id="certificates">
+        <div className="w-full scroll-mt-24" id="certificates">
           <CertificatesSection darkMode={darkMode} />
         </div>
 
         {/* Achievements */}
-        <div className="w-full pb-16 md:pb-24" id="achievements">
+        <div className="w-full pb-16 md:pb-24 scroll-mt-24" id="achievements">
           <TimelineAchivements darkMode={darkMode} />
         </div>
       </div>

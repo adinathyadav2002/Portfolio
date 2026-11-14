@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Menu,
   X,
   Home,
+  Briefcase,
   Code,
   Check,
   Clock,
@@ -15,21 +16,26 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Home", href: "#home", icon: <Home className="mr-2" size={20} /> },
+  { name: "Home", href: "#home", icon: <Home className="mr-2" size={18} /> },
+  {
+    name: "Experience",
+    href: "#experience",
+    icon: <Briefcase className="mr-2" size={18} />,
+  },
   {
     name: "Projects",
     href: "#projects",
-    icon: <Code className="mr-2" size={20} />,
+    icon: <Code className="mr-2" size={18} />,
   },
   {
     name: "Certificates",
     href: "#certificates",
-    icon: <Check className="mr-2" size={20} />,
+    icon: <Check className="mr-2" size={18} />,
   },
   {
     name: "Achievements",
     href: "#achievements",
-    icon: <Award className="mr-2" size={20} />,
+    icon: <Award className="mr-2" size={18} />,
   },
 ];
 
@@ -38,7 +44,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
   const [activeLink, setActiveLink] = useState("#home");
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -69,28 +75,48 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         setScrolled(true);
 
         // Show/hide based on scroll direction with a threshold
-        // If scrolling down AND we've scrolled more than 50px since last check
         if (
-          currentScrollY > lastScrollY &&
+          currentScrollY > lastScrollY.current &&
           currentScrollY > 100 &&
-          currentScrollY - lastScrollY > 10
+          currentScrollY - lastScrollY.current > 10
         ) {
           setVisible(false);
-        }
-        // If scrolling up AND we've scrolled up more than 5px
-        else if (
-          currentScrollY < lastScrollY &&
-          lastScrollY - currentScrollY > 5
+        } else if (
+          currentScrollY < lastScrollY.current &&
+          lastScrollY.current - currentScrollY > 5
         ) {
           setVisible(true);
         }
       }
 
-      // Update the last scroll position
-      setLastScrollY(currentScrollY);
+      lastScrollY.current = currentScrollY;
+
+      // Dynamic Active Section Scroll Spy
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80
+      ) {
+        setActiveLink(navLinks[navLinks.length - 1].href);
+        return;
+      }
+
+      if (currentScrollY < 180) {
+        setActiveLink("#home");
+        return;
+      }
+
+      const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 250 && rect.bottom >= 120) {
+            setActiveLink(`#${id}`);
+          }
+        }
+      }
     };
 
-    // Add throttling to avoid performance issues
     let ticking = false;
     const scrollListener = () => {
       if (!ticking) {
@@ -103,8 +129,20 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     };
 
     window.addEventListener("scroll", scrollListener, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", scrollListener);
-  }, [lastScrollY]);
+  }, []);
+
+  const scrollToSection = (href) => {
+    setActiveLink(href);
+    const element = document.querySelector(href);
+    if (element) {
+      const yOffset = -75;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   return (
     <header
@@ -151,11 +189,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                       }`}
                       onClick={(e) => {
                         e.preventDefault();
-                        setActiveLink(link.href);
-                        const element = document.querySelector(link.href);
-                        if (element) {
-                          element.scrollIntoView({ behavior: "smooth" });
-                        }
+                        scrollToSection(link.href);
                       }}
                     >
                       {link.icon}
@@ -221,13 +255,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     className={`flex items-center gap-2 py-2 ${
                       darkMode ? "hover:text-blue-400" : "hover:text-blue-600"
                     } transition-colors relative overflow-hidden`}
-                    onClick={() => {
-                      setActiveLink(link.href);
+                    onClick={(e) => {
+                      e.preventDefault();
                       setIsOpen(false);
-                      const element = document.querySelector(link.href);
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
-                      }
+                      scrollToSection(link.href);
                     }}
                   >
                     {/* Content */}
