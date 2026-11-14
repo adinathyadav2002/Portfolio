@@ -76,11 +76,11 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
   return (
     <div
       className={`${darkMode ? "text-gray-200" : "text-gray-800"
-        } min-h-screen transition-colors duration-300`}
+        } transition-colors duration-300`}
     >
       {/* Hero Section */}
       <section
-        className={`relative pt-20 ${darkMode ? "bg-transparent" : "bg-indigo-50/50"
+        className={`relative pt-10 sm:pt-14 ${darkMode ? "bg-transparent" : "bg-indigo-50/50"
           }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -88,7 +88,7 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-10"
           >
             <h1
               className={`text-3xl md:text-4xl font-semibold tracking-tight mb-3 ${darkMode ? "text-white" : "text-gray-900"
@@ -108,9 +108,9 @@ const ProjectsSection = ({ darkMode, setDarkMode }) => {
       </section>
 
       {/* Projects Display */}
-      <section className="md:py-0 py-10 px-4 md:mt-0 relative z-10 mt-2">
+      <section className="pb-10 sm:pb-14 px-4 relative z-10">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-14">
             {projects.map((project, index) => {
               const isEven = index % 2 === 0;
 

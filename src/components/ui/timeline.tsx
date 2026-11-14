@@ -40,7 +40,7 @@ export const Timeline = ({
 
   return (
     <div className={`w-full font-sans md:px-10`} ref={containerRef}>
-      <div className="max-w-6xl mx-auto py-8 px-4 md:px-8 lg:px-10">
+      <div className="max-w-6xl mx-auto pt-8 pb-4 px-4 md:px-8 lg:px-10">
         <h2 className="text-xl md:text-2xl font-semibold mb-2 text-black dark:text-white max-w-4xl tracking-tight">
           My Achievements
         </h2>
@@ -54,7 +54,7 @@ export const Timeline = ({
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-8 md:pt-32 md:gap-8"
+            className="flex justify-start pt-6 md:pt-14 md:gap-8"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-8 absolute left-3 md:left-3 w-8 rounded-full bg-white dark:bg-black flex items-center justify-center border border-gray-200 dark:border-gray-800">

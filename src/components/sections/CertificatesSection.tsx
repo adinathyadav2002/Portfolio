@@ -262,10 +262,10 @@ const CertificatesSection = ({ darkMode }) => {
     <div
       className={`${
         darkMode ? "text-gray-200" : "text-gray-800"
-      } min-h-screen transition-colors duration-200`}
+      } transition-colors duration-200`}
     >
       {/* Header Section */}
-      <section className="relative pt-16 pb-8 border-b border-gray-200 dark:border-gray-800/80">
+      <section className="relative pt-10 sm:pt-14 pb-6 sm:pb-8 border-b border-gray-200 dark:border-gray-800/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -293,7 +293,7 @@ const CertificatesSection = ({ darkMode }) => {
       </section>
 
       {/* Certificates Display - Main Carousel */}
-      <section className="py-12 px-4 relative z-10">
+      <section className="py-8 sm:py-10 px-4 relative z-10">
         <div className="w-full max-w-6xl mx-auto relative z-10">
           {/* Featured Certificate */}
           <div
