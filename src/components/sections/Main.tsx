@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Workflow,
   Cpu,
+  ExternalLink,
 } from "lucide-react";
 
 export default function Main({ darkMode, setDarkMode }) {
@@ -641,18 +642,21 @@ export default function Main({ darkMode, setDarkMode }) {
                 metric: "320+ Problems",
                 detail: "Focused on graphs, dynamic programming, and data structures.",
                 badge: "Active",
+                url: "https://leetcode.com/u/AdinathYadav/",
               },
               {
                 platform: "CodeChef",
                 metric: "3★ Rated",
                 detail: "Regular participant in Division 2/3 rated contests.",
                 badge: "Div 2",
+                url: "https://www.codechef.com/users/chaitanyadav12",
               },
               {
                 platform: "Codeforces",
                 metric: "Pupil Rank",
                 detail: "Consistent rating and speed problem-solving in Div 3/4 rounds.",
                 badge: "Pupil",
+                url: "https://codeforces.com/profile/adinathyadav",
               },
             ].map((achievement, index) => (
               <div
@@ -696,6 +700,18 @@ export default function Main({ darkMode, setDarkMode }) {
                   >
                     {achievement.detail}
                   </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-gray-200/80 dark:border-gray-800/80">
+                  <a
+                    href={achievement.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-4 font-mono break-all transition-colors"
+                  >
+                    <span>{achievement.url}</span>
+                    <ExternalLink size={12} className="shrink-0" />
+                  </a>
                 </div>
               </div>
             ))}
