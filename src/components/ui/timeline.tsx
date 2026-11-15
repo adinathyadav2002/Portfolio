@@ -302,12 +302,14 @@ export default function Timeline({
   };
 
   useGSAP(() => {
+    // Only run horizontal scroll pin on desktop (>= 768px)
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
+
     const section = sectionRef.current;
     if (!section) return;
 
-    const isMobile = window.innerWidth < 600;
-    const slidePercent = isMobile ? -50 : -8;
-    const slideEnd = isMobile ? "70% 50%" : "60% bottom";
+    const slidePercent = -8;
+    const slideEnd = "60% bottom";
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -345,6 +347,8 @@ export default function Timeline({
   }, { dependencies: [reducedMotion], scope: sectionRef });
 
   useGSAP(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
+
     const section = sectionRef.current;
     if (!section) return;
 
@@ -372,19 +376,22 @@ export default function Timeline({
 
   return (
     <>
+      {/* =========================================================================
+          DESKTOP VIEW (>= 768px): Horizontal GSAP Scroll Timeline
+          ========================================================================= */}
       <section
         ref={sectionRef}
         id="journey"
-        className="h-[80vw] max-[600px]:h-[180vh] w-screen relative left-1/2 -translate-x-1/2 overflow-x-clip"
+        className="hidden md:block h-[80vw] w-screen relative left-1/2 -translate-x-1/2 overflow-x-clip"
         style={sectionStyle}
       >
-        <div className="h-screen w-screen sticky top-[0%] pt-[6%] overflow-hidden max-[600px]:top-[4%]">
+        <div className="h-screen w-screen sticky top-[0%] pt-[6%] overflow-hidden">
           <div
             ref={wholeSliderRef}
-            className="mr-[2vw] flex h-[36vw] w-[108vw] items-center gap-[3vw] px-[3vw] max-[600px]:h-[80vh] max-[600px]:w-[280vw] max-[600px]:px-[4vw]"
+            className="mr-[2vw] flex h-[36vw] w-[108vw] items-center gap-[3vw] px-[3vw]"
           >
             {/* Lead Image Card */}
-            <div className="h-full w-[20vw] shrink-0 overflow-hidden rounded-[1vw] max-[600px]:h-[56vw] max-[600px]:w-[74vw] max-[600px]:rounded-[4vw] border border-gray-200 dark:border-gray-800 shadow-md">
+            <div className="h-full w-[20vw] shrink-0 overflow-hidden rounded-[1vw] border border-gray-200 dark:border-gray-800 shadow-md">
               <img
                 src={imageUrl}
                 alt={imageAlt}
@@ -395,8 +402,8 @@ export default function Timeline({
 
             {/* Timeline Track & Cards */}
             <div className="relative h-full flex-1">
-              {/* Horizontal Central Line - Clamped precisely between 2026 and 2023 nodes, zero trailing line */}
-              <div className="w-[36vw] max-[600px]:w-[155vw] absolute left-[15vw] top-[50%] -translate-y-1/2 flex items-center h-fit pointer-events-none">
+              {/* Horizontal Central Line */}
+              <div className="w-[36vw] absolute left-[15vw] top-[50%] -translate-y-1/2 flex items-center h-fit pointer-events-none">
                 <div
                   className="h-px w-[0%] rounded-full journey-line"
                   style={activeStyle}
@@ -405,64 +412,63 @@ export default function Timeline({
 
               {/* Top Half Cards (2026, 2024) */}
               <div className="flex h-1/2 w-full items-center justify-start gap-[1vw]">
-                <div className="h-full w-[14vw] shrink-0 pt-[1.5vw] max-[600px]:h-fit max-[600px]:pt-[3vw]">
-                  <h2 className="w-[90%] font-display text-[2.4vw] font-bold leading-[0.95] max-[600px]:text-[7vw] tracking-tight">
+                <div className="h-full w-[14vw] shrink-0 pt-[1.5vw]">
+                  <h2 className="w-[90%] font-display text-[2.4vw] font-bold leading-[0.95] tracking-tight">
                     {title}
                   </h2>
                 </div>
 
-                <div className="flex h-full gap-x-[7vw] max-[600px]:gap-x-[20vw]">
+                <div className="flex h-full gap-x-[7vw]">
                   {topJourneyData.map((item) => (
                     <div
                       key={`top-${item.id}`}
-                      className="relative h-full w-[26vw] px-[1.5vw] max-[600px]:flex max-[600px]:w-[70vw] max-[600px]:flex-col max-[600px]:px-[4vw]"
+                      className="relative h-full w-[26vw] px-[1.5vw]"
                     >
-                      {/* Decorative Line & Dot - Dot sits precisely on horizontal line */}
+                      {/* Decorative Line & Dot */}
                       <div className="w-full absolute left-0 bottom-0 top-0 h-full pointer-events-none flex flex-col justify-end items-start">
                         <div
                           className={`h-[90%] w-px origin-bottom rounded-full jl-${item.id}`}
                           style={activeStyle}
                         />
                         <div
-                          className={`size-[0.8vw] max-[600px]:size-[2vw] -translate-x-[calc(50%-0.5px)] translate-y-1/2 relative rounded-full jd-${item.id}`}
+                          className={`size-[0.8vw] -translate-x-[calc(50%-0.5px)] translate-y-1/2 relative rounded-full jd-${item.id}`}
                           style={activeStyle}
                         />
                       </div>
 
-                      {/* Content Box - POINTER EVENTS AUTO, Z-30 */}
-                      <div className="relative z-30 pointer-events-auto mt-[-1vw] space-y-[0.5vw] max-[600px]:mt-[-2vw]">
-                        {/* Year + Duration Badge + Status Badge */}
+                      {/* Content Box */}
+                      <div className="relative z-30 pointer-events-auto mt-[-1vw] space-y-[0.5vw]">
+                        {/* Year + Badges */}
                         <div className="flex items-center flex-wrap gap-2">
                           <h4
-                            className={`title-${item.id} font-display text-[2.2vw] font-bold leading-none max-[600px]:text-[6.4vw] opacity-100`}
+                            className={`title-${item.id} font-display text-[2.2vw] font-bold leading-none opacity-100`}
                           >
                             {item.year}
                           </h4>
-                          {/* Duration in Months/Years Badge */}
-                          <span className="text-[0.85vw] max-[600px]:text-[2.8vw] font-mono font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-400">
+                          <span className="text-[0.85vw] font-mono font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-400">
                             {item.durationMonths}
                           </span>
                           {item.badge && (
-                            <span className="text-[0.8vw] max-[600px]:text-[2.6vw] font-mono px-2 py-0.5 rounded-full border border-gray-300 dark:border-gray-700 bg-white/20 dark:bg-gray-800/80">
+                            <span className="text-[0.8vw] font-mono px-2 py-0.5 rounded-full border border-gray-300 dark:border-gray-700 bg-white/20 dark:bg-gray-800/80">
                               {item.badge}
                             </span>
                           )}
                         </div>
 
-                        {/* Exact Duration Range without repetition */}
-                        <div className="text-[0.9vw] max-[600px]:text-[3vw] font-mono text-gray-400 dark:text-gray-400 flex items-center gap-1.5 font-medium">
+                        {/* Date Range */}
+                        <div className="text-[0.9vw] font-mono text-gray-400 dark:text-gray-400 flex items-center gap-1.5 font-medium">
                           <Calendar size={12} className="shrink-0 text-indigo-400" />
                           <span>{item.durationRange}</span>
                         </div>
 
                         {/* Role & Company */}
-                        <p className="text-[1.1vw] max-[600px]:text-[3.8vw] font-semibold text-indigo-400 dark:text-indigo-300 leading-snug">
+                        <p className="text-[1.1vw] font-semibold text-indigo-400 dark:text-indigo-300 leading-snug">
                           {item.role} · <span className="text-gray-300 font-normal">{item.company}</span>
                         </p>
 
                         {/* Short Description */}
                         <p
-                          className={`description-${item.id} w-[95%] text-[0.95vw] leading-[1.3] max-[600px]:w-[90%] max-[600px]:text-[3.5vw] opacity-100`}
+                          className={`description-${item.id} w-[95%] text-[0.95vw] leading-[1.3] opacity-100`}
                           style={mutedTextStyle}
                         >
                           {item.content}
@@ -480,7 +486,7 @@ export default function Timeline({
                             onPointerDown={(e) => {
                               e.stopPropagation();
                             }}
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[0.85vw] max-[600px]:text-[3vw] font-mono font-semibold border border-indigo-500/50 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-all duration-200 cursor-pointer shadow-md hover:scale-105 active:scale-95 pointer-events-auto"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[0.85vw] font-mono font-semibold border border-indigo-500/50 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-all duration-200 cursor-pointer shadow-md hover:scale-105 active:scale-95 pointer-events-auto"
                           >
                             <span>View in detail</span>
                             <span aria-hidden="true">&rarr;</span>
@@ -494,67 +500,66 @@ export default function Timeline({
 
               {/* Bottom Half Cards (2025, 2023) */}
               <div className="h-1/2 flex items-center justify-start w-full">
-                <div className="w-[14vw] shrink-0 pt-[1.5vw] max-[600px]:pt-[3vw] h-full">
+                <div className="w-[14vw] shrink-0 pt-[1.5vw] h-full">
                   <p
-                    className="font-mono text-[1.2vw] leading-none max-[600px]:text-[3.5vw]"
+                    className="font-mono text-[1.2vw] leading-none"
                     style={mutedTextStyle}
                   >
                     {periodLabel}
                   </p>
                 </div>
 
-                <div className="flex h-full gap-x-[7vw] ml-[3.5vw] max-[600px]:gap-x-[20vw] max-[600px]:ml-[4vw]">
+                <div className="flex h-full gap-x-[7vw] ml-[3.5vw]">
                   {bottomJourneyData.map((item) => (
                     <div
                       key={`bottom-${item.id}`}
-                      className="relative h-full w-[26vw] px-[1.5vw] max-[600px]:w-[70vw] max-[600px]:px-[4vw]"
+                      className="relative h-full w-[26vw] px-[1.5vw]"
                     >
-                      {/* Decorative Line & Dot - Dot sits precisely on horizontal line */}
+                      {/* Decorative Line & Dot */}
                       <div className="w-full absolute left-0 bottom-0 top-0 h-full pointer-events-none flex flex-col justify-start items-start">
                         <div
-                          className={`size-[0.8vw] max-[600px]:size-[2vw] -translate-x-[calc(50%-0.5px)] -translate-y-1/2 relative rounded-full jd-${item.id}`}
+                          className={`size-[0.8vw] -translate-x-[calc(50%-0.5px)] -translate-y-1/2 relative rounded-full jd-${item.id}`}
                           style={activeStyle}
                         />
                         <div
-                          className={`h-[90%] origin-top w-px rounded-full max-[600px]:h-full jl-${item.id}`}
+                          className={`h-[90%] origin-top w-px rounded-full jl-${item.id}`}
                           style={activeStyle}
                         />
                       </div>
 
-                      {/* Content Box - POINTER EVENTS AUTO, Z-30 */}
+                      {/* Content Box */}
                       <div className="relative z-30 pointer-events-auto pt-[1vw] space-y-[0.5vw]">
-                        {/* Year + Duration Badge + Status Badge */}
+                        {/* Year + Badges */}
                         <div className="flex items-center flex-wrap gap-2">
                           <h4
-                            className={`title-${item.id} font-display text-[2.2vw] font-bold leading-none max-[600px]:text-[6.4vw] opacity-100`}
+                            className={`title-${item.id} font-display text-[2.2vw] font-bold leading-none opacity-100`}
                           >
                             {item.year}
                           </h4>
-                          {/* Duration in Months/Years Badge */}
-                          <span className="text-[0.85vw] max-[600px]:text-[2.8vw] font-mono font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-400">
+                          <span className="text-[0.85vw] font-mono font-semibold px-2.5 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-400">
                             {item.durationMonths}
                           </span>
                           {item.badge && (
-                            <span className="text-[0.8vw] max-[600px]:text-[2.6vw] font-mono px-2 py-0.5 rounded-full border border-gray-300 dark:border-gray-700 bg-white/20 dark:bg-gray-800/80">
+                            <span className="text-[0.8vw] font-mono px-2 py-0.5 rounded-full border border-gray-300 dark:border-gray-700 bg-white/20 dark:bg-gray-800/80">
                               {item.badge}
                             </span>
                           )}
                         </div>
 
-                        {/* Exact Duration Range without repetition */}
-                        <div className="text-[0.9vw] max-[600px]:text-[3vw] font-mono text-gray-400 dark:text-gray-400 flex items-center gap-1.5 font-medium">
+                        {/* Date Range */}
+                        <div className="text-[0.9vw] font-mono text-gray-400 dark:text-gray-400 flex items-center gap-1.5 font-medium">
                           <Calendar size={12} className="shrink-0 text-indigo-400" />
                           <span>{item.durationRange}</span>
                         </div>
 
                         {/* Role & Company */}
-                        <p className="text-[1.1vw] max-[600px]:text-[3.8vw] font-semibold text-indigo-400 dark:text-indigo-300 leading-snug">
+                        <p className="text-[1.1vw] font-semibold text-indigo-400 dark:text-indigo-300 leading-snug">
                           {item.role} · <span className="text-gray-300 font-normal">{item.company}</span>
                         </p>
 
                         {/* Short Description */}
                         <p
-                          className={`description-${item.id} w-[95%] text-[0.95vw] leading-[1.3] max-[600px]:w-[90%] max-[600px]:text-[3.5vw] opacity-100`}
+                          className={`description-${item.id} w-[95%] text-[0.95vw] leading-[1.3] opacity-100`}
                           style={mutedTextStyle}
                         >
                           {item.content}
@@ -572,7 +577,7 @@ export default function Timeline({
                             onPointerDown={(e) => {
                               e.stopPropagation();
                             }}
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[0.85vw] max-[600px]:text-[3vw] font-mono font-semibold border border-indigo-500/50 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-all duration-200 cursor-pointer shadow-md hover:scale-105 active:scale-95 pointer-events-auto"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[0.85vw] font-mono font-semibold border border-indigo-500/50 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-all duration-200 cursor-pointer shadow-md hover:scale-105 active:scale-95 pointer-events-auto"
                           >
                             <span>View in detail</span>
                             <span aria-hidden="true">&rarr;</span>
@@ -587,6 +592,136 @@ export default function Timeline({
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          MOBILE VIEW (< 768px): Vertical Chronological Timeline Cards
+          ========================================================================= */}
+      <div className="block md:hidden w-full px-4 sm:px-6 py-6" style={sectionStyle}>
+        {/* Header */}
+        <div className="mb-6 flex flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <h2
+              className={`text-2xl font-bold tracking-tight ${
+                darkMode ? "text-white" : "text-gray-900"
+              }`}
+            >
+              {title}
+            </h2>
+            <span
+              className={`font-mono text-xs px-2.5 py-1 rounded-full border ${
+                darkMode
+                  ? "border-gray-700 bg-gray-800/80 text-gray-300"
+                  : "border-gray-300 bg-gray-100 text-gray-700"
+              }`}
+            >
+              {periodLabel}
+            </span>
+          </div>
+
+          {/* Lead Image Banner */}
+          <div className="w-full h-40 overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md">
+            <img
+              src={imageUrl}
+              alt={imageAlt}
+              draggable={false}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Vertical Milestones */}
+        <div className="relative pl-6 space-y-5 before:absolute before:left-[11px] before:top-3 before:bottom-3 before:w-[2px] before:bg-indigo-500/40">
+          {allJourneyItems.map((item) => (
+            <div key={`mobile-${item.id}`} className="relative group">
+              {/* Milestone Node */}
+              <div
+                className="absolute -left-[19px] top-1.5 size-3 rounded-full border-2 border-gray-900 shadow-[0_0_8px_rgba(99,102,241,0.6)]"
+                style={activeStyle}
+              />
+
+              {/* Card */}
+              <div
+                className={`p-4 rounded-xl border backdrop-blur-sm space-y-2.5 shadow-sm ${
+                  darkMode
+                    ? "border-gray-800 bg-gray-900/80 text-gray-100"
+                    : "border-gray-200 bg-white text-gray-900"
+                }`}
+              >
+                {/* Year + Duration Badge + Status Badge */}
+                <div className="flex items-center flex-wrap gap-2">
+                  <span
+                    className={`font-display text-lg font-bold ${
+                      darkMode ? "text-white" : "text-gray-900"
+                    }`}
+                  >
+                    {item.year}
+                  </span>
+                  <span className="text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-500/15 text-emerald-500 dark:text-emerald-400">
+                    {item.durationMonths}
+                  </span>
+                  {item.badge && (
+                    <span
+                      className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
+                        darkMode
+                          ? "border-gray-700 bg-gray-800 text-gray-300"
+                          : "border-gray-300 bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      {item.badge}
+                    </span>
+                  )}
+                </div>
+
+                {/* Date range */}
+                <div
+                  className={`text-xs font-mono flex items-center gap-1.5 ${
+                    darkMode ? "text-gray-400" : "text-gray-500"
+                  }`}
+                >
+                  <Calendar size={12} className="shrink-0 text-indigo-500 dark:text-indigo-400" />
+                  <span>{item.durationRange}</span>
+                </div>
+
+                {/* Role & Company */}
+                <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 leading-snug">
+                  {item.role} ·{" "}
+                  <span
+                    className={`font-normal ${
+                      darkMode ? "text-gray-300" : "text-gray-600"
+                    }`}
+                  >
+                    {item.company}
+                  </span>
+                </p>
+
+                {/* Description */}
+                <p
+                  className={`text-xs leading-relaxed ${
+                    darkMode ? "text-gray-400" : "text-gray-600"
+                  }`}
+                >
+                  {item.content}
+                </p>
+
+                {/* View in Detail Button */}
+                <div className="pt-1">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSelectedExperience(item);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold border border-indigo-500/50 bg-indigo-600/15 hover:bg-indigo-600 text-indigo-600 dark:text-indigo-300 hover:text-white transition-all duration-200 cursor-pointer shadow-sm active:scale-95"
+                  >
+                    <span>View in detail</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Experience Details Modal Dialog */}
       <Dialog
